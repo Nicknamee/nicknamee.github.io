@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>月見 Tsukimi Ramen — Amsterdam</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Shippori+Mincho:wght@400;500;700;800&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night:       #09090F;
+      --deep:        #0D0F1C;
+      --indigo:      #141728;
+      --vermillion:  #D64530;
+      --verm-light:  #E85A40;
+      --cream:       #F5EDDA;
+      --cream-soft:  rgba(245,237,218,0.65);
+      --cream-dim:   rgba(245,237,218,0.28);
+      --gold:        #C9973A;
+      --gold-bright: #E8B84B;
+      --moon-col:    #FFF8E8;
+      --paper:       #F8F3E4;
+      --ink:         #1A1815;
+      --text-mid:    #6A6258;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--night);
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* film grain */
+    body::after {
+      content: '';
+      position: fixed; inset: 0;
+      opacity: 0.3;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.06'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 9999;
+    }
+
+    /* ── NAV ─────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      padding: 28px 56px;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: all 0.5s ease;
+    }
+    nav.scrolled {
+      background: rgba(9,9,15,0.94);
+      backdrop-filter: blur(16px);
+      padding: 16px 56px;
+      border-bottom: 1px solid rgba(201,151,58,0.12);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo-orb {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1.5px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Dela Gothic One'; font-size: 13px; color: var(--gold);
+      background: radial-gradient(circle at 42% 40%, rgba(201,151,58,0.15), transparent 70%);
+      box-shadow: 0 0 12px rgba(201,151,58,0.18);
+    }
+    .nav-logo-name {
+      font-family: 'Fraunces', serif; font-size: 17px; font-weight: 700;
+      color: var(--cream); text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a {
+      font-size: 10px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--cream-dim); text-decoration: none; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--vermillion); text-decoration: none;
+      padding: 9px 22px; border: 1.5px solid var(--vermillion);
+      transition: all 0.25s;
+    }
+    .nav-cta:hover { background: var(--vermillion); color: var(--cream); }
+
+    /* ── HERO ────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--night);
+      display: flex; align-items: center;
+      padding: 0 80px;
+      position: relative; overflow: hidden;
+    }
+
+    /* star field */
+    #stars { position: absolute; inset: 0; }
+
+    /* the moon */
+    .hero-moon {
+      position: absolute;
+      top: 10%; right: 10%;
+      width: 360px; height: 360px; border-radius: 50%;
+      background: radial-gradient(circle at 38% 35%, #FFFDF8 0%, #FFF8E0 38%, #EDD470 75%, #C9933A 100%);
+      box-shadow:
+        0 0 50px 16px rgba(255,248,220,0.16),
+        0 0 110px 55px rgba(255,248,220,0.07),
+        0 0 220px 110px rgba(201,151,58,0.05);
+      animation: moonGlow 9s ease-in-out infinite;
+    }
+    /* moon craters */
+    .hero-moon::before {
+      content:''; position:absolute;
+      width:52px; height:44px; border-radius:50%;
+      background:rgba(170,140,80,0.18);
+      top:28%; left:18%;
+    }
+    .hero-moon::after {
+      content:''; position:absolute;
+      width:34px; height:30px; border-radius:50%;
+      background:rgba(150,120,60,0.13);
+      top:56%; left:58%;
+    }
+    @keyframes moonGlow {
+      0%,100% { box-shadow: 0 0 50px 16px rgba(255,248,220,0.16), 0 0 110px 55px rgba(255,248,220,0.07), 0 0 220px 110px rgba(201,151,58,0.05); }
+      50%      { box-shadow: 0 0 70px 24px rgba(255,248,220,0.22), 0 0 150px 75px rgba(255,248,220,0.10), 0 0 280px 140px rgba(201,151,58,0.08); }
+    }
+
+    /* halo rings */
+    .moon-halo {
+      position: absolute; border-radius: 50%;
+      top: 10%; right: 10%;
+      border: 1px solid rgba(255,248,220,0.06);
+      pointer-events: none;
+    }
+    .moon-halo-1 { width:440px;height:440px; margin:-40px; }
+    .moon-halo-2 { width:560px;height:560px; margin:-100px; }
+    .moon-halo-3 { width:700px;height:700px; margin:-170px; opacity:.5; }
+
+    /* ramen bowl illustration */
+    .hero-bowl {
+      position: absolute;
+      right: 7%; bottom: 8%;
+      width: 300px;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+      z-index: 4;
+    }
+
+    /* steam */
+    .steam-wrap {
+      position: absolute;
+      right: 7%; bottom: calc(8% + 220px);
+      width: 300px; height: 90px;
+      display: flex; justify-content: space-around; align-items: flex-end;
+      z-index: 4;
+    }
+    .st {
+      width: 4px; border-radius: 40%;
+      background: linear-gradient(to top, rgba(245,237,218,0.55), transparent);
+      animation: steamRise 3.2s ease-in-out infinite;
+    }
+    .st:nth-child(1){height:65px;animation-delay:0s}
+    .st:nth-child(2){height:80px;animation-delay:.55s}
+    .st:nth-child(3){height:55px;animation-delay:1.1s}
+    .st:nth-child(4){height:72px;animation-delay:.28s}
+    .st:nth-child(5){height:60px;animation-delay:.85s}
+    @keyframes steamRise {
+      0%   { opacity:0; transform:translateY(0) scaleX(1); }
+      18%  { opacity:.6; }
+      60%  { opacity:.25; transform:translateY(-55px) scaleX(1.4); }
+      100% { opacity:0;  transform:translateY(-110px) scaleX(.7); }
+    }
+
+    /* giant bg kanji */
+    .hero-bg-kanji {
+      position: absolute; font-family: 'Dela Gothic One';
+      font-size: 520px;
+      color: rgba(245,237,218,0.017);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events:none; user-select:none; white-space:nowrap;
+    }
+
+    /* hero text */
+    .hero-content { position:relative; z-index:10; max-width:580px; }
+
+    .hero-eyebrow {
+      display:flex; align-items:center; gap:16px; margin-bottom:28px;
+      animation: fadeUp .9s ease-out .2s both;
+    }
+    .hero-eyebrow-line { width:44px; height:1px; background:var(--gold); }
+    .hero-eyebrow-text {
+      font-size:10px; font-weight:500; letter-spacing:.26em; text-transform:uppercase;
+      color:var(--gold);
+    }
+
+    .hero-title {
+      font-family:'Fraunces',serif; font-size:100px; font-weight:900;
+      color:var(--cream); line-height:.9; letter-spacing:-.03em;
+      text-transform:uppercase; margin-bottom:6px;
+      animation: fadeUp .9s ease-out .32s both;
+    }
+    .hero-kanji-line {
+      font-family:'Dela Gothic One'; font-size:72px;
+      color:var(--vermillion); line-height:1;
+      margin-bottom:32px; display:block;
+      animation: fadeUp .9s ease-out .44s both;
+    }
+    .hero-desc {
+      font-size:15px; font-weight:300; color:var(--cream-soft);
+      line-height:1.9; max-width:370px; margin-bottom:44px;
+      animation: fadeUp .9s ease-out .54s both;
+    }
+    .hero-actions {
+      display:flex; gap:18px; align-items:center;
+      animation: fadeUp .9s ease-out .64s both;
+    }
+    .btn-gold {
+      display:inline-flex; align-items:center; gap:10px;
+      font-family:'Fraunces',serif; font-size:13px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.06em;
+      color:var(--ink); background:var(--gold-bright);
+      text-decoration:none; padding:18px 36px;
+      transition:all .3s;
+    }
+    .btn-gold:hover {
+      background:var(--moon-col);
+      transform:translate(-2px,-2px);
+      box-shadow:4px 4px 0 var(--vermillion);
+    }
+    .btn-ghost {
+      font-size:11px; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--cream-dim); text-decoration:none;
+      display:flex; align-items:center; gap:8px; transition:color .25s;
+    }
+    .btn-ghost:hover { color:var(--gold); }
+    .btn-ghost svg { transition:transform .25s; }
+    .btn-ghost:hover svg { transform:translateX(4px); }
+
+    /* scroll indicator */
+    .scroll-hint {
+      position:absolute; bottom:44px; left:56px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .scroll-hint-bar {
+      width:1px; height:56px;
+      background:linear-gradient(to bottom, transparent, var(--gold));
+      animation:barPulse 2s ease-in-out infinite;
+    }
+    .scroll-hint-text {
+      font-size:9px; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--cream-dim); writing-mode:vertical-lr;
+    }
+    @keyframes barPulse {
+      0%,100%{opacity:.35} 50%{opacity:.9}
+    }
+
+    @keyframes fadeUp {
+      from{opacity:0;transform:translateY(28px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    /* ── COLOR BAND ──────────────────────────── */
+    .band {
+      height: 4px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--vermillion) 0, var(--vermillion) 60px,
+        var(--gold)       60px, var(--gold)       120px,
+        var(--indigo)     120px, var(--indigo)     180px
+      );
+    }
+
+    /* ── STORY ───────────────────────────────── */
+    .story {
+      padding: 130px 80px;
+      background: var(--deep);
+      position: relative; overflow: hidden;
+    }
+    .story-moon-glow {
+      position:absolute; right:-200px; top:50%; transform:translateY(-50%);
+      width:520px; height:520px; border-radius:50%;
+      background:radial-gradient(circle, rgba(201,151,58,0.06) 0%, transparent 70%);
+      border:1px solid rgba(201,151,58,0.08);
+      pointer-events:none;
+    }
+    .story-inner {
+      max-width:1080px; margin:0 auto;
+      display:grid; grid-template-columns:1.15fr 1fr;
+      gap:100px; align-items:center;
+    }
+    .story-eyebrow {
+      display:flex; align-items:center; gap:14px; margin-bottom:22px;
+      font-size:10px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold);
+    }
+    .story-eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+    .story h2 {
+      font-family:'Fraunces',serif; font-size:46px; font-weight:900;
+      color:var(--cream); text-transform:uppercase; letter-spacing:-.02em;
+      line-height:1.08; margin-bottom:28px;
+    }
+    .story h2 em { font-style:italic; color:var(--gold); }
+    .story p {
+      font-size:15px; font-weight:300; color:var(--cream-soft);
+      line-height:1.95; margin-bottom:18px;
+    }
+
+    /* moon phases */
+    .phases { display:flex; flex-direction:column; gap:28px; align-items:flex-end; position:relative; z-index:1; }
+    .phase { display:flex; align-items:center; gap:22px; }
+    .phase-disc {
+      width:62px; height:62px; border-radius:50%; flex-shrink:0;
+      position:relative; overflow:hidden;
+    }
+    .disc-new {
+      background:transparent;
+      border:1.5px solid rgba(201,151,58,0.3);
+    }
+    .disc-crescent {
+      background:rgba(201,151,58,0.55);
+      border:1.5px solid rgba(201,151,58,0.3);
+    }
+    .disc-crescent::before {
+      content:''; position:absolute;
+      width:50px; height:50px; border-radius:50%;
+      background:var(--deep);
+      top:6px; left:-14px;
+    }
+    .disc-full {
+      background:radial-gradient(circle at 40% 38%, #FEFAF0, #F0D880, #C9973A);
+      box-shadow:0 0 22px 5px rgba(201,151,58,0.35);
+    }
+    .phase-txt { text-align:right; }
+    .phase-name {
+      font-family:'Fraunces',serif; font-size:16px; font-weight:700;
+      color:var(--cream); text-transform:uppercase;
+    }
+    .phase-sub {
+      font-size:11px; font-weight:300; color:var(--cream-dim); margin-top:3px;
+    }
+
+    /* ── MENU ────────────────────────────────── */
+    .menu-section {
+      background: var(--ink);
+      position: relative; overflow: hidden;
+    }
+    .menu-head {
+      padding: 90px 80px 60px;
+      border-bottom: 1px solid rgba(201,151,58,0.12);
+      display: flex; justify-content: space-between; align-items: flex-end;
+      position: relative; z-index:1;
+    }
+    .menu-bg-kanji {
+      position:absolute; font-family:'Dela Gothic One'; font-size:340px;
+      color:rgba(201,151,58,0.025); bottom:-30px; right:40px;
+      pointer-events:none; user-select:none; z-index:0;
+    }
+    .menu-head-left .eyebrow {
+      font-size:10px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--vermillion); margin-bottom:14px;
+    }
+    .menu-head-left h2 {
+      font-family:'Fraunces',serif; font-size:58px; font-weight:900;
+      color:var(--cream); text-transform:uppercase; letter-spacing:-.02em; line-height:1;
+    }
+    .menu-note {
+      font-size:12px; font-weight:300; color:var(--cream-dim);
+      letter-spacing:.05em; text-align:right; max-width:210px; line-height:1.6;
+    }
+
+    .menu-grid { display:grid; grid-template-columns:1fr 1fr; }
+
+    .dish {
+      padding: 56px 80px;
+      border: 1px solid rgba(201,151,58,0.1);
+      border-top:none; border-left:none;
+      position:relative; cursor:pointer; overflow:hidden;
+      transition:background .4s ease;
+    }
+    .dish:nth-child(2n+1) { border-left:none; }
+    .dish:hover { background:rgba(201,151,58,0.04); }
+
+    /* hover accent line */
+    .dish::before {
+      content:''; position:absolute;
+      left:0; top:0; bottom:0; width:3px;
+      background:var(--vermillion);
+      transform:scaleY(0); transform-origin:bottom;
+      transition:transform .35s cubic-bezier(.22,1,.36,1);
+    }
+    .dish:hover::before { transform:scaleY(1); }
+
+    .dish-num {
+      font-size:10px; font-weight:600; letter-spacing:.18em;
+      color:var(--vermillion); margin-bottom:18px;
+    }
+    .dish-name {
+      font-family:'Fraunces',serif; font-size:30px; font-weight:900;
+      color:var(--cream); text-transform:uppercase; letter-spacing:-.01em;
+      line-height:1; margin-bottom:6px;
+    }
+    .dish-jp {
+      font-family:'Shippori Mincho',serif; font-size:15px; font-weight:500;
+      color:var(--gold); margin-bottom:18px; letter-spacing:.06em;
+    }
+    .dish-desc {
+      font-size:13px; font-weight:300; color:var(--cream-dim);
+      line-height:1.75; max-width:340px;
+    }
+    .dish-price {
+      position:absolute; bottom:56px; right:80px;
+      font-family:'Fraunces',serif; font-size:34px; font-weight:900;
+      color:var(--gold-bright); letter-spacing:-.02em;
+    }
+    .dish-kanji-bg {
+      position:absolute; bottom:-15px; right:110px;
+      font-family:'Dela Gothic One'; font-size:110px;
+      color:rgba(255,255,255,0.022); pointer-events:none; line-height:1;
+    }
+
+    /* ── ATMOSPHERE ──────────────────────────── */
+    .atmos {
+      padding: 150px 80px;
+      background: var(--deep);
+      position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .atmos::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse at 15% 50%, rgba(214,69,48,.05) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 25%, rgba(201,151,58,.05) 0%, transparent 55%);
+    }
+    .atmos-moon-ring {
+      position:absolute; width:720px; height:720px; border-radius:50%;
+      top:50%; left:50%; transform:translate(-50%,-50%);
+      background:radial-gradient(circle, rgba(201,151,58,0.035) 0%, transparent 70%);
+      border:1px solid rgba(201,151,58,0.05);
+      pointer-events:none;
+    }
+    .atmos-content { position:relative; z-index:1; max-width:780px; margin:0 auto; }
+    .atmos-label {
+      font-size:10px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:44px;
+      display:flex; align-items:center; justify-content:center; gap:16px;
+    }
+    .atmos-label::before,.atmos-label::after {
+      content:''; flex:1; height:1px; background:rgba(201,151,58,0.18); max-width:80px;
+    }
+    .atmos-headline {
+      font-family:'Fraunces',serif; font-size:56px; font-weight:900;
+      color:var(--cream); text-transform:uppercase; letter-spacing:-.02em;
+      line-height:1.12; margin-bottom:32px;
+    }
+    .atmos-headline em { font-style:italic; color:var(--vermillion); display:block; }
+    .atmos-sub {
+      font-size:14px; font-weight:300; color:var(--cream-dim);
+      line-height:1.75; max-width:460px; margin:0 auto 56px;
+    }
+    .pills { display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
+    .pill {
+      padding:10px 26px;
+      border:1px solid rgba(201,151,58,0.22);
+      font-size:10px; font-weight:500; letter-spacing:.14em; text-transform:uppercase;
+      color:var(--cream-dim); cursor:default; transition:all .25s;
+    }
+    .pill:hover { border-color:var(--gold); color:var(--gold); }
+
+    /* ── INFO ────────────────────────────────── */
+    .info {
+      padding: 120px 80px;
+      background: var(--paper);
+    }
+    .info-hdr { margin-bottom:60px; }
+    .info-hdr .eyebrow {
+      display:flex; align-items:center; gap:14px; margin-bottom:14px;
+      font-size:10px; font-weight:600; letter-spacing:.28em; text-transform:uppercase;
+      color:var(--vermillion);
+    }
+    .info-hdr .eyebrow::before { content:''; width:28px; height:2px; background:var(--vermillion); }
+    .info-hdr h2 {
+      font-family:'Fraunces',serif; font-size:46px; font-weight:900;
+      color:var(--ink); text-transform:uppercase; letter-spacing:-.02em;
+    }
+    .info-grid {
+      display:grid; grid-template-columns:1fr 1fr 1.5fr;
+      gap:28px; max-width:1100px;
+    }
+    .info-card {
+      background:var(--cream); padding:40px 32px;
+      border:2px solid var(--ink); position:relative;
+    }
+    .info-card::after {
+      content:''; position:absolute;
+      top:5px; left:5px; right:-5px; bottom:-5px;
+      border:2px solid rgba(0,0,0,0.07); z-index:-1;
+    }
+    .card-icon {
+      width:38px; height:38px; background:var(--vermillion);
+      display:flex; align-items:center; justify-content:center;
+      margin-bottom:20px;
+    }
+    .info-card h3 {
+      font-family:'Fraunces',serif; font-size:17px; font-weight:900;
+      color:var(--ink); text-transform:uppercase; margin-bottom:18px; letter-spacing:.01em;
+    }
+    .hours-row {
+      display:flex; justify-content:space-between; align-items:baseline;
+      border-bottom:1px solid rgba(0,0,0,0.06); padding:9px 0; font-size:13px;
+    }
+    .hours-day { font-weight:500; color:var(--ink); }
+    .hours-time { font-weight:300; color:var(--text-mid); }
+    .info-card address, .info-card p {
+      font-style:normal; font-size:14px; font-weight:300;
+      color:var(--text-mid); line-height:2;
+    }
+    .info-map {
+      background:var(--indigo); display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:10px;
+      border:2px solid var(--ink); position:relative; overflow:hidden; min-height:280px;
+    }
+    .info-map::before {
+      content:''; position:absolute; inset:0;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0, transparent 1px, transparent 44px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0, transparent 1px, transparent 44px);
+    }
+    /* map pin dot */
+    .map-pin {
+      position:relative; z-index:1; display:flex; flex-direction:column; align-items:center;
+    }
+    .map-pin-dot {
+      width:14px; height:14px; border-radius:50%; background:var(--vermillion);
+      box-shadow:0 0 0 6px rgba(214,69,48,0.2);
+      animation:pinPulse 2s ease-in-out infinite;
+    }
+    @keyframes pinPulse {
+      0%,100%{box-shadow:0 0 0 6px rgba(214,69,48,0.2)}
+      50%{box-shadow:0 0 0 12px rgba(214,69,48,0.1)}
+    }
+    .map-pin-line { width:1px; height:28px; background:var(--vermillion); margin-top:2px; }
+    .info-map-label {
+      font-family:'Fraunces',serif; font-size:15px; font-weight:700;
+      color:var(--cream); text-transform:uppercase; letter-spacing:.06em;
+      position:relative; z-index:1; margin-top:8px;
+    }
+    .info-map-sub {
+      font-size:11px; font-weight:300; color:rgba(245,237,218,.32);
+      letter-spacing:.1em; position:relative; z-index:1;
+    }
+
+    /* ── RESERVATION BANNER ──────────────────── */
+    .reserve-band {
+      padding: 80px;
+      background: var(--vermillion);
+      display: flex; align-items: center; justify-content: space-between; gap:40px;
+    }
+    .reserve-band-text h3 {
+      font-family:'Fraunces',serif; font-size:42px; font-weight:900;
+      color:var(--cream); text-transform:uppercase; letter-spacing:-.02em; margin-bottom:8px;
+    }
+    .reserve-band-text p {
+      font-size:14px; font-weight:300; color:rgba(245,237,218,.72);
+    }
+    .reserve-btn {
+      display:inline-flex; align-items:center; gap:12px;
+      font-family:'Fraunces',serif; font-size:15px; font-weight:700;
+      text-transform:uppercase; letter-spacing:.06em;
+      color:var(--vermillion); background:var(--cream);
+      text-decoration:none; padding:22px 44px; white-space:nowrap;
+      transition:all .3s;
+    }
+    .reserve-btn:hover {
+      background:var(--ink); color:var(--cream);
+      transform:translate(-2px,-2px);
+      box-shadow:4px 4px 0 rgba(0,0,0,0.25);
+    }
+
+    /* ── FOOTER ──────────────────────────────── */
+    footer {
+      background: var(--night);
+      padding: 64px 80px 40px;
+      border-top: 1px solid rgba(201,151,58,0.1);
+    }
+    .ft-top {
+      display:flex; justify-content:space-between; align-items:flex-start;
+      margin-bottom:56px;
+    }
+    .ft-brand-name {
+      font-family:'Fraunces',serif; font-size:22px; font-weight:900;
+      color:var(--cream); text-transform:uppercase;
+      display:flex; align-items:center; gap:14px; margin-bottom:12px;
+    }
+    .ft-orb {
+      width:34px; height:34px; border-radius:50%; background:var(--vermillion);
+      display:flex; align-items:center; justify-content:center;
+      font-family:'Dela Gothic One'; font-size:11px; color:#fff;
+    }
+    .ft-tag { font-size:13px; font-weight:300; color:var(--cream-dim); line-height:1.7; max-width:250px; }
+    .ft-col h4 {
+      font-size:9px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .ft-col ul { list-style:none; display:flex; flex-direction:column; gap:11px; }
+    .ft-col a {
+      font-size:13px; font-weight:300; color:var(--cream-dim);
+      text-decoration:none; transition:color .2s;
+    }
+    .ft-col a:hover { color:var(--gold); }
+    .ft-bottom {
+      padding-top:28px; border-top:1px solid rgba(255,255,255,0.04);
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .ft-copy { font-size:10px; letter-spacing:.12em; color:rgba(245,237,218,.15); text-transform:uppercase; }
+    .ft-socials { display:flex; gap:20px; }
+    .ft-socials a {
+      font-size:10px; letter-spacing:.12em; text-transform:uppercase;
+      color:rgba(245,237,218,.2); text-decoration:none; transition:color .2s;
+    }
+    .ft-socials a:hover { color:var(--gold); }
+
+    /* ── REVEAL ──────────────────────────────── */
+    .reveal {
+      opacity:0; transform:translateY(28px);
+      transition:all .8s cubic-bezier(.22,1,.36,1);
+    }
+    .reveal.visible { opacity:1; transform:none; }
+
+    /* ── RESPONSIVE ──────────────────────────── */
+    @media (max-width:1080px){
+      .hero { padding:0 48px; }
+      .hero-title { font-size:76px; }
+      .hero-moon { width:280px; height:280px; }
+      .moon-halo-1 { width:340px; height:340px; margin:-30px; }
+      .moon-halo-2 { width:440px; height:440px; margin:-80px; }
+      .moon-halo-3 { display:none; }
+      .story { padding:100px 48px; }
+      .story-inner { gap:64px; }
+      .story h2 { font-size:38px; }
+      .menu-head,.dish { padding-left:48px; padding-right:48px; }
+      .dish-price { right:48px; bottom:48px; }
+      .atmos { padding:120px 48px; }
+      .atmos-headline { font-size:44px; }
+      .info { padding:100px 48px; }
+      .info-grid { grid-template-columns:1fr 1fr; }
+      .info-map { grid-column:span 2; }
+      .reserve-band { padding:64px 48px; }
+      footer { padding:56px 48px 36px; }
+    }
+    @media (max-width:768px){
+      nav { padding:20px 24px; }
+      nav.scrolled { padding:14px 24px; }
+      .nav-links,.nav-cta { display:none; }
+      .hero { padding:120px 24px 80px; min-height:auto; }
+      .hero-title { font-size:54px; }
+      .hero-kanji-line { font-size:48px; }
+      .hero-moon { width:200px; height:200px; top:6%; right:4%; }
+      .moon-halo-1 { width:250px; height:250px; margin:-25px; }
+      .moon-halo-2,.moon-halo-3 { display:none; }
+      .hero-bowl,.steam-wrap,.scroll-hint { display:none; }
+      .story { padding:80px 24px; }
+      .story-inner { grid-template-columns:1fr; gap:44px; }
+      .phases { flex-direction:row; flex-wrap:wrap; justify-content:flex-start; }
+      .phase { flex-direction:column; align-items:center; }
+      .phase-txt { text-align:center; }
+      .menu-head { padding:60px 24px 44px; flex-direction:column; gap:16px; align-items:flex-start; }
+      .menu-head-left h2 { font-size:40px; }
+      .menu-grid { grid-template-columns:1fr; }
+      .dish { padding:44px 24px; border-left:none; }
+      .dish-price { position:static; margin-top:24px; }
+      .atmos { padding:90px 24px; }
+      .atmos-headline { font-size:34px; }
+      .info { padding:80px 24px; }
+      .info-grid { grid-template-columns:1fr; }
+      .info-map { grid-column:auto; min-height:200px; }
+      .reserve-band { padding:48px 24px; flex-direction:column; gap:24px; }
+      .reserve-band-text h3 { font-size:30px; }
+      footer { padding:48px 24px 32px; }
+      .ft-top { flex-direction:column; gap:36px; }
+      .ft-bottom { flex-direction:column; gap:14px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-orb">月見</div>
+    <span class="nav-logo-name">Tsukimi</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#verhaal">Verhaal</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#sfeer">Sfeer</a></li>
+    <li><a href="#bezoek">Bezoek</a></li>
+  </ul>
+  <a href="#reserveer" class="nav-cta">Reserveer</a>
+</nav>
+
+<!-- ── HERO ──────────────────────────────────── -->
+<section class="hero" id="home">
+  <canvas id="stars"></canvas>
+
+  <div class="hero-moon"></div>
+  <div class="moon-halo moon-halo-1"></div>
+  <div class="moon-halo moon-halo-2"></div>
+  <div class="moon-halo moon-halo-3"></div>
+
+  <div class="hero-bg-kanji">月見</div>
+
+  <!-- ramen bowl SVG -->
+  <div class="hero-bowl">
+    <svg viewBox="0 0 320 270" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- shadow -->
+      <ellipse cx="160" cy="258" rx="110" ry="11" fill="rgba(0,0,0,0.45)"/>
+      <!-- bowl body -->
+      <path d="M50 138 Q52 228 160 234 Q268 228 270 138Z" fill="#3A2218"/>
+      <!-- bowl rim -->
+      <ellipse cx="160" cy="138" rx="110" ry="26" fill="#4A2C1C"/>
+      <ellipse cx="160" cy="138" rx="100" ry="22" fill="#2E1A10"/>
+      <!-- broth -->
+      <ellipse cx="160" cy="138" rx="94" ry="19" fill="#7A2E14"/>
+      <ellipse cx="160" cy="136" rx="88" ry="16" fill="#8B3620" opacity=".7"/>
+      <!-- broth shimmer -->
+      <path d="M80 133 Q120 126 160 133 Q200 140 240 133" stroke="rgba(201,151,58,0.18)" stroke-width="1.5" fill="none"/>
+      <!-- noodles -->
+      <path d="M78 128 Q100 118 122 128 Q144 138 166 128 Q188 118 210 128 Q232 138 244 128" stroke="#F0E0C0" stroke-width="3" stroke-linecap="round" fill="none" opacity=".65"/>
+      <path d="M85 135 Q107 125 129 135 Q151 145 173 135 Q195 125 217 135" stroke="#DDD0A0" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".45"/>
+      <!-- THE egg / moon -->
+      <circle cx="152" cy="128" r="24" fill="#FFF8C0"/>
+      <circle cx="152" cy="128" r="16" fill="#F0C040"/>
+      <circle cx="152" cy="128" r="9" fill="#D4900A"/>
+      <circle cx="147" cy="123" r="3" fill="rgba(255,255,200,0.35)"/>
+      <!-- chashu -->
+      <ellipse cx="208" cy="126" rx="19" ry="11" fill="#7A2820" transform="rotate(-14 208 126)"/>
+      <ellipse cx="208" cy="126" rx="12" ry="7" fill="#5A1C14" transform="rotate(-14 208 126)"/>
+      <path d="M202 120 Q208 116 214 120" stroke="#9A3820" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <!-- nori -->
+      <rect x="180" y="108" width="7" height="26" rx="1" fill="#1A2A1A" opacity=".9" transform="rotate(8 180 108)"/>
+      <!-- green onion -->
+      <line x1="96" y1="122" x2="103" y2="112" stroke="#5A9050" stroke-width="3" stroke-linecap="round"/>
+      <line x1="103" y1="112" x2="113" y2="120" stroke="#5A9050" stroke-width="3" stroke-linecap="round"/>
+      <line x1="108" y1="118" x2="116" y2="108" stroke="#4A8040" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- chopsticks -->
+      <line x1="228" y1="82" x2="272" y2="170" stroke="#C49A60" stroke-width="5" stroke-linecap="round"/>
+      <line x1="240" y1="77" x2="282" y2="167" stroke="#B08850" stroke-width="5" stroke-linecap="round"/>
+      <!-- chopstick tip detail -->
+      <circle cx="272" cy="170" r="3" fill="#8A6030"/>
+      <circle cx="282" cy="167" r="3" fill="#8A6030"/>
+    </svg>
+  </div>
+
+  <!-- steam -->
+  <div class="steam-wrap">
+    <div class="st"></div>
+    <div class="st"></div>
+    <div class="st"></div>
+    <div class="st"></div>
+    <div class="st"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Amsterdam — Ramen House</span>
+    </div>
+    <h1 class="hero-title">Tsukimi<br>Ramen</h1>
+    <span class="hero-kanji-line">月見</span>
+    <p class="hero-desc">De kunst van de perfecte bowl. 18 uur bouillon, met de hand getrokken noedels, en een eigeel dat gloeit als de opkomende maan.</p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn-gold">
+        Bekijk Menu
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#verhaal" class="btn-ghost">
+        Ons verhaal
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <div class="scroll-hint-bar"></div>
+    <span class="scroll-hint-text">Scroll</span>
+  </div>
+</section>
+
+<div class="band"></div>
+
+<!-- ── STORY ──────────────────────────────────── -->
+<section class="story reveal" id="verhaal">
+  <div class="story-moon-glow"></div>
+  <div class="story-inner">
+    <div class="story-text">
+      <div class="story-eyebrow">Ons Verhaal</div>
+      <h2>De traditie van het <em>maankijken</em></h2>
+      <p>Tsukimi — het Japanse ritueel van maankijken — is een eeuwenoude viering van schoonheid in eenvoud. In de herfst verzamelen families zich om de volle maan te bewonderen, terwijl de lucht koud en helder is.</p>
+      <p>In onze keuken eren we deze traditie. Elke bowl vertelt een verhaal van geduld: bouillon die uren pruttelt, noedels met zorg bereid, en het perfecte ei — onze eigen maan — als kroon op het geheel.</p>
+    </div>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-disc disc-new"></div>
+        <div class="phase-txt">
+          <div class="phase-name">De Bouillon</div>
+          <div class="phase-sub">18 uur trekken — tonkotsu of shoyu</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-disc disc-crescent"></div>
+        <div class="phase-txt">
+          <div class="phase-name">De Noedels</div>
+          <div class="phase-sub">Dagelijks vers gemaakt, met de hand</div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-disc disc-full"></div>
+        <div class="phase-txt">
+          <div class="phase-name">Het Ei</div>
+          <div class="phase-sub">Zacht, goudgeel — onze maansymbool</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MENU ───────────────────────────────────── -->
+<section class="menu-section" id="menu">
+  <div class="menu-head reveal">
+    <div class="menu-bg-kanji">麺</div>
+    <div class="menu-head-left">
+      <div class="eyebrow">Signature Dishes</div>
+      <h2>Onze<br>Specialiteiten</h2>
+    </div>
+    <div class="menu-note">Alle bowls worden geserveerd met versgebakken chashu en gepekeld eigeel.</div>
+  </div>
+  <div class="menu-grid">
+    <div class="dish reveal">
+      <div class="dish-kanji-bg">月</div>
+      <div class="dish-num">No. 01</div>
+      <div class="dish-name">Tsukimi Ramen</div>
+      <div class="dish-jp">月見ラーメン</div>
+      <div class="dish-desc">Onze signatuurbowl met 18-uurs tonkotsu bouillon en een perfecte zachte maaneierdooier als sierlijk middelpunt.</div>
+      <div class="dish-price">€16,50</div>
+    </div>
+    <div class="dish reveal">
+      <div class="dish-kanji-bg">醤</div>
+      <div class="dish-num">No. 02</div>
+      <div class="dish-name">Shoyu Classic</div>
+      <div class="dish-jp">醤油ラーメン</div>
+      <div class="dish-desc">Heldere sojasaus bouillon met gebraden kip, knapperige bamboescheuten en zeewier.</div>
+      <div class="dish-price">€14,50</div>
+    </div>
+    <div class="dish reveal">
+      <div class="dish-kanji-bg">味</div>
+      <div class="dish-num">No. 03</div>
+      <div class="dish-name">Miso Blaze</div>
+      <div class="dish-jp">味噌ラーメン</div>
+      <div class="dish-desc">Rijke rode miso met langzaam geroosterd varkensvlees, gegrilde maïs en vurige rayu-olie.</div>
+      <div class="dish-price">€15,50</div>
+    </div>
+    <div class="dish reveal">
+      <div class="dish-kanji-bg">塩</div>
+      <div class="dish-num">No. 04</div>
+      <div class="dish-name">Shio Zen</div>
+      <div class="dish-jp">塩ラーメン</div>
+      <div class="dish-desc">Delicaat zeezout met yuzu, venkel en verse vis van de markt — licht, helder, verfijnd.</div>
+      <div class="dish-price">€15,00</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ATMOSPHERE ─────────────────────────────── -->
+<section class="atmos reveal" id="sfeer">
+  <div class="atmos-moon-ring"></div>
+  <div class="atmos-content">
+    <div class="atmos-label">Sfeer &amp; Beleving</div>
+    <h2 class="atmos-headline">
+      Eet onder het licht
+      <em>van lantaarns &amp; maan</em>
+    </h2>
+    <p class="atmos-sub">Omringd door de rust van een Japanse herfstnacht. Warme verlichting, open keuken, handgemaakte keramiek — elke detail is met zorg gekozen.</p>
+    <div class="pills">
+      <span class="pill">Open Keuken</span>
+      <span class="pill">Japanse Sake</span>
+      <span class="pill">Terras</span>
+      <span class="pill">Reservering</span>
+      <span class="pill">Groepen welkom</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── INFO ───────────────────────────────────── -->
+<section class="info reveal" id="bezoek">
+  <div class="info-hdr">
+    <div class="eyebrow">Plan je bezoek</div>
+    <h2>Bezoek ons</h2>
+  </div>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Openingstijden</h3>
+      <div class="hours-row"><span class="hours-day">Ma — Do</span><span class="hours-time">12:00 – 22:00</span></div>
+      <div class="hours-row"><span class="hours-day">Vrijdag</span><span class="hours-time">12:00 – 23:00</span></div>
+      <div class="hours-row"><span class="hours-day">Zaterdag</span><span class="hours-time">12:00 – 23:00</span></div>
+      <div class="hours-row"><span class="hours-day">Zondag</span><span class="hours-time">13:00 – 21:00</span></div>
+    </div>
+    <div class="info-card">
+      <div class="card-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h3>Locatie</h3>
+      <address>
+        Tsukimi Ramen<br>
+        Reguliersdwarsstraat 42<br>
+        1017 BM Amsterdam<br><br>
+        +31 20 123 4567<br>
+        info@tsukimiramen.nl
+      </address>
+    </div>
+    <div class="info-map">
+      <div class="map-pin">
+        <div class="map-pin-dot"></div>
+        <div class="map-pin-line"></div>
+      </div>
+      <div class="info-map-label">Reguliersdwarsstraat</div>
+      <div class="info-map-sub">Amsterdam Centrum</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESERVATION BANNER ─────────────────────── -->
+<div class="reserve-band reveal" id="reserveer">
+  <div class="reserve-band-text">
+    <h3>Reserveer een tafel</h3>
+    <p>Zeker zijn van je plek? Reserveer direct online of bel ons.</p>
+  </div>
+  <a href="tel:+31201234567" class="reserve-btn">
+    Reserveer nu
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+  <div class="ft-top">
+    <div>
+      <div class="ft-brand-name">
+        <div class="ft-orb">月見</div>
+        Tsukimi Ramen
+      </div>
+      <p class="ft-tag">De kunst van de perfecte bowl — Amsterdam, since 2026.</p>
+    </div>
+    <div class="ft-col">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#verhaal">Verhaal</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#sfeer">Sfeer</a></li>
+        <li><a href="#bezoek">Bezoek</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h4>Volg ons</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Google Maps</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span class="ft-copy">&copy; 2026 Tsukimi Ramen. Alle rechten voorbehouden.</span>
+    <div class="ft-socials">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Stars ──────────────────────────────────
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  const stars = Array.from({length: 160}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    r: Math.random() * 1.2 + 0.3,
+    a: Math.random() * 0.7 + 0.1,
+    speed: Math.random() * 0.0008 + 0.0003,
+    phase: Math.random() * Math.PI * 2
+  }));
+
+  let t = 0;
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(s => {
+      const alpha = s.a * (0.5 + 0.5 * Math.sin(t * s.speed * 1000 + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x * canvas.width, s.y * canvas.height, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(245,237,218,${alpha})`;
+      ctx.fill();
+    });
+    t += 0.016;
+    requestAnimationFrame(drawStars);
+  }
+  drawStars();
+
+  // ── Nav scroll ────────────────────────────
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  });
+
+  // ── Reveal on scroll ──────────────────────
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

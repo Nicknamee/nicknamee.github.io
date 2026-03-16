@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月見 tsukimi ramen — amsterdam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Jost:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:            #060504;
+  --bg-warm:       #0C0A07;
+  --surface:       #131008;
+  --surface-hi:    #1A1610;
+  --gold:          #BF9B5A;
+  --gold-dim:      rgba(191,155,90,0.10);
+  --gold-glow:     rgba(191,155,90,0.20);
+  --cream:         #E6DDD0;
+  --cream-dim:     rgba(230,221,208,0.55);
+  --muted:         #5E5548;
+  --muted-hi:      #8C7E6F;
+  --rust:          #7A3D22;
+  --border:        rgba(191,155,90,0.08);
+  --border-hi:     rgba(191,155,90,0.15);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CUSTOM CURSOR ─────────────────────────────── */
+#cursor {
+  position: fixed; z-index: 10000;
+  width: 8px; height: 8px;
+  background: var(--gold);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s ease, width 0.25s ease, height 0.25s ease, opacity 0.25s ease;
+  mix-blend-mode: screen;
+}
+#cursor.expand { width: 40px; height: 40px; opacity: 0.35; }
+#cursor-ring {
+  position: fixed; z-index: 9999;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(191,155,90,0.35);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%,-50%);
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1),
+              width 0.35s ease, height 0.35s ease, opacity 0.3s ease;
+}
+#cursor-ring.expand { width: 64px; height: 64px; opacity: 0.2; }
+
+/* ── GRAIN ─────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0; z-index: 9998;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.022'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── NAV ────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  padding: 0 48px;
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.5s ease, border-color 0.5s ease;
+  border-bottom: 1px solid transparent;
+}
+nav.scrolled {
+  background: rgba(6,5,4,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--border);
+}
+.nav-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 20px;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  opacity: 0.9;
+}
+.nav-links {
+  display: flex; align-items: center; gap: 36px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Jost', sans-serif;
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted-hi); text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-reserve {
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border: 1px solid var(--border-hi);
+  padding: 9px 20px;
+  transition: background 0.3s, color 0.3s;
+}
+.nav-reserve:hover { background: var(--gold-dim); color: var(--cream); }
+
+/* ── HERO ────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left: full-height ambient panel */
+.hero-left {
+  position: relative;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 0 80px 64px;
+  overflow: hidden;
+}
+
+/* Big kanji watermark */
+.hero-kanji-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-46%, -52%);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 420px;
+  color: var(--cream);
+  opacity: 0.025;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+}
+
+/* Moon */
+.hero-moon-wrap {
+  position: absolute;
+  top: 38%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hero-moon {
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%,
+    rgba(230,221,208,0.09) 0%,
+    rgba(191,155,90,0.04) 55%,
+    transparent 100%
+  );
+  border: 1px solid rgba(191,155,90,0.12);
+  position: relative;
+  animation: moonBreath 7s ease-in-out infinite;
+}
+.hero-moon::before {
+  content: '';
+  position: absolute; inset: -20px;
+  border-radius: 50%;
+  border: 1px solid rgba(191,155,90,0.05);
+  animation: ringExpand 7s ease-in-out infinite;
+}
+.hero-moon::after {
+  content: '';
+  position: absolute; inset: -44px;
+  border-radius: 50%;
+  border: 1px solid rgba(191,155,90,0.03);
+  animation: ringExpand 7s ease-in-out infinite 0.5s;
+}
+
+.hero-left-bottom {
+  position: relative; z-index: 2;
+}
+.hero-overline {
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7;
+  margin-bottom: 20px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.4s both;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 8px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.55s both;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+  opacity: 0.85;
+}
+.hero-subtitle {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 28px;
+  color: var(--cream);
+  opacity: 0.25;
+  letter-spacing: 0.15em;
+  margin-bottom: 40px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.7s both;
+}
+
+/* Right panel */
+.hero-right {
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 120px 64px 80px 80px;
+  position: relative;
+  gap: 48px;
+}
+.hero-clock-row {
+  display: flex; align-items: center; gap: 12px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.6s both;
+}
+.hero-clock-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold); opacity: 0.6;
+  animation: blink 2s ease-in-out infinite;
+}
+.hero-clock-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 13px; font-weight: 300;
+  color: var(--muted-hi);
+  letter-spacing: 0.04em;
+}
+.hero-clock-text span { color: var(--cream); opacity: 0.7; }
+
+.hero-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: 22px; line-height: 1.7;
+  color: var(--cream-dim);
+  max-width: 380px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.75s both;
+}
+
+.hero-nav-list {
+  list-style: none; display: flex; flex-direction: column; gap: 3px;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 0.9s both;
+}
+.hero-nav-list li {
+  display: flex; align-items: center; gap: 16px;
+}
+.hero-nav-list a {
+  font-size: 13px; font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--muted-hi); text-decoration: none;
+  transition: color 0.3s;
+  padding: 6px 0;
+  display: flex; align-items: center; gap: 14px;
+}
+.hero-nav-list a:hover { color: var(--cream); }
+.hero-nav-list a::before {
+  content: '';
+  display: block; width: 24px; height: 1px;
+  background: var(--gold); opacity: 0.35;
+  transition: width 0.3s, opacity 0.3s;
+}
+.hero-nav-list a:hover::before { width: 40px; opacity: 0.7; }
+.hero-nav-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  color: var(--muted); letter-spacing: 0.04em;
+  margin-left: auto;
+}
+
+.hero-reserve-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-size: 12px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--bg); background: var(--gold);
+  padding: 14px 28px;
+  border: none; cursor: none;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.3s, color 0.3s;
+  animation: fadeUp 1.2s cubic-bezier(0.22,1,0.36,1) 1.05s both;
+}
+.hero-reserve-btn:hover { background: var(--cream); }
+.hero-reserve-btn::after {
+  content: '→';
+  font-size: 14px;
+  transition: transform 0.3s;
+}
+.hero-reserve-btn:hover::after { transform: translateX(4px); }
+
+/* Vertical text on far right edge */
+.hero-vertical-text {
+  position: absolute;
+  right: 0; top: 50%; transform: translateY(-50%) rotate(90deg);
+  transform-origin: right center;
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); opacity: 0.5;
+  white-space: nowrap;
+  animation: fadeIn 2s ease 1.2s both;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute; bottom: 40px; left: 64px;
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--muted); opacity: 0.6;
+  animation: fadeIn 2s ease 1.5s both;
+}
+.hero-scroll-line {
+  width: 32px; height: 1px;
+  background: var(--muted);
+  position: relative; overflow: hidden;
+}
+.hero-scroll-line::after {
+  content: '';
+  position: absolute; top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: var(--gold);
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+/* ── SECTION ─────────────────────────────────────── */
+.section {
+  padding: 112px 0;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Large background kanji per section */
+.section-watermark {
+  position: absolute;
+  right: -0.05em; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 340px;
+  line-height: 1;
+  color: var(--cream);
+  opacity: 0.018;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-top {
+  padding: 0 64px;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  margin-bottom: 56px;
+}
+.section-label {
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.65;
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before {
+  content: '';
+  display: block; width: 18px; height: 1px;
+  background: var(--gold); opacity: 0.5;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 4vw, 58px);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--cream);
+  line-height: 1.0;
+}
+.section-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; font-weight: 300;
+  color: var(--muted); letter-spacing: 0.06em;
+  padding-bottom: 6px;
+}
+
+/* ── MENU CARDS ──────────────────────────────────── */
+.cards-track {
+  display: flex; gap: 2px;
+  padding: 0 64px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: none;
+}
+.cards-track::-webkit-scrollbar { display: none; }
+
+.menu-card {
+  flex-shrink: 0;
+  width: 300px; height: 460px;
+  background: var(--surface);
+  scroll-snap-align: start;
+  position: relative;
+  overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+.menu-card:hover { transform: translateY(-6px); }
+
+/* Per-card warm gradient */
+.menu-card-bg {
+  position: absolute; inset: 0;
+  transition: opacity 0.4s;
+}
+.menu-card:hover .menu-card-bg { opacity: 0.85; }
+
+/* Large kanji watermark inside card */
+.menu-card-kanji-bg {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -48%);
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 220px;
+  line-height: 1;
+  color: var(--cream);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+/* Steam for ramen cards */
+.steam {
+  position: absolute;
+  top: 12%; left: 0; right: 0;
+  height: 45%;
+  background:
+    radial-gradient(ellipse 28% 55% at 38% 85%, rgba(230,221,208,0.025) 0%, transparent 100%),
+    radial-gradient(ellipse 22% 45% at 62% 75%, rgba(230,221,208,0.018) 0%, transparent 100%);
+  animation: steamDrift 9s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Card content */
+.menu-card-content {
+  position: relative; z-index: 2;
+  padding: 0 28px 28px;
+}
+.menu-card-line {
+  width: 32px; height: 1px;
+  background: var(--gold); opacity: 0.45;
+  margin-bottom: 18px;
+}
+.menu-card-jp {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200;
+  font-size: 36px;
+  color: var(--cream);
+  opacity: 0.75;
+  line-height: 1.1;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+.menu-card-name {
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.8;
+  margin-bottom: 10px;
+}
+.menu-card-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: 14px; line-height: 1.6;
+  color: var(--cream); opacity: 0.45;
+  margin-bottom: 18px;
+  min-height: 44px;
+}
+.menu-card-price {
+  font-family: 'DM Mono', monospace;
+  font-size: 12px; font-weight: 300;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+/* Bottom gradient shadow on every card */
+.menu-card-shadow {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 75%;
+  background: linear-gradient(to top, rgba(6,5,4,0.94) 0%, rgba(6,5,4,0.5) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Section description */
+.section-body {
+  padding: 0 64px;
+  margin-top: 48px;
+  display: flex; align-items: flex-start; gap: 80px;
+}
+.section-body p {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300; font-style: italic;
+  font-size: 17px; line-height: 1.8;
+  color: var(--cream); opacity: 0.45;
+  max-width: 480px;
+}
+.section-body-link {
+  flex-shrink: 0;
+  font-size: 11px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); text-decoration: none;
+  border-bottom: 1px solid var(--border-hi);
+  padding-bottom: 3px;
+  white-space: nowrap;
+  transition: border-color 0.3s;
+  margin-top: 4px;
+}
+.section-body-link:hover { border-bottom-color: var(--gold); }
+
+/* ── NARRATIVE ───────────────────────────────────── */
+.narrative {
+  padding: 120px 64px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.narrative::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 900px; height: 500px;
+  background: radial-gradient(ellipse, rgba(191,155,90,0.025) 0%, transparent 70%);
+  pointer-events: none;
+}
+.narrative-label {
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.6;
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 64px;
+}
+.narrative-label::before {
+  content: ''; display: block;
+  width: 18px; height: 1px; background: var(--gold); opacity: 0.5;
+}
+.narrative-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  position: relative; z-index: 1;
+}
+.narrative-item {
+  padding: 48px 40px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s;
+}
+.narrative-item:hover { border-color: var(--border-hi); }
+.narrative-item-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 88px; font-weight: 300;
+  color: var(--gold); opacity: 0.07;
+  line-height: 1;
+  position: absolute;
+  top: 20px; right: 24px;
+  pointer-events: none;
+  user-select: none;
+}
+.narrative-item-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px; font-weight: 300;
+  color: var(--gold); letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+.narrative-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px; font-weight: 300;
+  color: var(--cream);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.narrative-item p {
+  font-size: 13px; font-weight: 300;
+  color: var(--muted-hi); line-height: 1.8;
+}
+
+/* ── FOOTER ──────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 80px 64px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.footer-moon-bg {
+  position: absolute;
+  bottom: -60px; right: 80px;
+  width: 280px; height: 280px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  opacity: 0.4;
+  pointer-events: none;
+}
+.footer-moon-bg::before {
+  content: '';
+  position: absolute; inset: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 64px;
+  position: relative; z-index: 1;
+}
+.footer-brand-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200; font-size: 52px;
+  color: var(--cream); opacity: 0.18;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  line-height: 1;
+}
+.footer-brand-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-weight: 300;
+  font-size: 15px; line-height: 1.7;
+  color: var(--muted-hi);
+  max-width: 320px;
+}
+.footer-col h6 {
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+}
+.footer-col a, .footer-col p {
+  display: block;
+  font-size: 13px; font-weight: 300;
+  color: var(--muted-hi); text-decoration: none;
+  line-height: 2.1;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--cream); }
+.footer-col .gold { color: var(--gold); }
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center;
+  position: relative; z-index: 1;
+}
+.footer-bottom-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 200; font-size: 16px;
+  color: var(--muted); opacity: 0.4;
+  letter-spacing: 0.15em;
+}
+.footer-copy {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px; font-weight: 300;
+  color: var(--muted); letter-spacing: 0.06em;
+}
+
+/* ── REVEAL ──────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+              transform 0.9s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.35s; }
+
+/* ── ANIMATIONS ──────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes moonBreath {
+  0%, 100% { box-shadow: 0 0 60px rgba(191,155,90,0.04), 0 0 120px rgba(191,155,90,0.02); }
+  50%       { box-shadow: 0 0 80px rgba(191,155,90,0.09), 0 0 180px rgba(191,155,90,0.04); }
+}
+@keyframes ringExpand {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.04); opacity: 0.6; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 0.2; }
+}
+@keyframes scrollPulse {
+  0%   { left: -100%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
+}
+@keyframes steamDrift {
+  from { transform: translateY(0) scaleX(1); opacity: 1; }
+  to   { transform: translateY(-18px) scaleX(1.06); opacity: 0.5; }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────── */
+@media (max-width: 960px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { min-height: 100vh; padding: 120px 32px 64px; justify-content: center; }
+  .hero-right { display: none; }
+  .hero-kanji-bg { font-size: 240px; }
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .section-top, .cards-track, .section-body, .narrative { padding-left: 24px; padding-right: 24px; }
+  .narrative-grid { grid-template-columns: 1fr; gap: 2px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  footer { padding: 60px 24px 40px; }
+}
+@media (max-width: 600px) {
+  .hero-title { font-size: 52px; }
+  .hero-moon { width: 120px; height: 120px; }
+  .menu-card { width: 250px; height: 400px; }
+  .section { padding: 80px 0; }
+  .narrative { padding: 80px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- ── NAV ── -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">月見</a>
+  <ul class="nav-links">
+    <li><a href="#ramen">Ramen</a></li>
+    <li><a href="#sides">Bijgerechten</a></li>
+    <li><a href="#dranken">Dranken</a></li>
+    <li><a href="#sake">Sake</a></li>
+  </ul>
+  <a href="#" class="nav-reserve">Reserveer</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="hero">
+  <!-- LEFT -->
+  <div class="hero-left">
+    <div class="hero-kanji-bg">月見</div>
+    <div class="hero-moon-wrap">
+      <div class="hero-moon"></div>
+    </div>
+    <div class="hero-left-bottom">
+      <div class="hero-overline">Tsukimi Ramen — Amsterdam</div>
+      <h1 class="hero-title">Ramen<br><em>voor de nacht</em></h1>
+      <div class="hero-subtitle">月見</div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      scroll
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="hero-right">
+    <div class="hero-clock-row">
+      <div class="hero-clock-dot"></div>
+      <div class="hero-clock-text">lokale tijd in amsterdam: <span id="clock"></span></div>
+    </div>
+
+    <p class="hero-desc">Ramen en bijgerechten voor de maaltijd. Sake, japans bier en cocktails tot in de avond. Elke bowl begint met een bouillon van achttien uur.</p>
+
+    <ul class="hero-nav-list">
+      <li>
+        <a href="#ramen">Ramen<span class="hero-nav-time">12:00 — 22:00</span></a>
+      </li>
+      <li>
+        <a href="#sides">Bijgerechten<span class="hero-nav-time">12:00 — 22:00</span></a>
+      </li>
+      <li>
+        <a href="#dranken">Dranken<span class="hero-nav-time">de hele dag</span></a>
+      </li>
+      <li>
+        <a href="#sake">Sake &amp; Cocktails<span class="hero-nav-time">17:00 — sluit.</span></a>
+      </li>
+    </ul>
+
+    <a href="#" class="hero-reserve-btn">Reserveer een tafel</a>
+
+    <div class="hero-vertical-text">Reguliersdwarsstraat 42, Amsterdam</div>
+  </div>
+</section>
+
+<!-- ── RAMEN ── -->
+<section class="section reveal" id="ramen">
+  <div class="section-watermark">麺</div>
+
+  <div class="section-top">
+    <div>
+      <div class="section-label">Hoofdgerechten</div>
+      <h2 class="section-title">Ramen</h2>
+    </div>
+    <span class="section-time">12:00 — 22:00</span>
+  </div>
+
+  <div class="cards-track" id="t-ramen">
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(160deg, #1D1710 0%, #14100B 100%);"></div>
+      <div class="menu-card-kanji-bg">豚骨</div>
+      <div class="steam"></div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">豚骨</div>
+        <div class="menu-card-name">Tonkotsu</div>
+        <div class="menu-card-desc">Romige varkensbotten bouillon, chashu, ajitsuke tamago, nori, lente-ui</div>
+        <div class="menu-card-price">€ 17</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(145deg, #18140F 0%, #110E0A 100%);"></div>
+      <div class="menu-card-kanji-bg">醤油</div>
+      <div class="steam" style="animation-delay: -3s;"></div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">醤油</div>
+        <div class="menu-card-name">Shoyu</div>
+        <div class="menu-card-desc">Heldere sojasausbouillon, kip, bamboe, menma, naruto, sesam</div>
+        <div class="menu-card-price">€ 16</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(170deg, #1A1510 0%, #130F0B 100%);"></div>
+      <div class="menu-card-kanji-bg">味噌</div>
+      <div class="steam" style="animation-delay: -6s;"></div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">味噌</div>
+        <div class="menu-card-name">Miso</div>
+        <div class="menu-card-desc">Gefermenteerde misopasta, varken &amp; kip, mais, boter, shiitake</div>
+        <div class="menu-card-price">€ 16</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(155deg, #161310 0%, #100E0B 100%);"></div>
+      <div class="menu-card-kanji-bg">塩</div>
+      <div class="steam" style="animation-delay: -2s;"></div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">塩</div>
+        <div class="menu-card-name">Shio</div>
+        <div class="menu-card-desc">Verfijnde zoutbouillon, zeewiertarwe noedels, yuzu, kombu, hamaguri</div>
+        <div class="menu-card-price">€ 15</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(165deg, #1C1510 0%, #14100B 100%);"></div>
+      <div class="menu-card-kanji-bg">担々</div>
+      <div class="steam" style="animation-delay: -4.5s;"></div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">担々</div>
+        <div class="menu-card-name">Tan Tan Men</div>
+        <div class="menu-card-desc">Sesam-sichuan bouillon, gehakt varken, bok choy, la-yu, geroosterd sesam</div>
+        <div class="menu-card-price">€ 17</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-body reveal reveal-delay-1">
+    <p>Onze ramen begint met geduld. Elke bouillon trekt achttien uur, laag voor laag. Noedels komen vers van een Japanse leverancier. Het tsukimi-ei rust in het midden van elke bowl — een stille maan in een landschap van smaak.</p>
+    <a href="#" class="section-body-link">Bekijk het volledige menu</a>
+  </div>
+</section>
+
+<!-- ── BIJGERECHTEN ── -->
+<section class="section reveal" id="sides">
+  <div class="section-watermark">餃</div>
+
+  <div class="section-top">
+    <div>
+      <div class="section-label">Om te delen</div>
+      <h2 class="section-title">Bijgerechten</h2>
+    </div>
+    <span class="section-time">12:00 — 22:00</span>
+  </div>
+
+  <div class="cards-track" id="t-sides">
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(150deg, #191510 0%, #12100D 100%);"></div>
+      <div class="menu-card-kanji-bg">餃子</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">餃子</div>
+        <div class="menu-card-name">Gyoza</div>
+        <div class="menu-card-desc">Handgevouwen, varken &amp; kool, gegrild en gestoomd, ponzu dipsaus — 6 stuks</div>
+        <div class="menu-card-price">€ 9</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(160deg, #1A1610 0%, #13110D 100%);"></div>
+      <div class="menu-card-kanji-bg">唐揚げ</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">唐揚げ</div>
+        <div class="menu-card-name">Karaage</div>
+        <div class="menu-card-desc">Dubbel gefrituurd kip, gemarineerd in soja-gember, kewpie mayo, citroen</div>
+        <div class="menu-card-price">€ 11</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(140deg, #171410 0%, #11100D 100%);"></div>
+      <div class="menu-card-kanji-bg">枝豆</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">枝豆</div>
+        <div class="menu-card-name">Edamame</div>
+        <div class="menu-card-desc">Gestoomd, zeezout, een vleugje yuzu — simpel en onweerstaanbaar</div>
+        <div class="menu-card-price">€ 6</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(155deg, #18150F 0%, #12100C 100%);"></div>
+      <div class="menu-card-kanji-bg">飯</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">飯</div>
+        <div class="menu-card-name">Rijst</div>
+        <div class="menu-card-desc">Gestoomde japanse koshihikari rijst, sesam, nori flakes</div>
+        <div class="menu-card-price">€ 4</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-body reveal reveal-delay-1">
+    <p>Gyoza worden elke ochtend met de hand gevouwen. Karaage dubbel gefrituurde voor extra knapperigheid. Kleine gerechten die doordacht aanvoelen — om te delen, of voor jezelf bij een kom ramen.</p>
+    <a href="#" class="section-body-link">Bekijk alle bijgerechten</a>
+  </div>
+</section>
+
+<!-- ── DRANKEN ── -->
+<section class="section reveal" id="dranken">
+  <div class="section-watermark">茶</div>
+
+  <div class="section-top">
+    <div>
+      <div class="section-label">Non-alcoholisch &amp; bier</div>
+      <h2 class="section-title">Dranken</h2>
+    </div>
+    <span class="section-time">de hele dag</span>
+  </div>
+
+  <div class="cards-track" id="t-drinks">
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(145deg, #151310 0%, #0F0E0B 100%);"></div>
+      <div class="menu-card-kanji-bg">茶</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">茶</div>
+        <div class="menu-card-name">Hojicha &amp; Genmaicha</div>
+        <div class="menu-card-desc">Dagelijks vers gezet, huisgebrouwde Japanse theeën, warm of koud</div>
+        <div class="menu-card-price">€ 4</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(160deg, #171410 0%, #11100C 100%);"></div>
+      <div class="menu-card-kanji-bg">抹茶</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">抹茶</div>
+        <div class="menu-card-name">Matcha</div>
+        <div class="menu-card-desc">Ceremoniale kwaliteit, koud gezet of warm, met havermelk of naturel</div>
+        <div class="menu-card-price">€ 5</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(155deg, #191610 0%, #13110D 100%);"></div>
+      <div class="menu-card-kanji-bg">ビール</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">麦酒</div>
+        <div class="menu-card-name">Japans Bier</div>
+        <div class="menu-card-desc">Asahi, Sapporo, Kirin Ichiban — ijskoud, zoals het hoort</div>
+        <div class="menu-card-price">€ 6</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(150deg, #161410 0%, #100F0C 100%);"></div>
+      <div class="menu-card-kanji-bg">水</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">水</div>
+        <div class="menu-card-name">Fris &amp; Water</div>
+        <div class="menu-card-desc">Japans ramune, yuzu limonade, still &amp; sparkling mineraalwater</div>
+        <div class="menu-card-price">vanaf € 3,50</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-body reveal reveal-delay-1">
+    <p>Onze dranken worden met dezelfde zorg geselecteerd als onze ingrediënten. Japans craft bier naast huisgebrouwde hojicha — alles gekozen om op een natuurlijke manier samen te gaan met de keuken.</p>
+    <a href="#" class="section-body-link">Bekijk de drankenkaart</a>
+  </div>
+</section>
+
+<!-- ── SAKE ── -->
+<section class="section reveal" id="sake">
+  <div class="section-watermark">酒</div>
+
+  <div class="section-top">
+    <div>
+      <div class="section-label">Avondmenu</div>
+      <h2 class="section-title">Sake &amp; Cocktails</h2>
+    </div>
+    <span class="section-time">17:00 — sluiting</span>
+  </div>
+
+  <div class="cards-track" id="t-sake">
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(160deg, #181510 0%, #120F0C 100%);"></div>
+      <div class="menu-card-kanji-bg">大吟醸</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">大吟醸</div>
+        <div class="menu-card-name">Daiginjo</div>
+        <div class="menu-card-desc">Fruitige, florale premium sake — gekoeld geserveerd, Nishida brouwerij</div>
+        <div class="menu-card-price">€ 12 / glas</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(145deg, #1A1610 0%, #14120D 100%);"></div>
+      <div class="menu-card-kanji-bg">純米</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">純米</div>
+        <div class="menu-card-name">Junmai</div>
+        <div class="menu-card-desc">Volle, rijke smaak — warm of koel, Dewazakura</div>
+        <div class="menu-card-price">€ 10 / glas</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(165deg, #1C1710 0%, #151210 100%);"></div>
+      <div class="menu-card-kanji-bg">梅酒</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">梅酒</div>
+        <div class="menu-card-name">Umeshu</div>
+        <div class="menu-card-desc">Japanse pruimenlikeur, zoet-zuur, over ijs of naturel</div>
+        <div class="menu-card-price">€ 9 / glas</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(155deg, #171410 0%, #12100D 100%);"></div>
+      <div class="menu-card-kanji-bg">柚子</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">柚子</div>
+        <div class="menu-card-name">Yuzu Highball</div>
+        <div class="menu-card-desc">Suntory Toki whisky, verse yuzu, tonic, gedroogde citrus</div>
+        <div class="menu-card-price">€ 11</div>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-card-bg" style="background: linear-gradient(150deg, #181510 0%, #130F0C 100%);"></div>
+      <div class="menu-card-kanji-bg">焼酎</div>
+      <div class="menu-card-shadow"></div>
+      <div class="menu-card-content">
+        <div class="menu-card-line"></div>
+        <div class="menu-card-jp">焼酎</div>
+        <div class="menu-card-name">Shiso Gimlet</div>
+        <div class="menu-card-desc">Shochu, verse shiso, limoen, agave — fris en kruidig</div>
+        <div class="menu-card-price">€ 10</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-body reveal reveal-delay-1">
+    <p>In de avond verandert het ritme. Onze sake-selectie eert kleine Japanse brouwerijen — elke fles gekozen op karakter. Een yuzu highball, een shiso gimlet, of gewoon een koude Asahi. De avond ontvouwt zich op jouw tempo.</p>
+    <a href="#" class="section-body-link">Bekijk de sake &amp; cocktailkaart</a>
+  </div>
+</section>
+
+<!-- ── NARRATIVE ── -->
+<div class="narrative reveal">
+  <div class="narrative-label">Een dag bij Tsukimi</div>
+  <div class="narrative-grid">
+    <div class="narrative-item reveal reveal-delay-1">
+      <div class="narrative-item-num">I</div>
+      <div class="narrative-item-time">12:00</div>
+      <h3>De bouillon ontwaakt</h3>
+      <p>De dag begint in de keuken. Bouillon die sinds de vroege ochtend trekt, bereikt zijn volle expressie. Verse noedels worden geportioneerd. De eerste bowls van de dag zijn altijd de stilste — een ritueel voordat het ritme opkomt.</p>
+    </div>
+    <div class="narrative-item reveal reveal-delay-2">
+      <div class="narrative-item-num">II</div>
+      <div class="narrative-item-time">17:00</div>
+      <h3>De avond verschuift</h3>
+      <p>Lantaarns verwarmen de ruimte. Het menu breidt zich uit met sake en gesprekken. Tafels vullen zich met vrienden, stellen en solo-gasten aan de bar. De keuken vindt zijn ritme tussen precisie en flow.</p>
+    </div>
+    <div class="narrative-item reveal reveal-delay-3">
+      <div class="narrative-item-num">III</div>
+      <div class="narrative-item-time">21:00</div>
+      <h3>De maan verschijnt</h3>
+      <p>De late avond bij Tsukimi is ongehaast. Een laatste bowl. Een laatste glas sake. De kanji boven de deur gloeit zachtjes. Buiten beweegt Amsterdam op eigen tempo. Binnen waakt de maan over elke tafel.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-moon-bg"></div>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-kanji">月見</div>
+      <p class="footer-brand-desc">Ramen en bijgerechten voor de maaltijd. Sake en cocktails tot in de avond. Elke bowl begint met een bouillon van achttien uur.</p>
+    </div>
+    <div class="footer-col">
+      <h6>Vind ons</h6>
+      <p>Reguliersdwarsstraat 42<br>Amsterdam</p>
+      <a href="tel:+31201234567">+31 20 123 4567</a>
+      <a href="mailto:hallo@tsukimiramen.nl">hallo@tsukimiramen.nl</a>
+      <a href="#" class="gold" style="margin-top:12px">Instagram →</a>
+    </div>
+    <div class="footer-col">
+      <h6>Ontdek</h6>
+      <a href="#">Menu</a>
+      <a href="#">Ons verhaal</a>
+      <a href="#">Reserveren</a>
+      <a href="#">Vacatures</a>
+      <a href="#">Privacybeleid</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-kanji">月見</div>
+    <div class="footer-copy">&copy; 2026 Tsukimi Ramen. Amsterdam.</div>
+  </div>
+</footer>
+
+<script>
+// ── CUSTOM CURSOR
+const cursor = document.getElementById('cursor');
+const ring   = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
+
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px';
+  ring.style.top  = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.querySelectorAll('a, button, .menu-card, .cards-track').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.classList.add('expand'); ring.classList.add('expand'); });
+  el.addEventListener('mouseleave', () => { cursor.classList.remove('expand'); ring.classList.remove('expand'); });
+});
+
+// ── CLOCK
+function updateClock() {
+  const t = new Date();
+  const el = document.getElementById('clock');
+  if (el) el.textContent =
+    String(t.getHours()).padStart(2,'0') + ':' + String(t.getMinutes()).padStart(2,'0');
+}
+updateClock();
+setInterval(updateClock, 10000);
+
+// ── STICKY NAV
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// ── DRAG SCROLL
+document.querySelectorAll('.cards-track').forEach(track => {
+  let down = false, sx = 0, sl = 0;
+  track.addEventListener('mousedown', e => {
+    down = true; sx = e.pageX - track.offsetLeft; sl = track.scrollLeft;
+  });
+  track.addEventListener('mouseleave', () => down = false);
+  track.addEventListener('mouseup',    () => down = false);
+  track.addEventListener('mousemove', e => {
+    if (!down) return;
+    e.preventDefault();
+    track.scrollLeft = sl - (e.pageX - track.offsetLeft - sx) * 1.6;
+  });
+});
+
+// ── REVEAL ON SCROLL
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06, rootMargin: '0px 0px -24px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
