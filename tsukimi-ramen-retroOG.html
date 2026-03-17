@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月見 Tsukimi Ramen</title>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400&family=Outfit:wght@300;400;500;600&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --vermillion: #D64933;
+    --vermillion-dark: #B83A28;
+    --cream: #F5EDDA;
+    --cream-dark: #E8DCBF;
+    --ink-black: #1A1A18;
+    --indigo: #2B3A67;
+    --indigo-light: #3D5089;
+    --golden: #E8A838;
+    --golden-deep: #C4872A;
+    --paper: #FAF6EC;
+    --warm-brown: #5C4033;
+    --text-dark: #2A2A26;
+    --text-mid: #5A574E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--text-dark);
+    font-family: 'Outfit', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Grain texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.4;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.08'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 20px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(245, 237, 218, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 0 var(--ink-black);
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo-stamp {
+    width: 42px; height: 42px;
+    background: var(--vermillion);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--cream);
+    border-radius: 3px;
+    transform: rotate(-3deg);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+  }
+  .nav-logo-text {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 900;
+    color: var(--ink-black);
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+    color: var(--text-mid); text-decoration: none; text-transform: uppercase;
+    transition: color 0.2s ease;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+  }
+  .nav-links a:hover {
+    color: var(--vermillion);
+    border-bottom-color: var(--vermillion);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    padding: 120px 48px 80px;
+    overflow: hidden;
+    background: var(--cream);
+  }
+
+  /* Large geometric sun/moon circle */
+  .hero-circle {
+    position: absolute;
+    top: -10%; right: -8%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: var(--vermillion);
+    opacity: 0.9;
+    animation: circleIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero-circle::before {
+    content: '';
+    position: absolute;
+    inset: 30px;
+    border-radius: 50%;
+    border: 3px solid rgba(245,237,218,0.2);
+  }
+  .hero-circle::after {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border-radius: 50%;
+    border: 2px solid rgba(245,237,218,0.1);
+  }
+
+  /* Halftone pattern overlay on circle */
+  .hero-halftone {
+    position: absolute;
+    top: -10%; right: -8%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    opacity: 0.08;
+    background-image: radial-gradient(circle, var(--ink-black) 1px, transparent 1px);
+    background-size: 6px 6px;
+  }
+
+  /* Decorative wave band */
+  .hero-wave-band {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: var(--indigo);
+    overflow: hidden;
+  }
+  .hero-wave-band svg {
+    position: absolute;
+    top: -30px; left: 0;
+    width: 200%; height: 60px;
+    animation: waveSlide 12s linear infinite;
+  }
+
+  .hero-content {
+    position: relative; z-index: 10;
+    max-width: 650px;
+  }
+
+  .hero-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--indigo);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 12px;
+    animation: slideUp 0.8s ease-out 0.2s both;
+  }
+  .hero-label::before {
+    content: ''; width: 40px; height: 3px;
+    background: var(--indigo);
+  }
+
+  .hero-kanji {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 140px;
+    color: var(--ink-black);
+    line-height: 0.9;
+    margin-bottom: 8px;
+    animation: slideUp 0.8s ease-out 0.3s both;
+    position: relative;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-size: 52px; font-weight: 900;
+    color: var(--ink-black);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    animation: slideUp 0.8s ease-out 0.4s both;
+  }
+
+  .hero-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px; font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 36px;
+    animation: slideUp 0.8s ease-out 0.5s both;
+  }
+
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'Fraunces', serif;
+    font-size: 15px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    background: var(--ink-black);
+    text-decoration: none;
+    padding: 16px 32px;
+    border: 3px solid var(--ink-black);
+    transition: all 0.3s ease;
+    animation: slideUp 0.8s ease-out 0.6s both;
+  }
+  .hero-cta:hover {
+    background: var(--vermillion);
+    border-color: var(--vermillion);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--ink-black);
+  }
+  .hero-cta svg {
+    transition: transform 0.3s ease;
+  }
+  .hero-cta:hover svg { transform: translateX(4px); }
+
+  /* Floating stamp element */
+  .hero-stamp {
+    position: absolute;
+    top: 30%; right: 22%;
+    z-index: 11;
+    width: 120px; height: 120px;
+    background: var(--cream);
+    border: 4px solid var(--vermillion);
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transform: rotate(12deg);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.1);
+    animation: stampIn 0.6s ease-out 0.8s both;
+  }
+  .hero-stamp-kanji {
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 28px; color: var(--vermillion);
+    line-height: 1;
+  }
+  .hero-stamp-text {
+    font-family: 'Outfit', sans-serif;
+    font-size: 8px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--vermillion);
+    margin-top: 4px;
+  }
+
+  /* ===== INTRO ===== */
+  .intro-section {
+    padding: 100px 48px;
+    background: var(--ink-black);
+    color: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative circles */
+  .intro-deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(201,169,110,0.1);
+  }
+  .intro-deco-circle:nth-child(1) { width: 300px; height: 300px; top: -80px; right: -60px; }
+  .intro-deco-circle:nth-child(2) { width: 200px; height: 200px; bottom: -40px; left: -60px; }
+
+  .intro-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  .intro-visual {
+    position: relative;
+  }
+
+  .intro-illustration-frame {
+    width: 100%; aspect-ratio: 3/4;
+    border: 3px solid var(--golden);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(43,58,103,0.3) 0%, rgba(26,26,24,0.9) 100%);
+  }
+
+  .intro-illustration-frame svg { opacity: 0.5; }
+
+  .intro-badge {
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: var(--vermillion);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 16px; color: var(--cream);
+    transform: rotate(10deg);
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  }
+
+  .intro-text-block .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--golden);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .intro-text-block .section-label::before {
+    content: ''; width: 24px; height: 3px; background: var(--golden);
+  }
+
+  .intro-text-block h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 40px; font-weight: 900;
+    color: var(--cream);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+  }
+
+  .intro-text-block p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px; font-weight: 300;
+    color: rgba(245,237,218,0.6);
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  /* ===== DISHES ===== */
+  .dishes-section {
+    padding: 100px 48px;
+    background: var(--paper);
+    position: relative;
+  }
+
+  /* Diagonal stripe decoration */
+  .dishes-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 12px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--vermillion) 0px, var(--vermillion) 8px,
+      var(--golden) 8px, var(--golden) 16px,
+      var(--indigo) 16px, var(--indigo) 24px,
+      var(--cream) 24px, var(--cream) 32px
+    );
+  }
+
+  .dishes-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .dishes-header .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--vermillion);
+    margin-bottom: 12px;
+  }
+  .dishes-header h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 48px; font-weight: 900;
+    color: var(--ink-black);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+  }
+
+  .dishes-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; max-width: 1100px; margin: 0 auto;
+    border: 3px solid var(--ink-black);
+  }
+
+  .dish-card {
+    padding: 36px 28px;
+    text-align: center;
+    border-right: 3px solid var(--ink-black);
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .dish-card:last-child { border-right: none; }
+
+  .dish-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: var(--vermillion);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 0;
+  }
+  .dish-card:hover::before { transform: translateY(0); }
+  .dish-card:hover { color: var(--cream); }
+  .dish-card > * { position: relative; z-index: 1; }
+
+  .dish-number {
+    font-family: 'Fraunces', serif;
+    font-size: 60px; font-weight: 900;
+    color: var(--cream-dark);
+    line-height: 1;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+  }
+  .dish-card:hover .dish-number { color: rgba(245,237,218,0.2); }
+
+  .dish-name {
+    font-family: 'Fraunces', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--ink-black);
+    margin-bottom: 2px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  .dish-card:hover .dish-name { color: var(--cream); }
+
+  .dish-name-jp {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    font-size: 13px; color: var(--text-mid);
+    margin-bottom: 14px;
+    transition: color 0.3s ease;
+  }
+  .dish-card:hover .dish-name-jp { color: rgba(245,237,218,0.6); }
+
+  .dish-desc {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+  .dish-card:hover .dish-desc { color: rgba(245,237,218,0.7); }
+
+  .dish-price {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 900;
+    color: var(--vermillion);
+    margin-top: 16px;
+    transition: color 0.3s ease;
+  }
+  .dish-card:hover .dish-price { color: var(--golden); }
+
+  /* ===== SFEER ===== */
+  .ambiance-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+
+  .ambiance-left {
+    background: var(--indigo);
+    padding: 80px 64px;
+    display: flex; flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Retro sunburst */
+  .sunburst {
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 800px; height: 800px;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+  }
+  .sunburst-ray {
+    position: absolute;
+    top: 0; left: 50%;
+    width: 2px; height: 50%;
+    background: var(--cream);
+    transform-origin: bottom center;
+  }
+
+  .ambiance-left .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--golden);
+    margin-bottom: 24px;
+  }
+
+  .ambiance-quote {
+    font-family: 'Fraunces', serif;
+    font-size: 32px; font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+
+  .ambiance-attr {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px; font-weight: 400;
+    color: rgba(245,237,218,0.4);
+    letter-spacing: 0.1em;
+    position: relative; z-index: 1;
+  }
+
+  .ambiance-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 3px;
+    background: var(--ink-black);
+  }
+
+  .ambiance-panel {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .ambiance-panel-label {
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cream);
+    opacity: 0.4; z-index: 1;
+  }
+
+  .panel-vermillion { background: var(--vermillion); }
+  .panel-golden { background: var(--golden-deep); }
+  .panel-indigo { background: var(--indigo-light); }
+  .panel-dark { background: #2A2A26; grid-column: span 2; }
+
+  /* Halftone on panels */
+  .ambiance-panel::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px);
+    background-size: 5px 5px;
+    opacity: 0.5;
+  }
+
+  /* ===== INFO ===== */
+  .info-section {
+    padding: 100px 48px;
+    background: var(--cream);
+    position: relative;
+  }
+
+  .info-inner {
+    display: flex;
+    max-width: 1100px; margin: 0 auto;
+    gap: 60px; align-items: flex-start;
+  }
+
+  .info-card {
+    flex: 1;
+    background: var(--paper);
+    border: 3px solid var(--ink-black);
+    padding: 40px 32px;
+    position: relative;
+  }
+  .info-card::after {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: -6px; bottom: -6px;
+    border: 3px solid var(--ink-black);
+    opacity: 0.15;
+    z-index: -1;
+  }
+
+  .info-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 900;
+    text-transform: uppercase;
+    color: var(--ink-black);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--vermillion);
+  }
+
+  .info-card p, .info-card address {
+    font-family: 'Outfit', sans-serif;
+    font-size: 15px; font-weight: 300;
+    font-style: normal;
+    color: var(--text-mid);
+    line-height: 2;
+  }
+
+  .info-map-card {
+    flex: 1.5;
+    height: 320px;
+    border: 3px solid var(--ink-black);
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    background: var(--indigo);
+  }
+  .info-map-card::after {
+    content: '';
+    position: absolute;
+    top: 6px; left: 6px; right: -6px; bottom: -6px;
+    border: 3px solid var(--ink-black);
+    opacity: 0.15;
+    z-index: -1;
+  }
+  .info-map-label {
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--cream); opacity: 0.4;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--ink-black);
+    padding: 48px 48px 32px;
+    position: relative;
+  }
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 12px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--vermillion) 0px, var(--vermillion) 8px,
+      var(--golden) 8px, var(--golden) 16px,
+      var(--indigo) 16px, var(--indigo) 24px,
+      var(--cream) 24px, var(--cream) 32px
+    );
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand {
+    display: flex; align-items: center; gap: 14px;
+  }
+  .footer-stamp {
+    width: 48px; height: 48px;
+    background: var(--vermillion);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Dela Gothic One', cursive;
+    font-size: 20px; color: var(--cream);
+    border-radius: 3px;
+    transform: rotate(-3deg);
+  }
+  .footer-name {
+    font-family: 'Fraunces', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--cream);
+    text-transform: uppercase;
+  }
+  .footer-links { display: flex; gap: 28px; list-style: none; }
+  .footer-links a {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(245,237,218,0.4);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .footer-links a:hover { color: var(--golden); }
+  .footer-copy {
+    text-align: center;
+    margin-top: 32px; padding-top: 20px;
+    border-top: 1px solid rgba(245,237,218,0.06);
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+  .footer-copy p {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px; letter-spacing: 0.1em;
+    color: rgba(245,237,218,0.2); text-transform: uppercase;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes circleIn {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 0.9; transform: scale(1); }
+  }
+  @keyframes stampIn {
+    from { opacity: 0; transform: rotate(12deg) scale(0); }
+    to { opacity: 1; transform: rotate(12deg) scale(1); }
+  }
+  @keyframes waveSlide {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .hero { padding: 100px 24px 100px; }
+    .hero-circle { width: 350px; height: 350px; top: -5%; right: -15%; }
+    .hero-halftone { width: 350px; height: 350px; top: -5%; right: -15%; }
+    .hero-kanji { font-size: 80px; }
+    .hero-title { font-size: 36px; }
+    .hero-stamp { display: none; }
+    .intro-inner { grid-template-columns: 1fr; gap: 48px; }
+    .dishes-grid { grid-template-columns: repeat(2, 1fr); }
+    .dish-card { border-bottom: 3px solid var(--ink-black); }
+    .dish-card:nth-child(2) { border-right: none; }
+    .ambiance-section { grid-template-columns: 1fr; }
+    .info-inner { flex-direction: column; }
+    .section { padding: 80px 24px; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-kanji { font-size: 56px; }
+    .hero-title { font-size: 28px; }
+    .hero-circle { width: 250px; height: 250px; top: 5%; right: -20%; }
+    .hero-halftone { width: 250px; height: 250px; top: 5%; right: -20%; }
+    .dishes-grid { grid-template-columns: 1fr; }
+    .dish-card { border-right: none; border-bottom: 3px solid var(--ink-black); }
+    .dish-card:last-child { border-bottom: none; }
+    .dishes-header h2 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-stamp">月見</div>
+    <div class="nav-logo-text">Tsukimi</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#verhaal">Verhaal</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#sfeer">Sfeer</a></li>
+    <li><a href="#bezoek">Bezoek</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="hero-circle"></div>
+  <div class="hero-halftone"></div>
+
+  <div class="hero-stamp">
+    <div class="hero-stamp-kanji">月見</div>
+    <div class="hero-stamp-text">Since 2026</div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-label">Amsterdam — Ramen House</div>
+    <div class="hero-kanji">月見</div>
+    <h1 class="hero-title">Tsukimi<br>Ramen</h1>
+    <p class="hero-desc">De kunst van de perfecte bowl. 18 uur bouillon, met de hand getrokken noedels, en een eigeel als de opkomende maan.</p>
+    <a href="#menu" class="hero-cta">
+      Bekijk het Menu
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <div class="hero-wave-band">
+    <svg viewBox="0 0 1200 60" fill="var(--cream)" opacity="0.06">
+      <path d="M0,30 Q30,0 60,30 Q90,60 120,30 Q150,0 180,30 Q210,60 240,30 Q270,0 300,30 Q330,60 360,30 Q390,0 420,30 Q450,60 480,30 Q510,0 540,30 Q570,60 600,30 Q630,0 660,30 Q690,60 720,30 Q750,0 780,30 Q810,60 840,30 Q870,0 900,30 Q930,60 960,30 Q990,0 1020,30 Q1050,60 1080,30 Q1110,0 1140,30 Q1170,60 1200,30" stroke="var(--cream)" stroke-width="2" fill="none" opacity="0.3"/>
+    </svg>
+  </div>
+</section>
+
+<section class="intro-section" id="verhaal">
+  <div class="intro-deco-circle"></div>
+  <div class="intro-deco-circle"></div>
+  <div class="intro-inner reveal">
+    <div class="intro-visual">
+      <div class="intro-illustration-frame">
+        <svg width="180" height="180" viewBox="0 0 160 160" fill="none" stroke="var(--golden)" stroke-width="1.5">
+          <ellipse cx="80" cy="90" rx="60" ry="22" />
+          <path d="M20,90 Q20,130 80,130 Q140,130 140,90" />
+          <path d="M50,68 Q48,55 52,42" stroke-linecap="round" opacity="0.6" />
+          <path d="M80,62 Q78,48 82,34" stroke-linecap="round" opacity="0.7" />
+          <path d="M110,68 Q108,55 112,42" stroke-linecap="round" opacity="0.6" />
+          <ellipse cx="80" cy="84" rx="14" ry="10" opacity="0.8" />
+          <path d="M55,88 Q65,80 75,88 Q85,96 95,88" opacity="0.4" />
+          <line x1="105" y1="50" x2="130" y2="78" opacity="0.5" />
+          <line x1="110" y1="48" x2="135" y2="76" opacity="0.5" />
+        </svg>
+        <div class="intro-badge">旨い</div>
+      </div>
+    </div>
+    <div class="intro-text-block">
+      <div class="section-label">Ons Verhaal</div>
+      <h2>De traditie van het maankijken</h2>
+      <p>Tsukimi — het Japanse ritueel van maankijken — is een eeuwenoude viering van schoonheid in eenvoud. In de herfst verzamelen families zich om de volle maan te bewonderen.</p>
+      <p>In onze keuken eren we deze traditie. Elke bowl vertelt een verhaal van geduld: bouillon die uren pruttelt, noedels met zorg bereid, en het perfecte ei — onze eigen maan — als kroon op het geheel.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dishes-section" id="menu">
+  <div class="dishes-header reveal">
+    <div class="section-label">Signature Dishes</div>
+    <h2>Onze Specialiteiten</h2>
+  </div>
+  <div class="dishes-grid reveal">
+    <div class="dish-card">
+      <div class="dish-number">01</div>
+      <div class="dish-name">Tsukimi Ramen</div>
+      <div class="dish-name-jp">月見ラーメン</div>
+      <div class="dish-desc">Signature bowl met 18-uurs tonkotsu bouillon en perfect zacht eigeel</div>
+      <div class="dish-price">€16,50</div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-number">02</div>
+      <div class="dish-name">Shoyu Classic</div>
+      <div class="dish-name-jp">醤油ラーメン</div>
+      <div class="dish-desc">Heldere sojasaus bouillon met kip, bamboescheuten en nori</div>
+      <div class="dish-price">€14,50</div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-number">03</div>
+      <div class="dish-name">Miso Blaze</div>
+      <div class="dish-name-jp">味噌ラーメン</div>
+      <div class="dish-desc">Rijke miso met geroosterd varkensvlees, maïs en pittige rayu olie</div>
+      <div class="dish-price">€15,50</div>
+    </div>
+    <div class="dish-card">
+      <div class="dish-number">04</div>
+      <div class="dish-name">Shio Zen</div>
+      <div class="dish-name-jp">塩ラーメン</div>
+      <div class="dish-desc">Delicaat zeezout met yuzu, venkel en verse vis van de dag</div>
+      <div class="dish-price">€15,00</div>
+    </div>
+  </div>
+</section>
+
+<section class="ambiance-section" id="sfeer">
+  <div class="ambiance-left">
+    <div class="sunburst" id="sunburst"></div>
+    <div class="section-label">Sfeer & Beleving</div>
+    <div class="ambiance-quote">Eet onder het schijnsel van lantaarns, omringd door de rust van een Japanse herfstnacht</div>
+    <div class="ambiance-attr">— Tsukimi Ramen, Amsterdam</div>
+  </div>
+  <div class="ambiance-right">
+    <div class="ambiance-panel panel-vermillion"><span class="ambiance-panel-label">Interieur</span></div>
+    <div class="ambiance-panel panel-golden"><span class="ambiance-panel-label">Lantaarns</span></div>
+    <div class="ambiance-panel panel-dark"><span class="ambiance-panel-label">Open Keuken</span></div>
+  </div>
+</section>
+
+<section class="info-section" id="bezoek">
+  <div class="info-inner reveal">
+    <div class="info-card">
+      <h3>Openingstijden</h3>
+      <p>Maandag — Donderdag: 12:00 – 22:00<br>Vrijdag — Zaterdag: 12:00 – 23:00<br>Zondag: 13:00 – 21:00</p>
+    </div>
+    <div class="info-card">
+      <h3>Locatie</h3>
+      <address>Tsukimi Ramen<br>Reguliersdwarsstraat 42<br>1017 BM Amsterdam<br><br>+31 20 123 4567</address>
+    </div>
+    <div class="info-map-card">
+      <span class="info-map-label">Google Maps — Embed</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-stamp">月見</div>
+      <div class="footer-name">Tsukimi Ramen</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#verhaal">Verhaal</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </div>
+  <div class="footer-copy"><p>&copy; 2026 Tsukimi Ramen. Alle rechten voorbehouden.</p></div>
+</footer>
+
+<script>
+  // Generate sunburst rays
+  const sunburst = document.getElementById('sunburst');
+  for (let i = 0; i < 24; i++) {
+    const ray = document.createElement('div');
+    ray.className = 'sunburst-ray';
+    ray.style.transform = `rotate(${i * 15}deg)`;
+    sunburst.appendChild(ray);
+  }
+
+  // Navbar scroll
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

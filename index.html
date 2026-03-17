@@ -1,12 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <title>Nicks page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nick</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #888;
+      font-family: 'DM Mono', monospace;
+      font-weight: 300;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 10vw;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .name {
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      font-size: clamp(48px, 7vw, 96px);
+      color: #f0f0f0;
+      letter-spacing: -.03em;
+      line-height: 1;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 1px solid #1a1a1a;
+      color: #555;
+      font-size: 13px;
+      letter-spacing: .05em;
+      transition: color .2s;
+    }
+    a:first-child { border-top: 1px solid #1a1a1a; }
+    a:hover { color: #f0f0f0; }
+
+    .n {
+      color: #2a2a2a;
+      min-width: 24px;
+    }
+    a:hover .n { color: #444; }
+
+    .arrow {
+      margin-left: auto;
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity .2s, transform .2s;
+      font-size: 16px;
+      color: #f0f0f0;
+    }
+    a:hover .arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .meta {
+      font-size: 11px;
+      letter-spacing: .1em;
+      color: #2a2a2a;
+    }
+  </style>
 </head>
 <body>
-<h1>Sup dude</h1>
-<a href="tsukimi-ramen-retro.html">Link 1</a>
-<a href="tsukimi-ramen-v3.html"> Link 2</a>
+  <main>
+    <h1 class="name">Tsukimi Ramen </h1>
+
+    <nav class="links">
+      <a href="tsukimi-ramen-retro.html">
+        <span class="n">01</span>
+        Tsukimi Ramen — v1
+        <span class="arrow">→</span>
+      </a>
+      <a href="tsukimi-ramen-v3.html">
+        <span class="n">02</span>
+        Tsukimi Ramen Classic
+        <span class="arrow">→</span>
+      </a>
+        <a href="tsukimi-ramen-retroOG.html">
+            <span class="n">03</span>
+            Tsukimi Ramen Retro
+            <span class="arrow">→</span>
+        </a>
+    </nav>
+
+    <p class="meta">portfolio / 2025</p>
+  </main>
 </body>
 </html>
