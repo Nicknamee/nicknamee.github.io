@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月見 Tsukimi Ramen</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+JP:wght@300;400;500;600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --night-deep: #0a0e1a;
+    --night-mid: #111729;
+    --night-blue: #1a2240;
+    --indigo: #2a3158;
+    --moon-glow: #E8DCC8;
+    --moon-bright: #F5EDE0;
+    --moon-gold: #C9A96E;
+    --warm-lantern: #D4956A;
+    --paper-cream: #F0E6D3;
+    --cloud-light: rgba(200, 195, 185, 0.06);
+    --text-light: #D5CDBF;
+    --text-dim: #8A8477;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--night-deep);
+    color: var(--text-light);
+    font-family: 'Crimson Pro', 'Noto Serif JP', serif;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    transition: all 0.5s ease;
+  }
+  nav.scrolled {
+    background: rgba(10, 14, 26, 0.92);
+    backdrop-filter: blur(12px);
+    padding: 16px 48px;
+  }
+  .nav-logo {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 13px; letter-spacing: 0.25em;
+    color: var(--moon-glow); text-transform: uppercase;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .nav-logo .kanji { font-size: 22px; letter-spacing: 0.1em; color: var(--moon-gold); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    font-family: 'EB Garamond', serif;
+    font-size: 15px; font-weight: 400; letter-spacing: 0.1em;
+    color: var(--text-dim); text-decoration: none; text-transform: uppercase;
+    transition: color 0.3s ease; position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 50%;
+    width: 0; height: 1px; background: var(--moon-gold);
+    transition: all 0.3s ease; transform: translateX(-50%);
+  }
+  .nav-links a:hover { color: var(--moon-glow); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ===== HERO ===== */
+  .hero {
+    height: 100vh; position: relative;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 20%, rgba(42, 49, 88, 0.4) 0%, transparent 70%),
+      radial-gradient(ellipse 80% 60% at 30% 80%, rgba(26, 34, 64, 0.3) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0e1a 0%, #111729 40%, #1a2240 70%, #111729 100%);
+  }
+  .moon {
+    position: absolute; top: 12%; right: 18%; width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 40%, #F5EDE0 0%, #E8DCC8 40%, #C9A96E 100%);
+    box-shadow: 0 0 60px rgba(232,220,200,0.15), 0 0 120px rgba(201,169,110,0.08), 0 0 200px rgba(201,169,110,0.04);
+    animation: moonFloat 8s ease-in-out infinite, moonFadeIn 2s ease-out;
+    z-index: 1;
+  }
+  .moon::after {
+    content: ''; position: absolute; inset: -40px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,220,200,0.06) 0%, transparent 70%);
+  }
+  .stars { position: absolute; inset: 0; z-index: 0; }
+  .star {
+    position: absolute; width: 2px; height: 2px;
+    background: var(--moon-glow); border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+  .cloud { position: absolute; z-index: 2; opacity: 0.04; }
+  .cloud svg { fill: var(--moon-glow); }
+  .cloud-1 { top: 15%; left: -5%; animation: cloudDrift 40s linear infinite; }
+  .cloud-2 { top: 35%; right: -10%; animation: cloudDrift 55s linear infinite reverse; }
+  .cloud-3 { top: 60%; left: 10%; animation: cloudDrift 45s linear infinite; opacity: 0.025; }
+  .seigaiha {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 3; opacity: 0.06;
+    background:
+      radial-gradient(circle at 50% 100%, transparent 20px, rgba(201,169,110,0.3) 21px, transparent 22px) 0 0 / 44px 44px,
+      radial-gradient(circle at 50% 100%, transparent 14px, rgba(201,169,110,0.2) 15px, transparent 16px) 0 0 / 44px 44px,
+      radial-gradient(circle at 50% 100%, transparent 8px, rgba(201,169,110,0.15) 9px, transparent 10px) 0 0 / 44px 44px,
+      radial-gradient(circle at 50% 100%, transparent 20px, rgba(201,169,110,0.3) 21px, transparent 22px) 22px 22px / 44px 44px,
+      radial-gradient(circle at 50% 100%, transparent 14px, rgba(201,169,110,0.2) 15px, transparent 16px) 22px 22px / 44px 44px,
+      radial-gradient(circle at 50% 100%, transparent 8px, rgba(201,169,110,0.15) 9px, transparent 10px) 22px 22px / 44px 44px;
+    mask: linear-gradient(to top, black 0%, transparent 100%);
+    -webkit-mask: linear-gradient(to top, black 0%, transparent 100%);
+  }
+  .hero-content { position: relative; z-index: 10; animation: heroReveal 1.5s ease-out; }
+  .hero-kanji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 84px; font-weight: 700; color: var(--moon-glow);
+    letter-spacing: 0.15em; margin-bottom: 8px;
+    text-shadow: 0 0 80px rgba(232,220,200,0.1);
+    animation: kanjiReveal 2s ease-out;
+  }
+  .hero-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px; font-weight: 400; letter-spacing: 0.35em;
+    text-transform: uppercase; color: var(--moon-gold);
+    margin-bottom: 32px; animation: heroReveal 2s ease-out 0.3s both;
+  }
+  .hero-divider {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--moon-gold), transparent);
+    margin: 0 auto 28px; animation: heroReveal 2s ease-out 0.5s both;
+  }
+  .hero-subtitle {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 16px; font-weight: 300; color: var(--text-dim);
+    letter-spacing: 0.06em; line-height: 2;
+    max-width: 400px; margin: 0 auto 48px;
+    animation: heroReveal 2s ease-out 0.7s both;
+  }
+  .hero-cta {
+    display: inline-block; font-family: 'EB Garamond', serif;
+    font-size: 14px; font-weight: 500; letter-spacing: 0.25em;
+    text-transform: uppercase; color: var(--moon-gold); text-decoration: none;
+    border: 1px solid rgba(201,169,110,0.3); padding: 14px 40px;
+    transition: all 0.4s ease; animation: heroReveal 2s ease-out 0.9s both;
+  }
+  .hero-cta:hover {
+    background: rgba(201,169,110,0.08); border-color: var(--moon-gold);
+    box-shadow: 0 0 30px rgba(201,169,110,0.06);
+  }
+  .scroll-hint {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: scrollBounce 2s ease-in-out infinite, heroReveal 2s ease-out 1.5s both;
+  }
+  .scroll-hint span {
+    font-family: 'EB Garamond', serif;
+    font-size: 11px; letter-spacing: 0.2em; color: var(--text-dim); text-transform: uppercase;
+  }
+  .scroll-line { width: 1px; height: 32px; background: linear-gradient(to bottom, var(--moon-gold), transparent); }
+
+  /* ===== INTRO ===== */
+  .section { padding: 120px 48px; position: relative; }
+  .intro {
+    display: flex; align-items: center; justify-content: center;
+    gap: 80px; max-width: 1100px; margin: 0 auto;
+  }
+  .intro-visual { flex-shrink: 0; width: 300px; height: 400px; position: relative; }
+  .intro-frame {
+    width: 100%; height: 100%;
+    border: 1px solid rgba(201,169,110,0.15);
+    position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 60%, rgba(42,49,88,0.12) 0%, transparent 70%);
+  }
+  .intro-frame::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(201,169,110,0.08); }
+  .intro-illustration { opacity: 0.3; color: var(--moon-gold); }
+  .intro-stamp {
+    position: absolute; top: -16px; right: -16px; width: 64px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Noto Serif JP', serif; font-size: 24px;
+    color: #c4463a; border: 2px solid #c4463a; border-radius: 4px;
+    transform: rotate(8deg); opacity: 0.75; background: rgba(10,14,26,0.9);
+  }
+  .intro-text { max-width: 440px; }
+  .section-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--moon-gold); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--moon-gold); opacity: 0.4; }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 34px; font-weight: 400; color: var(--moon-glow);
+    margin-bottom: 24px; line-height: 1.4; letter-spacing: 0.02em;
+  }
+  .section-body {
+    font-family: 'Crimson Pro', serif;
+    font-size: 17px; font-weight: 300; line-height: 1.9;
+    color: var(--text-dim); letter-spacing: 0.01em;
+  }
+  .section-body p + p { margin-top: 16px; }
+
+  /* ===== DISHES ===== */
+  .dishes-section {
+    background: radial-gradient(ellipse 60% 40% at 50% 50%, rgba(42,49,88,0.15) 0%, transparent 70%);
+  }
+  .dishes-header { text-align: center; margin-bottom: 72px; }
+  .dishes-header .section-label { justify-content: center; }
+  .dishes-header .section-label::before { display: none; }
+  .dishes-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; max-width: 1100px; margin: 0 auto;
+  }
+  .dish-card {
+    position: relative; border: 1px solid rgba(201,169,110,0.1);
+    padding: 36px 24px 28px; text-align: center;
+    transition: all 0.5s ease; cursor: pointer; overflow: hidden;
+  }
+  .dish-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(201,169,110,0.03) 100%);
+    opacity: 0; transition: opacity 0.5s ease;
+  }
+  .dish-card:hover::before { opacity: 1; }
+  .dish-card:hover { border-color: rgba(201,169,110,0.25); transform: translateY(-4px); }
+  .dish-icon {
+    width: 52px; height: 52px; margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--moon-gold); opacity: 0.45; transition: opacity 0.4s ease;
+  }
+  .dish-card:hover .dish-icon { opacity: 0.8; }
+  .dish-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px; font-weight: 500; color: var(--moon-glow);
+    margin-bottom: 4px; letter-spacing: 0.04em;
+  }
+  .dish-name-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 12px; color: var(--moon-gold); opacity: 0.5;
+    margin-bottom: 16px; letter-spacing: 0.1em;
+  }
+  .dish-desc {
+    font-family: 'Crimson Pro', serif;
+    font-size: 14px; font-weight: 300; color: var(--text-dim); line-height: 1.7;
+  }
+  .dish-price {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px; color: var(--moon-gold); margin-top: 16px; letter-spacing: 0.05em;
+  }
+
+  /* ===== AMBIANCE ===== */
+  .ambiance-section {
+    padding: 0; display: grid; grid-template-columns: 1fr 1fr; min-height: 500px;
+  }
+  .ambiance-visual {
+    position: relative; display: grid;
+    grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 2px;
+  }
+  .ambiance-img {
+    background: var(--night-mid);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .ambiance-img::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(10,14,26,0.3) 0%, transparent 50%);
+  }
+  .ambiance-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-dim); opacity: 0.3; z-index: 1;
+  }
+  .pattern-asanoha {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-size: 40px 40px;
+    background-image:
+      linear-gradient(30deg, var(--moon-gold) 12%, transparent 12.5%, transparent 87%, var(--moon-gold) 87.5%),
+      linear-gradient(150deg, var(--moon-gold) 12%, transparent 12.5%, transparent 87%, var(--moon-gold) 87.5%),
+      linear-gradient(30deg, var(--moon-gold) 12%, transparent 12.5%, transparent 87%, var(--moon-gold) 87.5%),
+      linear-gradient(150deg, var(--moon-gold) 12%, transparent 12.5%, transparent 87%, var(--moon-gold) 87.5%),
+      linear-gradient(60deg, rgba(201,169,110,0.6) 25%, transparent 25.5%, transparent 75%, rgba(201,169,110,0.6) 75%),
+      linear-gradient(60deg, rgba(201,169,110,0.6) 25%, transparent 25.5%, transparent 75%, rgba(201,169,110,0.6) 75%);
+    background-position: 0 0, 0 0, 20px 20px, 20px 20px, 0 0, 20px 20px;
+  }
+  .pattern-lines {
+    position: absolute; inset: 0; opacity: 0.03;
+    background: repeating-linear-gradient(0deg, var(--moon-gold) 0px, var(--moon-gold) 1px, transparent 1px, transparent 12px);
+  }
+  .ambiance-text {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 64px;
+    background: radial-gradient(ellipse at 0% 50%, rgba(42,49,88,0.2) 0%, transparent 60%);
+  }
+  .ambiance-quote {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 26px; font-weight: 300; color: var(--moon-glow);
+    line-height: 1.7; margin-bottom: 24px;
+    position: relative; padding-left: 24px;
+    border-left: 2px solid rgba(201,169,110,0.2);
+  }
+  .ambiance-attr {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px; font-style: italic; letter-spacing: 0.15em;
+    color: var(--moon-gold); opacity: 0.5; padding-left: 24px;
+  }
+
+  /* ===== INFO ===== */
+  .info-section {
+    display: flex; max-width: 1100px; margin: 0 auto; gap: 80px;
+  }
+  .info-block { flex: 1; }
+  .info-block h3 {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--moon-gold); margin-bottom: 20px; opacity: 0.7;
+  }
+  .info-block p, .info-block address {
+    font-family: 'Crimson Pro', serif;
+    font-size: 16px; font-style: normal; color: var(--text-dim);
+    line-height: 2; letter-spacing: 0.01em;
+  }
+  .info-map {
+    flex: 1.2; min-height: 300px;
+    border: 1px solid rgba(201,169,110,0.1);
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(rgba(10,14,26,0.8), rgba(10,14,26,0.8)),
+      radial-gradient(circle at 50% 50%, var(--indigo) 0%, var(--night-deep) 100%);
+  }
+  .info-map-label {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px; letter-spacing: 0.15em; color: var(--text-dim);
+    text-transform: uppercase; opacity: 0.4;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 60px 48px 40px;
+    border-top: 1px solid rgba(201,169,110,0.06);
+  }
+  .footer-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .footer-brand .kanji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px; color: var(--moon-gold); opacity: 0.5; margin-bottom: 8px;
+  }
+  .footer-brand p {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px; letter-spacing: 0.2em; color: var(--text-dim);
+    text-transform: uppercase; opacity: 0.4;
+  }
+  .footer-links { display: flex; gap: 32px; list-style: none; }
+  .footer-links a {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px; letter-spacing: 0.1em; color: var(--text-dim);
+    text-decoration: none; text-transform: uppercase;
+    transition: color 0.3s ease; opacity: 0.5;
+  }
+  .footer-links a:hover { color: var(--moon-glow); opacity: 1; }
+  .footer-copy {
+    text-align: center; margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid rgba(201,169,110,0.04);
+    max-width: 1100px; margin-left: auto; margin-right: auto;
+  }
+  .footer-copy p {
+    font-family: 'EB Garamond', serif;
+    font-size: 11px; letter-spacing: 0.15em; color: var(--text-dim);
+    opacity: 0.25; text-transform: uppercase;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes moonFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+  @keyframes moonFadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes kanjiReveal { from { opacity: 0; transform: translateY(20px); letter-spacing: 0.3em; } to { opacity: 1; transform: translateY(0); letter-spacing: 0.15em; } }
+  @keyframes heroReveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes twinkle { 0%, 100% { opacity: 0.2; } 50% { opacity: 0.8; } }
+  @keyframes cloudDrift { from { transform: translateX(-100%); } to { transform: translateX(100vw); } }
+  @keyframes scrollBounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
+  .reveal { opacity: 0; transform: translateY(32px); transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { gap: 20px; }
+    .hero-kanji { font-size: 52px; }
+    .intro { flex-direction: column; gap: 48px; padding: 80px 24px; }
+    .intro-visual { width: 220px; height: 300px; }
+    .dishes-grid { grid-template-columns: repeat(2, 1fr); }
+    .ambiance-section { grid-template-columns: 1fr; }
+    .ambiance-text { padding: 48px 24px; }
+    .info-section { flex-direction: column; gap: 48px; }
+    .section { padding: 80px 24px; }
+  }
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero-kanji { font-size: 40px; }
+    .hero-title { font-size: 14px; letter-spacing: 0.2em; }
+    .dishes-grid { grid-template-columns: 1fr; max-width: 320px; }
+    .moon { width: 80px; height: 80px; top: 15%; right: 10%; }
+    .section-title { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="kanji">月見</span>
+    Tsukimi Ramen
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#verhaal">Ons Verhaal</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#sfeer">Sfeer</a></li>
+    <li><a href="#bezoek">Bezoek Ons</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="home">
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+  <div class="cloud cloud-1"><svg width="400" height="120" viewBox="0 0 400 120"><path d="M0,80 Q40,20 80,60 Q120,10 160,50 Q200,0 240,40 Q280,5 320,50 Q360,20 400,60 L400,120 L0,120 Z" /></svg></div>
+  <div class="cloud cloud-2"><svg width="500" height="100" viewBox="0 0 500 100"><path d="M0,60 Q50,10 100,50 Q150,0 200,40 Q250,10 300,50 Q350,0 400,45 Q450,15 500,55 L500,100 L0,100 Z" /></svg></div>
+  <div class="cloud cloud-3"><svg width="350" height="90" viewBox="0 0 350 90"><path d="M0,50 Q35,15 70,45 Q105,5 140,40 Q175,10 210,45 Q245,5 280,40 Q315,15 350,50 L350,90 L0,90 Z" /></svg></div>
+  <div class="seigaiha"></div>
+  <div class="hero-content">
+    <div class="hero-kanji">月見</div>
+    <div class="hero-title">Tsukimi Ramen</div>
+    <div class="hero-divider"></div>
+    <div class="hero-subtitle">Waar de kunst van bouillon bereiden<br>samenkomt met de rust van de maan</div>
+    <a href="#menu" class="hero-cta">Ontdek het Menu</a>
+  </div>
+  <div class="scroll-hint"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<section class="section" id="verhaal">
+  <div class="intro reveal">
+    <div class="intro-visual">
+      <div class="intro-frame">
+        <svg class="intro-illustration" width="160" height="160" viewBox="0 0 160 160" fill="none" stroke="currentColor" stroke-width="1.2">
+          <ellipse cx="80" cy="90" rx="60" ry="22" />
+          <path d="M20,90 Q20,130 80,130 Q140,130 140,90" />
+          <path d="M50,68 Q48,55 52,42" stroke-linecap="round" opacity="0.5" />
+          <path d="M80,62 Q78,48 82,34" stroke-linecap="round" opacity="0.6" />
+          <path d="M110,68 Q108,55 112,42" stroke-linecap="round" opacity="0.5" />
+          <ellipse cx="80" cy="84" rx="14" ry="10" opacity="0.7" />
+          <path d="M55,88 Q65,80 75,88 Q85,96 95,88" opacity="0.3" />
+          <line x1="105" y1="50" x2="130" y2="78" opacity="0.4" />
+          <line x1="110" y1="48" x2="135" y2="76" opacity="0.4" />
+        </svg>
+        <div class="intro-stamp">月見</div>
+      </div>
+    </div>
+    <div class="intro-text">
+      <div class="section-label">Ons Verhaal</div>
+      <h2 class="section-title">De traditie van<br>het maankijken</h2>
+      <div class="section-body">
+        <p>Tsukimi — het Japanse ritueel van maankijken — is een eeuwenoude viering van schoonheid in eenvoud. In de herfst verzamelen families zich om de volle maan te bewonderen, vergezeld door seizoensgerechten.</p>
+        <p>In onze keuken eren we deze traditie. Elke bowl vertelt een verhaal van geduld: bouillon die uren pruttelt, noedels die met zorg worden bereid, en het perfecte ei — onze eigen maan — als kroon op het geheel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section dishes-section" id="menu">
+  <div class="dishes-header reveal">
+    <div class="section-label">Signature Dishes</div>
+    <h2 class="section-title">Onze Specialiteiten</h2>
+  </div>
+  <div class="dishes-grid">
+    <div class="dish-card reveal">
+      <div class="dish-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor"><circle cx="22" cy="22" r="18" /></svg>
+      </div>
+      <div class="dish-name">Tsukimi Ramen</div>
+      <div class="dish-name-jp">月見ラーメン</div>
+      <div class="dish-desc">Onze signature bowl met 18-uurs tonkotsu bouillon en een perfect zacht eigeel</div>
+      <div class="dish-price">€16,50</div>
+    </div>
+    <div class="dish-card reveal" style="transition-delay: 0.1s">
+      <div class="dish-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor"><circle cx="22" cy="22" r="18" /><circle cx="28" cy="22" r="18" fill="var(--night-deep)" /></svg>
+      </div>
+      <div class="dish-name">Shoyu Classic</div>
+      <div class="dish-name-jp">醤油ラーメン</div>
+      <div class="dish-desc">Heldere sojasaus bouillon met kip, bamboescheuten en nori</div>
+      <div class="dish-price">€14,50</div>
+    </div>
+    <div class="dish-card reveal" style="transition-delay: 0.2s">
+      <div class="dish-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor"><path d="M22,4 A18,18 0 0,1 22,40 Z" /></svg>
+      </div>
+      <div class="dish-name">Miso Blaze</div>
+      <div class="dish-name-jp">味噌ラーメン</div>
+      <div class="dish-desc">Rijke miso met geroosterd varkensvlees, maïs en pittige rayu olie</div>
+      <div class="dish-price">€15,50</div>
+    </div>
+    <div class="dish-card reveal" style="transition-delay: 0.3s">
+      <div class="dish-icon">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="currentColor"><circle cx="22" cy="22" r="18" /><circle cx="30" cy="22" r="16" fill="var(--night-deep)" /></svg>
+      </div>
+      <div class="dish-name">Shio Zen</div>
+      <div class="dish-name-jp">塩ラーメン</div>
+      <div class="dish-desc">Delicaat zeezout met yuzu, venkel en verse vis van de dag</div>
+      <div class="dish-price">€15,00</div>
+    </div>
+  </div>
+</section>
+
+<section class="ambiance-section" id="sfeer">
+  <div class="ambiance-visual">
+    <div class="ambiance-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+      <div class="pattern-asanoha"></div>
+      <span class="ambiance-label">Interieur</span>
+    </div>
+    <div class="ambiance-img" style="background: linear-gradient(135deg, #0f1923, #1a2240);">
+      <div class="pattern-lines"></div>
+      <span class="ambiance-label">Lantaarns</span>
+    </div>
+    <div class="ambiance-img" style="background: linear-gradient(135deg, #1a1a2e, #111729); grid-column: span 2;">
+      <div class="pattern-asanoha" style="opacity: 0.025;"></div>
+      <span class="ambiance-label">Open Keuken</span>
+    </div>
+  </div>
+  <div class="ambiance-text reveal">
+    <div class="section-label">Sfeer & Beleving</div>
+    <div class="ambiance-quote">Eet onder het schijnsel van lantaarns, omringd door de rust van een Japanse herfstnacht</div>
+    <div class="ambiance-attr">— Tsukimi Ramen, Amsterdam</div>
+  </div>
+</section>
+
+<section class="section" id="bezoek">
+  <div class="info-section reveal">
+    <div class="info-block">
+      <h3>Openingstijden</h3>
+      <p>Maandag — Donderdag: 12:00 – 22:00<br>Vrijdag — Zaterdag: 12:00 – 23:00<br>Zondag: 13:00 – 21:00</p>
+    </div>
+    <div class="info-block">
+      <h3>Locatie</h3>
+      <address>Tsukimi Ramen<br>Reguliersdwarsstraat 42<br>1017 BM Amsterdam<br><br>+31 20 123 4567</address>
+    </div>
+    <div class="info-map"><span class="info-map-label">Google Maps — Embed</span></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="kanji">月見</div>
+      <p>Tsukimi Ramen — Amsterdam</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#verhaal">Verhaal</a></li>
+      <li><a href="#">Instagram</a></li>
+    </ul>
+  </div>
+  <div class="footer-copy"><p>&copy; 2026 Tsukimi Ramen. Alle rechten voorbehouden.</p></div>
+</footer>
+
+<script>
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 60; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 60 + '%';
+    star.style.width = (Math.random() * 2 + 1) + 'px';
+    star.style.height = star.style.width;
+    star.style.animationDelay = Math.random() * 3 + 's';
+    star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    starsContainer.appendChild(star);
+  }
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 80));
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
