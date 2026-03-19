@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Tsukimi Ramen</title>
+  <meta name="description" content="Tsukimi Ramen is a casual ramen spot above the busy streets of Damrak, Amsterdam.">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <input type="checkbox" id="nav-toggle" hidden>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><span>☽</span> Tsukimi</a>
+    <label for="nav-toggle" class="hamburger"></label>
+    <ul class="nav-links">
+      <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="tel:+31614351973" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button data-lang="en">EN</button>
+      <span class="lang-dot">·</span>
+      <button data-lang="nl">NL</button>
+      <span class="lang-dot">·</span>
+      <button data-lang="ja">日本語</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section about-section">
+      <div class="about-inner">
+        <p class="section-label" data-i18n="about.label">About us</p>
+        <h1>Tsukimi Ramen</h1>
+        <div class="about-body">
+          <p data-i18n="about.p1">
+            Tsukimi Ramen is a casual ramen spot located in the heart of Amsterdam,
+            on the second floor of Damrak 45 — inside At James, which has been
+            welcoming guests since 2011.
+          </p>
+          <p data-i18n="about.p2">
+            Inspired by the energy of the city, we offer a simple and welcoming space
+            just above the busy streets. Step upstairs and take a break from the crowds.
+          </p>
+          <p data-i18n="about.p3">
+            Our focus is on fresh, quality ramen made for a quick, comfortable meal
+            in the city.
+          </p>
+        </div>
+        <div class="about-ctas">
+          <a href="menu.html" class="btn btn-outline" data-i18n="about.viewMenu">View our menu</a>
+          <a href="tel:+31614351973" class="btn btn-gold" data-i18n="about.reserve">Reserve a table</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bg-kanji" aria-hidden="true">月見</div>
+    <div class="footer-moon" aria-hidden="true"></div>
+    <div class="footer-logo"><img src="images/tsukimi_ramen_logo_transparant.png" alt="Tsukimi Ramen"></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener">@tsukimi_ramen</a>
+      <a href="menu.html" data-i18n="footer.menu">Menu</a>
+      <a href="about.html" data-i18n="footer.about">About</a>
+    </div>
+    <div class="footer-info">
+      Damrak 45, Floor 2 · Amsterdam<br>
+      Open daily 09:00 – 23:00 · <a href="tel:+31614351973">06 14 35 19 73</a>
+    </div>
+    <div class="footer-copy">© 2026 Tsukimi Ramen</div>
+  </footer>
+
+  <script src="js/i18n.js"></script>
+</body>
+</html>

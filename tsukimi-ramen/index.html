@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tsukimi Ramen — Amsterdam</title>
+  <meta name="description" content="Authentic ramen upstairs in the heart of Amsterdam. Walk in or reserve your table at Damrak 45, Floor 2.">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <input type="checkbox" id="nav-toggle" hidden>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-logo"><span>☽</span> Tsukimi</a>
+    <label for="nav-toggle" class="hamburger"></label>
+    <ul class="nav-links">
+      <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="tel:+31614351973" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button data-lang="en">EN</button>
+      <span class="lang-dot">·</span>
+      <button data-lang="nl">NL</button>
+      <span class="lang-dot">·</span>
+      <button data-lang="ja">日本語</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <!-- Background floating Japanese text -->
+      <span class="hero-bg-text hero-bg-1">月見</span>
+      <span class="hero-bg-text hero-bg-2">ラーメン</span>
+      <span class="hero-bg-text hero-bg-3">月見</span>
+
+      <!-- Left -->
+      <div class="hero-left">
+        <img src="images/tsukimi_ramen_logo_transparant.png" alt="Tsukimi Ramen" class="hero-logo">
+        <p class="hero-tagline" data-i18n-html="hero.tagline">A ramen break upstairs<br>in the heart of Amsterdam</p>
+        <div class="hero-divider"></div>
+        <p class="hero-address" data-i18n-html="hero.address">Damrak 45 · Floor 2<br>Amsterdam</p>
+      </div>
+
+      <!-- Center: bowl -->
+      <div class="hero-center">
+        <div class="steam-container">
+          <span class="steam steam-1"></span>
+          <span class="steam steam-2"></span>
+          <span class="steam steam-3"></span>
+          <span class="steam steam-4"></span>
+        </div>
+        <img src="images/pork-bone-ramen-nobg.png" alt="Tonkotsu Ramen" class="hero-bowl">
+      </div>
+
+      <!-- Right -->
+      <div class="hero-right">
+        <a href="tel:+31614351973" class="btn btn-gold" data-i18n="hero.reserveBtn">Reserve a table</a>
+        <a href="menu.html" class="btn btn-outline" data-i18n="hero.viewMenu">View Menu</a>
+        <p class="hero-hours" data-i18n-html="hero.hours">Open daily<br>09:00 – 23:00</p>
+      </div>
+
+      <div class="hero-arrow" aria-hidden="true"></div>
+    </section>
+
+    <!-- MENU PREVIEW -->
+    <section class="section menu-preview" style="padding-top: 40px;">
+      <div class="menu-preview-header reveal">
+        <p class="section-label" data-i18n="menuPreview.label">A taste of what's upstairs</p>
+        <h2 data-i18n-html="menuPreview.heading">Fresh, simple <em>ramen.</em></h2>
+      </div>
+      <div class="menu-preview-grid">
+
+        <div class="preview-card reveal reveal-delay-1">
+          <div class="preview-card-shine"></div>
+          <div class="preview-card-img" style="background-image: url('images/pork-bone-ramen-nobg.png')"></div>
+          <div class="preview-card-body">
+            <h3 data-i18n="card.tonkotsu.name">Tonkotsu Ramen</h3>
+            <p class="preview-card-jp">豚骨ラーメン</p>
+            <p data-i18n="card.tonkotsu.desc">Rich pork bone broth with noodles, chashu pork, bok choy and soft-boiled egg</p>
+            <span class="preview-price">€19.95</span>
+          </div>
+        </div>
+
+        <div class="preview-card reveal reveal-delay-2">
+          <div class="preview-card-shine"></div>
+          <div class="preview-card-img" style="background-image: url('images/chicken-ramen-nobg.png')"></div>
+          <div class="preview-card-body">
+            <h3 data-i18n="card.chicken.name">Chicken Ramen</h3>
+            <p class="preview-card-jp">チキンラーメン</p>
+            <p data-i18n="card.chicken.desc">Clear chicken broth with noodles, chicken fillet, bok choy and soft-boiled egg</p>
+            <span class="preview-price">€18.95</span>
+          </div>
+        </div>
+
+        <div class="preview-card reveal reveal-delay-3">
+          <div class="preview-card-shine"></div>
+          <div class="preview-card-img" style="background-image: url('images/shrimp-miso-ramen-nobg.png'); background-size: 58%;"></div>
+          <div class="preview-card-body">
+            <h3 data-i18n="card.shrimp.name">Shrimp Miso Ramen</h3>
+            <p class="preview-card-jp">エビ味噌ラーメン</p>
+            <p data-i18n="card.shrimp.desc">Miso broth with noodles, fried shrimp, bok choy and soft-boiled egg</p>
+            <span class="preview-price">€19.95</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="menu-preview-cta reveal">
+        <a href="menu.html" class="btn btn-outline" data-i18n="menuPreview.cta">Our Ramen &rarr;</a>
+      </div>
+    </section>
+
+    <!-- DIVIDER: Moon phases -->
+    <div class="svg-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="180" y1="30" x2="1020" y2="30" stroke="#d4943a" stroke-width="0.4" opacity="0.25"/>
+        <circle cx="270" cy="30" r="10" stroke="#d4943a" stroke-width="1" opacity="0.5"/>
+        <path d="M 420,18 A 12,12 0,0,0 420,42 A 7,12 0,0,1 420,18 Z" stroke="#d4943a" stroke-width="1.1" fill="#d4943a" fill-opacity="0.08"/>
+        <circle cx="600" cy="30" r="16" stroke="#d4943a" stroke-width="1.4"/>
+        <circle cx="600" cy="30" r="16" fill="#d4943a" fill-opacity="0.06"/>
+        <circle cx="600" cy="30" r="10" stroke="#d4943a" stroke-width="0.4" opacity="0.3"/>
+        <path d="M 780,18 A 12,12 0,0,1 780,42 A 7,12 0,0,0 780,18 Z" stroke="#d4943a" stroke-width="1.1" fill="#d4943a" fill-opacity="0.08"/>
+        <circle cx="930" cy="30" r="10" stroke="#d4943a" stroke-width="1" opacity="0.5"/>
+        <circle cx="345" cy="30" r="2" fill="#d4943a" opacity="0.3"/>
+        <circle cx="510" cy="30" r="2" fill="#d4943a" opacity="0.3"/>
+        <circle cx="690" cy="30" r="2" fill="#d4943a" opacity="0.3"/>
+        <circle cx="855" cy="30" r="2" fill="#d4943a" opacity="0.3"/>
+      </svg>
+    </div>
+
+    <!-- CONCEPT -->
+    <section class="section-center concept">
+      <p class="section-label" data-i18n="concept.label">Our story</p>
+      <p class="concept-text" data-i18n="concept.text">
+        Located just above the busy streets of Damrak, Tsukimi Ramen offers a quiet escape
+        in the heart of Amsterdam. Step upstairs and enjoy a warm, casual ramen experience
+        away from the crowds.
+      </p>
+    </section>
+
+    <!-- RESERVE CTA -->
+    <section class="reserve-cta section-full">
+      <div class="reserve-cta-inner reveal">
+        <p class="section-label" data-i18n="reserve.label">Reservations</p>
+        <h2 data-i18n-html="reserve.heading"><em>Reserve your</em> table</h2>
+        <p class="reserve-sub" data-i18n="reserve.sub">Skip the wait and secure your spot upstairs.</p>
+        <a href="tel:+31614351973" class="btn btn-gold" data-i18n="reserve.btn">Reserve now</a>
+        <p class="reserve-note" data-i18n="reserve.note">We'll integrate online reservations soon.</p>
+      </div>
+      <div class="svg-divider reserve-cta-clouds" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="#d4943a" stroke-width="1.1" stroke-linecap="round" fill="none">
+            <path d="M 80,45 A 14,14 0,0,1 108,36 A 18,18 0,0,1 140,30 A 16,16 0,0,1 168,38 A 12,12 0,0,1 186,45"/>
+            <line x1="80" y1="45" x2="186" y2="45" stroke-width="0.5" opacity="0.4"/>
+            <path d="M 430,45 A 16,16 0,0,1 462,33 A 22,22 0,0,1 504,26 A 20,20 0,0,1 546,30 A 18,18 0,0,1 576,38 A 14,14 0,0,1 600,45"/>
+            <line x1="430" y1="45" x2="600" y2="45" stroke-width="0.5" opacity="0.4"/>
+            <path d="M 600,45 A 14,14 0,0,1 624,38 A 18,18 0,0,1 654,30 A 20,20 0,0,1 696,26 A 22,22 0,0,1 738,33 A 16,16 0,0,1 770,45"/>
+            <line x1="600" y1="45" x2="770" y2="45" stroke-width="0.5" opacity="0.4"/>
+            <path d="M 1014,45 A 12,12 0,0,1 1032,38 A 16,16 0,0,1 1060,30 A 18,18 0,0,1 1092,36 A 14,14 0,0,1 1120,45"/>
+            <line x1="1014" y1="45" x2="1120" y2="45" stroke-width="0.5" opacity="0.4"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="section location">
+      <div class="location-inner">
+        <div class="location-text">
+          <p class="section-label" data-i18n="location.label">Find us</p>
+          <h2 data-i18n-html="location.heading">We're <em>upstairs</em></h2>
+          <p class="location-desc" data-i18n-html="location.desc">
+            Located inside At James on Damrak 45, floor 2.<br>
+            Step upstairs and discover Tsukimi Ramen.
+          </p>
+          <div class="location-details">
+            <div class="location-item">
+              <span class="location-key" data-i18n="location.addrKey">Address</span>
+              <span data-i18n="location.addrVal">Damrak 45, Floor 2, Amsterdam</span>
+            </div>
+            <div class="location-item">
+              <span class="location-key" data-i18n="location.hoursKey">Hours</span>
+              <span data-i18n="location.hoursVal">09:00 – 23:00 daily</span>
+            </div>
+            <div class="location-item">
+              <span class="location-key" data-i18n="location.phoneKey">Phone</span>
+              <a href="tel:+31614351973">06 14 35 19 73</a>
+            </div>
+          </div>
+          <div class="location-note">
+            <p data-i18n-html="location.note"><strong>Look for At James on Damrak 45</strong> — we're on the second floor. Take the stairs up and you'll find us.</p>
+          </div>
+        </div>
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.5534019849056!2d4.892776!3d52.376032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c609c3b1c80d31%3A0x3ad09050dbdd3e3a!2sDamrak%2045%2C%201012%20LK%20Amsterdam!5e0!3m2!1snl!2snl!4v1710850000000!5m2!1snl!2snl"
+            width="100%" height="350" style="border:0;"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-bg-kanji" aria-hidden="true">月見</div>
+    <div class="footer-moon" aria-hidden="true"></div>
+    <div class="footer-logo"><img src="images/tsukimi_ramen_logo_transparant.png" alt="Tsukimi Ramen"></div>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener">@tsukimi_ramen</a>
+      <a href="menu.html" data-i18n="footer.menu">Menu</a>
+      <a href="about.html" data-i18n="footer.about">About</a>
+    </div>
+    <div class="footer-info">
+      Damrak 45, Floor 2 · Amsterdam<br>
+      Open daily 09:00 – 23:00 · <a href="tel:+31614351973">06 14 35 19 73</a>
+    </div>
+    <div class="footer-copy">© 2026 Tsukimi Ramen</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // 3D card tilt + shine
+    if (window.innerWidth > 768) {
+      document.querySelectorAll('.preview-card').forEach(card => {
+        const shine = card.querySelector('.preview-card-shine');
+        card.addEventListener('mousemove', (e) => {
+          const r = card.getBoundingClientRect();
+          const x = e.clientX - r.left, y = e.clientY - r.top;
+          const rx = ((y - r.height/2) / r.height) * -6;
+          const ry = ((x - r.width/2) / r.width) * 6;
+          card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(8px)`;
+          if (shine) {
+            shine.style.setProperty('--shine-x', (x/r.width*100)+'%');
+            shine.style.setProperty('--shine-y', (y/r.height*100)+'%');
+          }
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
+        });
+      });
+    }
+  </script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>
