@@ -53,6 +53,7 @@
       'location.note': "<strong>Look for At James on Damrak 45</strong> \u2014 we're on the second floor. Take the stairs up and you'll find us.",
 
       /* Footer */
+      'footer.tagline': 'Ramen upstairs in the heart of Amsterdam',
       'footer.menu': 'Menu',
       'footer.about': 'About',
 
@@ -176,6 +177,7 @@
       'location.note': '<strong>Zoek naar At James op Damrak 45</strong> \u2014 wij zitten op de tweede verdieping. Neem de trap omhoog en je vindt ons.',
 
       /* Footer */
+      'footer.tagline': 'Ramen boven in het hart van Amsterdam',
       'footer.menu': 'Menu',
       'footer.about': 'Over ons',
 
@@ -299,6 +301,7 @@
       'location.note': '<strong>\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u3092\u304a\u63a2\u3057\u304f\u3060\u3055\u3044</strong> \u2014 2\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002\u968e\u6bb5\u3092\u4e0a\u304c\u308b\u3068\u3059\u3050\u898b\u3064\u304b\u308a\u307e\u3059\u3002',
 
       /* Footer */
+      'footer.tagline': 'アムステルダムの中心で、上の階のラーメン',
       'footer.menu': '\u30e1\u30cb\u30e5\u30fc',
       'footer.about': '\u79c1\u305f\u3061\u306b\u3064\u3044\u3066',
 
