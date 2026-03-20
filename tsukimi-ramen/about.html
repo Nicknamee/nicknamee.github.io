@@ -11,11 +11,11 @@
 <body>
 
   <!-- NAV -->
-  <input type="checkbox" id="nav-toggle" hidden>
   <nav class="site-nav">
     <a href="index.html" class="nav-logo"><span>☽</span> Tsukimi</a>
-    <label for="nav-toggle" class="hamburger"></label>
+    <button class="hamburger" id="nav-toggle-btn" aria-label="Menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
     <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
       <li><a href="tel:+31614351973" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>

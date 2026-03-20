@@ -7,6 +7,7 @@
   var t = {
     en: {
       /* Nav */
+      'nav.home': 'Home',
       'nav.menu': 'Menu',
       'nav.about': 'About',
       'nav.reserve': 'Reserve',
@@ -129,6 +130,7 @@
 
     nl: {
       /* Nav */
+      'nav.home': 'Home',
       'nav.menu': 'Menu',
       'nav.about': 'Over ons',
       'nav.reserve': 'Reserveer',
@@ -251,6 +253,7 @@
 
     ja: {
       /* Nav */
+      'nav.home': 'ホーム',
       'nav.menu': '\u30e1\u30cb\u30e5\u30fc',
       'nav.about': '\u79c1\u305f\u3061\u306b\u3064\u3044\u3066',
       'nav.reserve': '\u4e88\u7d04',
@@ -394,12 +397,27 @@
     document.documentElement.lang = lang === 'ja' ? 'ja' : (lang === 'nl' ? 'nl' : 'en');
   }
 
+  function initHamburger() {
+    var btn = document.getElementById('nav-toggle-btn');
+    var nav = document.querySelector('.site-nav');
+    if (!btn || !nav) return;
+    btn.addEventListener('click', function() {
+      nav.classList.toggle('nav-open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        nav.classList.remove('nav-open');
+      });
+    });
+  }
+
   function init() {
     var saved = localStorage.getItem('tsukimi-lang') || 'en';
     applyLang(saved);
     document.querySelectorAll('.lang-switcher button').forEach(function(btn) {
       btn.addEventListener('click', function() { applyLang(btn.dataset.lang); });
     });
+    initHamburger();
   }
 
   if (document.readyState === 'loading') {
