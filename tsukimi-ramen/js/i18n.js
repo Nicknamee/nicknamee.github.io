@@ -80,11 +80,17 @@
       /* Menu – Sides */
       'sides.seaweed': 'Seasoned seaweed salad',
       'sides.edamame': 'Edamame',
-      'sides.kimchi': 'Kimchi <em>(Korean fermented vegetables)</em>',
+      'sides.kimchi': 'Kimchi',
+      'sides.kimchi.note': 'Korean fermented vegetables',
       'sides.eggs': 'Soft boiled seasoned eggs',
       'sides.dumplings': 'Pan-fried chicken dumplings',
       'sides.gyoza': 'Pan-fried vegetable gyoza',
-      'sides.pancake': 'Japanese savory pancake sticks (2 pieces)',
+      'sides.pancake': 'Japanese savory pancake sticks',
+      'sides.pancake.note': '2 pieces',
+      'sides.dumplings.note': '5× or 10×',
+      'sides.gyoza.note': '5× or 10×',
+
+      'ramen.intro': 'We make our broths fresh every day — slow-cooked for hours so every bowl is packed with flavour. Pick your favourite and enjoy it upstairs, away from the busy streets below.',
 
       /* Menu – Fried */
       'fried.octopus': 'Octopus balls (4 pieces)',
@@ -205,11 +211,17 @@
       /* Menu – Sides */
       'sides.seaweed': 'Gekruide zeewier salade',
       'sides.edamame': 'Edamame',
-      'sides.kimchi': 'Kimchi <em>(Koreaanse gefermenteerde groenten)</em>',
+      'sides.kimchi': 'Kimchi',
+      'sides.kimchi.note': 'Koreaanse gefermenteerde groenten',
       'sides.eggs': 'Zacht gekookte gemarineerde eieren',
       'sides.dumplings': 'Gebakken kip dumplings',
       'sides.gyoza': 'Gebakken groente gyoza',
-      'sides.pancake': 'Japanse hartige pannenkoekstokjes (2 stuks)',
+      'sides.pancake': 'Japanse hartige pannenkoekstokjes',
+      'sides.pancake.note': '2 stuks',
+      'sides.dumplings.note': '5× of 10×',
+      'sides.gyoza.note': '5× of 10×',
+
+      'ramen.intro': 'We maken onze bouillons elke dag vers — urenlang langzaam gekookt zodat elke kom vol smaak zit. Kies je favoriet en geniet ervan boven, weg van de drukte beneden.',
 
       /* Menu – Fried */
       'fried.octopus': 'Octopusballen (4 stuks)',
@@ -330,11 +342,17 @@
       /* Menu – Sides */
       'sides.seaweed': '\u5473\u4ed8\u3051\u6d77\u85fb\u30b5\u30e9\u30c0',
       'sides.edamame': '\u679d\u8c46',
-      'sides.kimchi': '\u30ad\u30e0\u30c1 <em>\uff08\u97d3\u56fd\u767a\u9175\u91ce\u83dc\uff09</em>',
+      'sides.kimchi': '\u30ad\u30e0\u30c1',
+      'sides.kimchi.note': '\u97d3\u56fd\u767a\u9175\u91ce\u83dc',
       'sides.eggs': '\u5473\u4ed8\u3051\u534a\u71df\u5375',
       'sides.dumplings': '\u713c\u304d\u9d8f\u8089\u9913\u5b50',
       'sides.gyoza': '\u713c\u304d\u91ce\u83dc\u9913\u5b50',
-      'sides.pancake': '\u304a\u597d\u307f\u713c\u304d\u30b9\u30c6\u30a3\u30c3\u30af\uff082\u672c\uff09',
+      'sides.pancake': '\u304a\u597d\u307f\u713c\u304d\u30b9\u30c6\u30a3\u30c3\u30af',
+      'sides.pancake.note': '2\u672c',
+      'sides.dumplings.note': '5\u500b\u307e\u305f\u306f10\u500b',
+      'sides.gyoza.note': '5\u500b\u307e\u305f\u306f10\u500b',
+
+      'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f2\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
 
       /* Menu – Fried */
       'fried.octopus': '\u305f\u3053\u713c\u304d\uff084\u500b\uff09',
