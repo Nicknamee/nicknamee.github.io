@@ -1,0 +1,77 @@
+<h2>Hoe wil je de foto strip stylen?</h2>
+<p class="subtitle">Drie opties voor de 3 sfeerfotos op de homepagina</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px;">
+        <div style="height:80px;background:#201810;overflow:hidden;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.8),transparent);"></div>
+          <div style="position:absolute;bottom:6px;left:8px;font-size:0.45rem;color:#d4943a;letter-spacing:2px;text-transform:uppercase;">Sfeer</div>
+        </div>
+        <div style="height:80px;background:#2a1a08;overflow:hidden;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.8),transparent);"></div>
+          <div style="position:absolute;bottom:6px;left:8px;font-size:0.45rem;color:#d4943a;letter-spacing:2px;text-transform:uppercase;">Restaurant</div>
+        </div>
+        <div style="height:80px;background:#1a1208;overflow:hidden;position:relative;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.8),transparent);"></div>
+          <div style="position:absolute;bottom:6px;left:8px;font-size:0.45rem;color:#d4943a;letter-spacing:2px;text-transform:uppercase;">Neon</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Grid met labels</h3>
+      <p>3 gelijke kolommen, elk met een gouden label onderaan. Strak en informatief.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:16px;">
+      <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:3px;height:100px;">
+        <div style="background:#201810;height:100px;position:relative;overflow:hidden;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.6),transparent);"></div>
+        </div>
+        <div style="display:grid;grid-template-rows:1fr 1fr;gap:3px;">
+          <div style="background:#2a1a08;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.6),transparent);"></div>
+          </div>
+          <div style="background:#1a1208;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(14,9,6,0.6),transparent);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Grote + kleine foto's</h3>
+      <p>Eén grote foto links, twee kleinere rechts gestapeld. Meer dynamisch en visueel interessant.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:16px;">
+      <div style="position:relative;overflow:hidden;border-radius:2px;">
+        <div style="display:flex;gap:3px;height:90px;">
+          <div style="flex:1;background:#201810;position:relative;overflow:hidden;filter:grayscale(0.4);">
+            <div style="position:absolute;inset:0;background:rgba(212,148,58,0.08);"></div>
+          </div>
+          <div style="flex:1;background:#2a1a08;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:rgba(212,148,58,0.04);"></div>
+          </div>
+          <div style="flex:1;background:#1a1208;position:relative;overflow:hidden;filter:grayscale(0.4);">
+            <div style="position:absolute;inset:0;background:rgba(212,148,58,0.08);"></div>
+          </div>
+        </div>
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;white-space:nowrap;">
+          <div style="font-size:0.45rem;letter-spacing:3px;color:#d4943a;text-transform:uppercase;">Tsukimi Ramen</div>
+          <div style="font-size:0.65rem;color:#f0ede6;font-family:serif;font-style:italic;">Damrak 45 · Floor 2</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Strip met tekst overlay</h3>
+      <p>Foto's naast elkaar met een centrale tekst overlay eroverheen. Cinematic en stijlvol.</p>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu Ontwerp Preview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Inter:wght@400;500&display=swap');
+  :root {
+    --bg: #0e0906; --surface: #1a1208; --surface-2: #201810;
+    --gold: #d4943a; --gold-light: #e8b86d; --gold-border: rgba(212,148,58,0.2);
+    --text: #f0ede6; --muted: #888880;
+    --font-head: 'Cormorant Garamond', serif; --font-body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #1a1a2e; font-family: var(--font-body); display: flex; flex-direction: column; align-items: center; padding: 24px; gap: 16px; }
+  .label { font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #d4943a; margin-bottom: 16px; text-align: center; }
+  .preview-wrap { width: 100%; max-width: 860px; background: var(--bg); border-radius: 6px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6); }
+
+  /* NAV */
+  .nav { background: var(--bg); border-bottom: 1px solid var(--gold-border); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 52px; }
+  .nav-logo { font-family: var(--font-head); font-size: 1rem; letter-spacing: 3px; text-transform: uppercase; color: var(--text); }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 20px; list-style: none; }
+  .nav-links a { font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); text-decoration: none; }
+  .nav-links .active { color: var(--text); }
+  .nav-links .reserve { background: var(--gold); color: #0e0906; padding: 6px 14px; border-radius: 2px; font-weight: 500; }
+
+  /* PAGE HEADER */
+  .page-header { text-align: center; padding: 40px 24px 32px; border-bottom: 1px solid var(--gold-border); }
+  .page-header h1 { font-family: var(--font-head); font-weight: 300; font-size: 2.4rem; color: var(--text); }
+
+  /* SECTION */
+  .section { padding: 40px 32px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+  .section:last-child { border-bottom: none; }
+
+  /* CATEGORY HEADER */
+  .cat-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--gold-border); }
+  .cat-header h2 { font-family: var(--font-head); font-weight: 300; font-size: 1.8rem; color: var(--text); }
+  .cat-header .jp { font-size: 0.7rem; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; }
+
+  /* RAMEN GRID */
+  .ramen-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .ramen-card { background: var(--surface); border: 1px solid rgba(212,148,58,0.12); border-radius: 3px; overflow: hidden; }
+  .ramen-card:hover { border-color: rgba(212,148,58,0.28); }
+  .ramen-card-img { height: 160px; background: var(--surface-2); display: flex; align-items: center; justify-content: center; font-size: 3.5rem; }
+  .ramen-card-body { padding: 16px; }
+  .ramen-card-body h3 { font-family: var(--font-head); font-weight: 300; font-size: 1.1rem; color: var(--text); margin-bottom: 2px; }
+  .ramen-jp { font-size: 0.6rem; letter-spacing: 2px; color: rgba(212,148,58,0.55); margin-bottom: 8px; display: block; }
+  .ramen-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
+  .ramen-price { font-size: 0.85rem; color: var(--gold); font-weight: 500; }
+
+  /* MENU ITEMS (stacked blocks) */
+  .menu-list { display: flex; flex-direction: column; gap: 6px; }
+  .menu-item { display: flex; align-items: center; gap: 14px; padding: 12px; background: var(--surface); border: 1px solid rgba(212,148,58,0.08); border-radius: 3px; transition: border-color 0.2s; }
+  .menu-item:hover { border-color: rgba(212,148,58,0.2); }
+  .menu-item-img { width: 72px; height: 72px; background: var(--surface-2); border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+  .menu-item-info { flex: 1; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+  .menu-item-name { font-size: 0.82rem; color: var(--text); }
+  .menu-item-sub { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+  .menu-price { font-size: 0.8rem; color: var(--gold); font-weight: 500; white-space: nowrap; }
+
+  /* TOPPINGS */
+  .toppings-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
+  .topping-item { display: flex; justify-content: space-between; padding: 8px 12px; background: var(--surface); border: 1px solid rgba(212,148,58,0.06); border-radius: 3px; font-size: 0.78rem; }
+  .topping-item span:first-child { color: var(--muted); }
+  .topping-item span:last-child { color: var(--gold); font-weight: 500; }
+
+  p.note { text-align: center; font-size: 0.7rem; color: var(--muted); margin-top: 16px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<p class="label">✦ Volledig ontwerp preview ✦</p>
+
+<div class="preview-wrap">
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo"><span>☽</span> Tsukimi</div>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#" class="active">Menu</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#" class="reserve">Reserve</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="label">メニュー</p>
+    <h1>Our Menu</h1>
+  </div>
+
+  <!-- RAMEN -->
+  <div class="section">
+    <div class="cat-header">
+      <h2>Ramen</h2>
+      <span class="jp">ラーメン</span>
+    </div>
+    <div class="ramen-grid">
+      <div class="ramen-card">
+        <div class="ramen-card-img">🍜</div>
+        <div class="ramen-card-body">
+          <h3>Tonkotsu Ramen</h3>
+          <span class="ramen-jp">とんこつラーメン</span>
+          <p class="ramen-desc">Rich pork bone broth with noodles, chashu pork, bok choy, soft-boiled egg</p>
+          <span class="ramen-price">€19.95</span>
+        </div>
+      </div>
+      <div class="ramen-card">
+        <div class="ramen-card-img">🍜</div>
+        <div class="ramen-card-body">
+          <h3>Chicken Ramen</h3>
+          <span class="ramen-jp">チキンラーメン</span>
+          <p class="ramen-desc">Clear chicken broth with noodles, chicken fillet, bok choy, soft-boiled egg</p>
+          <span class="ramen-price">€18.95</span>
+        </div>
+      </div>
+      <div class="ramen-card">
+        <div class="ramen-card-img">🍜</div>
+        <div class="ramen-card-body">
+          <h3>Shrimp Miso Ramen</h3>
+          <span class="ramen-jp">えびみそラーメン</span>
+          <p class="ramen-desc">Miso broth with noodles, fried shrimp, bok choy, soft-boiled egg</p>
+          <span class="ramen-price">€19.95</span>
+        </div>
+      </div>
+      <div class="ramen-card">
+        <div class="ramen-card-img">🥬</div>
+        <div class="ramen-card-body">
+          <h3>Vegetable Soy-Sauce Ramen</h3>
+          <span class="ramen-jp">野菜醤油ラーメン</span>
+          <p class="ramen-desc">Soy sauce broth with noodles, bok choy, corn, broccoli, bamboo shoots</p>
+          <span class="ramen-price">€17.95</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDES -->
+  <div class="section">
+    <div class="cat-header">
+      <h2>Side Dishes</h2>
+      <span class="jp">サイドメニュー</span>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div class="menu-item-img">🥗</div>
+        <div class="menu-item-info">
+          <div><div class="menu-item-name">Seasoned seaweed salad</div></div>
+          <span class="menu-price">€7.95</span>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-img">🫛</div>
+        <div class="menu-item-info">
+          <div><div class="menu-item-name">Edamame</div></div>
+          <span class="menu-price">€7.50</span>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-img">🥬</div>
+        <div class="menu-item-info">
+          <div><div class="menu-item-name">Kimchi <em style="color:var(--muted);font-size:0.75rem;">(Korean fermented vegetables)</em></div></div>
+          <span class="menu-price">€6.50</span>
+        </div>
+      </div>
+      <div class="menu-item">
+        <div class="menu-item-img">🥟</div>
+        <div class="menu-item-info">
+          <div><div class="menu-item-name">Pan-fried chicken dumplings</div></div>
+          <span class="menu-price">€7.50 (5×) / €14.50 (10×)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPPINGS -->
+  <div class="section">
+    <div class="cat-header">
+      <h2>Extra Toppings</h2>
+      <span class="jp">トッピング</span>
+    </div>
+    <div class="toppings-grid">
+      <div class="topping-item"><span>Chashu pork (3×)</span><span>€3.50</span></div>
+      <div class="topping-item"><span>Chicken fillet (3×)</span><span>€3.00</span></div>
+      <div class="topping-item"><span>Shrimp (3×)</span><span>€3.50</span></div>
+      <div class="topping-item"><span>Ajitama egg</span><span>€1.50</span></div>
+      <div class="topping-item"><span>Scallions</span><span>€1.00</span></div>
+      <div class="topping-item"><span>Corn</span><span>€1.00</span></div>
+    </div>
+  </div>
+
+</div>
+
+<p class="note">Dit is een preview met emoji's als placeholder — echte afbeeldingen worden gebruikt in de implementatie</p>
+
+</body>
+</html>

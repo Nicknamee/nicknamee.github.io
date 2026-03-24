@@ -59,6 +59,7 @@
 
       /* Menu page */
       'menu.pageTitle': 'Our Menu',
+      'menu.subtitle': 'Fresh ramen upstairs in the heart of Amsterdam',
       'menu.ramenCat': 'Ramen',
       'menu.sidesCat': 'Side Dishes',
       'menu.friedCat': 'Fried Dishes',
@@ -183,6 +184,7 @@
 
       /* Menu page */
       'menu.pageTitle': 'Ons Menu',
+      'menu.subtitle': 'Verse ramen op de tweede verdieping in het hart van Amsterdam',
       'menu.ramenCat': 'Ramen',
       'menu.sidesCat': 'Bijgerechten',
       'menu.friedCat': 'Gefrituurde Gerechten',
@@ -307,6 +309,7 @@
 
       /* Menu page */
       'menu.pageTitle': '\u30e1\u30cb\u30e5\u30fc',
+      'menu.subtitle': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u30012\u968e\u3067\u65b0\u9bae\u306a\u30e9\u30fc\u30e1\u30f3\u3092',
       'menu.ramenCat': '\u30e9\u30fc\u30e1\u30f3',
       'menu.sidesCat': '\u30b5\u30a4\u30c9\u30e1\u30cb\u30e5\u30fc',
       'menu.friedCat': '\u63da\u3052\u7269',

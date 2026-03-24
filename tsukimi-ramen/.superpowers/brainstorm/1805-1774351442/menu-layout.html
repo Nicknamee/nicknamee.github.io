@@ -1,0 +1,130 @@
+<h2>Welke menu stijl spreekt je aan?</h2>
+<p class="subtitle">Kies een layout richting voor de menupagina</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:20px;font-family:serif;">
+      <div style="border-bottom:1px solid rgba(212,148,58,0.3);padding-bottom:10px;margin-bottom:12px;">
+        <div style="font-size:0.55rem;letter-spacing:3px;color:#d4943a;text-transform:uppercase;">ラーメン</div>
+        <div style="font-size:1rem;color:#f0ede6;">Ramen</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:#1a1208;border:1px solid rgba(212,148,58,0.1);padding:8px;border-radius:2px;">
+          <div style="height:60px;background:#201810;border-radius:2px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🍜</div>
+          <div style="font-size:0.6rem;color:#f0ede6;">Tonkotsu Ramen</div>
+          <div style="font-size:0.5rem;color:#d4943a;margin-top:2px;">€19.95</div>
+        </div>
+        <div style="background:#1a1208;border:1px solid rgba(212,148,58,0.1);padding:8px;border-radius:2px;">
+          <div style="height:60px;background:#201810;border-radius:2px;margin-bottom:6px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;">🍜</div>
+          <div style="font-size:0.6rem;color:#f0ede6;">Chicken Ramen</div>
+          <div style="font-size:0.5rem;color:#d4943a;margin-top:2px;">€18.95</div>
+        </div>
+      </div>
+      <div style="margin-top:8px;display:flex;gap:4px;align-items:center;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);">
+        <div style="width:36px;height:36px;background:#201810;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">🥗</div>
+        <div style="flex:1;font-size:0.55rem;color:#f0ede6;">Seaweed salad</div>
+        <div style="font-size:0.55rem;color:#d4943a;">€7.95</div>
+      </div>
+      <div style="display:flex;gap:4px;align-items:center;padding:5px 0;">
+        <div style="width:36px;height:36px;background:#201810;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;">🫛</div>
+        <div style="flex:1;font-size:0.55rem;color:#f0ede6;">Edamame</div>
+        <div style="font-size:0.55rem;color:#d4943a;">€7.50</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Huidig (verbeterd)</h3>
+      <p>Ramen als grote kaarten bovenaan, bijgerechten als rijen met foto's ernaast. Vertrouwd en overzichtelijk.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:20px;font-family:serif;">
+      <div style="display:flex;gap:10px;height:100%;">
+        <div style="width:90px;flex-shrink:0;border-right:1px solid rgba(212,148,58,0.15);padding-right:10px;">
+          <div style="font-size:0.45rem;letter-spacing:2px;color:#d4943a;text-transform:uppercase;margin-bottom:8px;">MENU</div>
+          <div style="font-size:0.55rem;color:#d4943a;margin-bottom:4px;padding:3px 0;border-left:2px solid #d4943a;padding-left:4px;">ラーメン</div>
+          <div style="font-size:0.5rem;color:#888;margin-bottom:4px;padding:3px 0;padding-left:6px;">サイド</div>
+          <div style="font-size:0.5rem;color:#888;margin-bottom:4px;padding:3px 0;padding-left:6px;">揚げ物</div>
+          <div style="font-size:0.5rem;color:#888;margin-bottom:4px;padding:3px 0;padding-left:6px;">デザート</div>
+          <div style="font-size:0.5rem;color:#888;margin-bottom:4px;padding:3px 0;padding-left:6px;">トッピング</div>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:0.5rem;color:#d4943a;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;">ラーメン · Ramen</div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;gap:6px;align-items:center;background:#1a1208;padding:6px;border-radius:2px;">
+              <div style="width:44px;height:44px;background:#201810;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🍜</div>
+              <div>
+                <div style="font-size:0.55rem;color:#f0ede6;">Tonkotsu Ramen</div>
+                <div style="font-size:0.45rem;color:#888;margin-top:1px;">Rijke varkensbouillon...</div>
+                <div style="font-size:0.5rem;color:#d4943a;margin-top:2px;">€19.95</div>
+              </div>
+            </div>
+            <div style="display:flex;gap:6px;align-items:center;background:#1a1208;padding:6px;border-radius:2px;">
+              <div style="width:44px;height:44px;background:#201810;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🍜</div>
+              <div>
+                <div style="font-size:0.55rem;color:#f0ede6;">Chicken Ramen</div>
+                <div style="font-size:0.45rem;color:#888;margin-top:1px;">Heldere kippenbouillon...</div>
+                <div style="font-size:0.5rem;color:#d4943a;margin-top:2px;">€18.95</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Sidebar navigatie</h3>
+      <p>Vaste zijbalk met categorieën, content rechts. Makkelijk door het menu bladeren zonder te scrollen.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0e0906;padding:20px;font-family:serif;">
+      <div style="display:flex;gap:6px;margin-bottom:10px;border-bottom:1px solid rgba(212,148,58,0.15);padding-bottom:8px;">
+        <div style="font-size:0.5rem;color:#d4943a;border-bottom:1px solid #d4943a;padding:2px 6px;">Ramen</div>
+        <div style="font-size:0.5rem;color:#888;padding:2px 6px;">Sides</div>
+        <div style="font-size:0.5rem;color:#888;padding:2px 6px;">Fried</div>
+        <div style="font-size:0.5rem;color:#888;padding:2px 6px;">Desserts</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+        <div style="background:#1a1208;border-radius:2px;overflow:hidden;">
+          <div style="height:55px;background:#201810;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🍜</div>
+          <div style="padding:6px;">
+            <div style="font-size:0.55rem;color:#f0ede6;">Tonkotsu Ramen</div>
+            <div style="font-size:0.45rem;color:#888;margin-top:1px;">豚骨ラーメン</div>
+            <div style="font-size:0.5rem;color:#d4943a;margin-top:3px;">€19.95</div>
+          </div>
+        </div>
+        <div style="background:#1a1208;border-radius:2px;overflow:hidden;">
+          <div style="height:55px;background:#201810;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🍜</div>
+          <div style="padding:6px;">
+            <div style="font-size:0.55rem;color:#f0ede6;">Chicken Ramen</div>
+            <div style="font-size:0.45rem;color:#888;margin-top:1px;">チキンラーメン</div>
+            <div style="font-size:0.5rem;color:#d4943a;margin-top:3px;">€18.95</div>
+          </div>
+        </div>
+        <div style="background:#1a1208;border-radius:2px;overflow:hidden;">
+          <div style="height:55px;background:#201810;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🍜</div>
+          <div style="padding:6px;">
+            <div style="font-size:0.55rem;color:#f0ede6;">Shrimp Miso</div>
+            <div style="font-size:0.45rem;color:#888;margin-top:1px;">えびみそ</div>
+            <div style="font-size:0.5rem;color:#d4943a;margin-top:3px;">€19.95</div>
+          </div>
+        </div>
+        <div style="background:#1a1208;border-radius:2px;overflow:hidden;">
+          <div style="height:55px;background:#201810;display:flex;align-items:center;justify-content:center;font-size:1.4rem;">🥬</div>
+          <div style="padding:6px;">
+            <div style="font-size:0.55rem;color:#f0ede6;">Vegetarian</div>
+            <div style="font-size:0.45rem;color:#888;margin-top:1px;">野菜醤油</div>
+            <div style="font-size:0.5rem;color:#d4943a;margin-top:3px;">€17.95</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Tabbladen + volledig grid</h3>
+      <p>Tabs bovenaan om te wisselen tussen categorieën. Alles in een uniform grid — ramen en sides zien er hetzelfde uit.</p>
+    </div>
+  </div>
+
+</div>
