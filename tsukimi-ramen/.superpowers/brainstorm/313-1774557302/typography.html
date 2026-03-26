@@ -1,0 +1,81 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Noto+Serif+JP:wght@300;400;700&family=Shippori+Mincho:wght@400;700&family=Inter:wght@300;400;500&display=swap');
+
+.typo-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.typo-card {
+  background: #0e0906;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 32px 36px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+}
+.typo-card.selected { border-color: #d4943a; }
+.typo-card .tag {
+  position: absolute;
+  top: 12px; right: 16px;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #d4943a;
+  font-family: 'Inter', sans-serif;
+  background: rgba(212,148,58,0.1);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+/* A: Huidig – Cormorant verfijnd */
+.typo-a .label { font-family: 'Inter', sans-serif; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; margin-bottom: 10px; }
+.typo-a h2 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 2.4rem; font-style: italic; color: #f0ede6; margin: 0 0 8px; line-height: 1.2; }
+.typo-a h2 em { color: #d4943a; font-style: italic; }
+.typo-a p { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #888880; line-height: 1.7; margin: 0; }
+
+/* B: Noto Serif JP — echt Japans karakter */
+.typo-b .label { font-family: 'Inter', sans-serif; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; margin-bottom: 10px; }
+.typo-b h2 { font-family: 'Noto Serif JP', serif; font-weight: 300; font-size: 2.1rem; color: #f0ede6; margin: 0 0 6px; line-height: 1.3; }
+.typo-b h2 em { color: #d4943a; font-style: normal; font-weight: 700; }
+.typo-b .jp { font-family: 'Noto Serif JP', serif; font-size: 0.85rem; color: rgba(212,148,58,0.5); letter-spacing: 3px; margin-bottom: 8px; }
+.typo-b p { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #888880; line-height: 1.7; margin: 0; }
+
+/* C: Shippori Mincho — dramatisch, grote contrasten */
+.typo-c .label { font-family: 'Inter', sans-serif; font-size: 0.62rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; margin-bottom: 10px; }
+.typo-c h2 { font-family: 'Shippori Mincho', serif; font-weight: 400; font-size: 2.6rem; color: #f0ede6; margin: 0 0 4px; line-height: 1.15; letter-spacing: -0.5px; }
+.typo-c h2 em { color: #d4943a; font-style: italic; font-weight: 700; }
+.typo-c .jp { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; color: rgba(212,148,58,0.35); letter-spacing: 8px; margin-bottom: 10px; }
+.typo-c p { font-family: 'Inter', sans-serif; font-size: 0.85rem; color: #888880; line-height: 1.7; margin: 0; }
+</style>
+
+<h2>Typografie — welke richting past bij Tsukimi?</h2>
+<p class="subtitle">Hetzelfde stukje inhoud, drie lettertyperichtingen</p>
+
+<div class="typo-cards">
+
+  <div class="typo-card typo-a" data-choice="a" onclick="toggleSelect(this)">
+    <div class="tag">A — Huidig verfijnd</div>
+    <div class="label">A taste of what's upstairs</div>
+    <h2>Fresh, simple <em>ramen.</em></h2>
+    <p>Rich pork bone broth with noodles, chashu pork, bok choy and soft-boiled egg — €19.95</p>
+  </div>
+
+  <div class="typo-card typo-b" data-choice="b" onclick="toggleSelect(this)">
+    <div class="tag">B — Noto Serif JP (Japans karakter)</div>
+    <div class="label">A taste of what's upstairs</div>
+    <div class="jp">月見ラーメン</div>
+    <h2>Fresh, simple <em>ramen.</em></h2>
+    <p>Rich pork bone broth with noodles, chashu pork, bok choy and soft-boiled egg — €19.95</p>
+  </div>
+
+  <div class="typo-card typo-c" data-choice="c" onclick="toggleSelect(this)">
+    <div class="tag">C — Shippori Mincho (dramatisch)</div>
+    <div class="label">A taste of what's upstairs</div>
+    <div class="jp">月見　ラーメン</div>
+    <h2>Fresh, <em>simple ramen.</em></h2>
+    <p>Rich pork bone broth with noodles, chashu pork, bok choy and soft-boiled egg — €19.95</p>
+  </div>
+
+</div>

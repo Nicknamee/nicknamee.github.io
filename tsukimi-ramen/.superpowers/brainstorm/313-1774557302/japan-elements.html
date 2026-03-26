@@ -1,0 +1,177 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Inter:wght@400;500&display=swap');
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.jp-option {
+  background: #0e0906;
+  border: 2px solid rgba(212,148,58,0.15);
+  border-radius: 8px;
+  padding: 24px;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.jp-option.selected { border-color: #d4943a; }
+.jp-option .opt-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4943a;
+  margin-bottom: 12px;
+}
+.jp-option h3 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  color: #f0ede6;
+  margin: 0 0 8px;
+}
+.jp-option p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  color: #666;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Preview elements per option */
+.preview-a {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ink-brush {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 3.5rem;
+  color: rgba(212,148,58,0.12);
+  line-height: 1;
+  letter-spacing: 8px;
+}
+
+.preview-b {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #d4943a, transparent);
+  opacity: 0.3;
+}
+.moon-svg {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(212,148,58,0.4);
+  position: relative;
+  flex-shrink: 0;
+}
+.moon-svg::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: 5px;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: #0e0906;
+  opacity: 0.8;
+}
+
+.preview-c {
+  margin-top: 14px;
+}
+.red-badge {
+  display: inline-block;
+  background: rgba(201,64,64,0.15);
+  border: 1px solid rgba(201,64,64,0.3);
+  color: #c94040;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+.gold-badge {
+  display: inline-block;
+  background: rgba(212,148,58,0.1);
+  border: 1px solid rgba(212,148,58,0.25);
+  color: #d4943a;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+.preview-d {
+  margin-top: 14px;
+  background: rgba(212,148,58,0.04);
+  border-left: 2px solid #c94040;
+  padding: 10px 14px;
+}
+.preview-d p {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 0.9rem;
+  color: #f0ede6;
+  opacity: 0.7;
+  margin: 0;
+}
+</style>
+
+<h2>Japan-vibe elementen — welke toevoegen?</h2>
+<p class="subtitle">Meerdere opties mogelijk. Klik alles aan wat je aanspreekt.</p>
+
+<div class="options-grid" data-multiselect>
+
+  <div class="jp-option" data-choice="kanji-bg" onclick="toggleSelect(this)">
+    <div class="opt-label">A</div>
+    <h3>Grote Japanse achtergrondtekst</h3>
+    <p>Subtiele kanji/kana als decoratieve laag achter secties</p>
+    <div class="preview-a">
+      <div class="ink-brush">月見</div>
+    </div>
+  </div>
+
+  <div class="jp-option" data-choice="moon-dividers" onclick="toggleSelect(this)">
+    <div class="opt-label">B</div>
+    <h3>Maan-dividers uitbreiden</h3>
+    <p>Meer maanfase-elementen als decoratieve scheidslijnen tussen secties</p>
+    <div class="preview-b">
+      <div class="divider-line"></div>
+      <div class="moon-svg"></div>
+      <div class="divider-line"></div>
+      <div class="moon-svg"></div>
+      <div class="divider-line"></div>
+    </div>
+  </div>
+
+  <div class="jp-option" data-choice="red-labels" onclick="toggleSelect(this)">
+    <div class="opt-label">C</div>
+    <h3>Rode "stamp" labels</h3>
+    <p>Rode hanko-stijl labels voor categorieën, aanbevelingen, "popular"</p>
+    <div class="preview-c">
+      <span class="red-badge">人気 Popular</span>
+      <span class="gold-badge">新 New</span>
+    </div>
+  </div>
+
+  <div class="jp-option" data-choice="jp-quotes" onclick="toggleSelect(this)">
+    <div class="opt-label">D</div>
+    <h3>Japanse citaten/sfeer-tekst</h3>
+    <p>Korte Japanse tekst bij sectie-intro's of als quote</p>
+    <div class="preview-d">
+      <p>「温かいスープ、静かな場所」</p>
+    </div>
+  </div>
+
+</div>

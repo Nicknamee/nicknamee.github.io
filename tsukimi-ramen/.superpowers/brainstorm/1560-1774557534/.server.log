@@ -1,0 +1,6 @@
+{"type":"server-started","port":58743,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:58743","screen_dir":"C:/xampp/nickspage/tsukimi-ramen/.superpowers/brainstorm/1560-1774557534"}
+{"type":"screen-added","file":"C:\\xampp\\nickspage\\tsukimi-ramen\\.superpowers\\brainstorm\\1560-1774557534\\japan-elements.html"}
+{"source":"user-event","type":"click","text":"C\n    Rode \"stamp\" labels\n    Rode hanko-stijl labels voor categorieën, aanbevelingen, \"popular\"\n    \n      人気 Popular\n      新 New","choice":"red-labels","id":null,"timestamp":1774557574357}
+{"source":"user-event","type":"click","text":"B\n    Maan-dividers uitbreiden\n    Meer maanfase-elementen als decoratieve scheidslijnen tussen secties","choice":"moon-dividers","id":null,"timestamp":1774557576938}
+{"type":"screen-added","file":"C:\\xampp\\nickspage\\tsukimi-ramen\\.superpowers\\brainstorm\\1560-1774557534\\waiting.html"}
+{"type":"server-stopped","reason":"owner process exited"}

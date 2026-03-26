@@ -1,0 +1,98 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&family=Inter:wght@400;500&display=swap');
+
+.color-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.color-card {
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+}
+.color-card.selected { border-color: #fff; }
+
+.card-inner {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* A: Alleen goud (huidig) */
+.card-a { background: #0e0906; }
+.card-a .accent { color: #d4943a; }
+.card-a .label { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; }
+.card-a h2 { font-family: 'Shippori Mincho', serif; font-size: 2.2rem; color: #f0ede6; margin: 0; line-height: 1.2; }
+.card-a h2 em { color: #d4943a; font-style: italic; }
+.card-a .btn-row { display: flex; gap: 10px; margin-top: 4px; }
+.card-a .btn-g { background: #d4943a; color: #0a0a0a; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-a .btn-o { border: 1px solid rgba(212,148,58,0.45); color: #d4943a; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-a .tag { position: relative; font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: #d4943a; background: rgba(212,148,58,0.1); padding: 3px 10px; border-radius: 2px; align-self: flex-start; }
+
+/* B: Goud + subtiel warmrood accent */
+.card-b { background: #0e0906; }
+.card-b .label { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; }
+.card-b h2 { font-family: 'Shippori Mincho', serif; font-size: 2.2rem; color: #f0ede6; margin: 0; line-height: 1.2; }
+.card-b h2 em { color: #c94040; font-style: italic; }
+.card-b .btn-row { display: flex; gap: 10px; margin-top: 4px; }
+.card-b .btn-g { background: #d4943a; color: #0a0a0a; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-b .btn-r { background: #c94040; color: #f0ede6; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-b .tag { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: #c94040; background: rgba(201,64,64,0.12); padding: 3px 10px; border-radius: 2px; align-self: flex-start; border-left: 2px solid #c94040; }
+
+/* C: Goud + donkerrood (dieper, minder schreeuwerig) */
+.card-c { background: #0e0906; }
+.card-c .label { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; color: #d4943a; }
+.card-c h2 { font-family: 'Shippori Mincho', serif; font-size: 2.2rem; color: #f0ede6; margin: 0; line-height: 1.2; }
+.card-c h2 em { color: #a83232; font-style: italic; }
+.card-c .btn-row { display: flex; gap: 10px; margin-top: 4px; }
+.card-c .btn-g { background: #d4943a; color: #0a0a0a; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-c .btn-r { background: #a83232; color: #f0ede6; padding: 9px 22px; font-size: 0.68rem; letter-spacing: 2px; font-family: 'Inter', sans-serif; text-transform: uppercase; border-radius: 2px; }
+.card-c .tag { font-family: 'Inter', sans-serif; font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; color: #a83232; background: rgba(168,50,50,0.12); padding: 3px 10px; border-radius: 2px; align-self: flex-start; border-left: 2px solid #a83232; }
+</style>
+
+<h2>Accentkleur — goud only of rood erbij?</h2>
+<p class="subtitle">Rood wordt spaarzaam gebruikt — voor labels, highlights en accenten. Goud blijft de primaire kleur.</p>
+
+<div class="color-cards">
+
+  <div class="color-card card-a" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-inner">
+      <span class="tag">A — Alleen goud (huidig)</span>
+      <div class="label">Onze ramen</div>
+      <h2>Fresh, simple <em>ramen.</em></h2>
+      <div class="btn-row">
+        <div class="btn-g">Reserveer</div>
+        <div class="btn-o">Menu →</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-card card-b" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-inner">
+      <span class="tag">B — Goud + warmrood (#c94040)</span>
+      <div class="label">Onze ramen</div>
+      <h2>Fresh, simple <em>ramen.</em></h2>
+      <div class="btn-row">
+        <div class="btn-g">Menu →</div>
+        <div class="btn-r">Reserveer</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-card card-c" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-inner">
+      <span class="tag">C — Goud + diep bordeauxrood (#a83232)</span>
+      <div class="label">Onze ramen</div>
+      <h2>Fresh, simple <em>ramen.</em></h2>
+      <div class="btn-row">
+        <div class="btn-g">Menu →</div>
+        <div class="btn-r">Reserveer</div>
+      </div>
+    </div>
+  </div>
+
+</div>

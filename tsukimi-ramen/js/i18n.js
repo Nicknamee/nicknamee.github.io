@@ -13,11 +13,12 @@
       'nav.reserve': 'Reserve',
 
       /* Hero */
-      'hero.tagline': 'A ramen break upstairs<br>in the heart of Amsterdam',
+      'hero.tagline': 'Authentic Japanese ramen above the busy streets of Damrak.',
+      'hero.sub': 'Rich broths, fresh noodles, and a quiet spot upstairs in central Amsterdam.',
       'hero.address': 'Damrak 45 · Floor 2<br>Amsterdam',
       'hero.reserveBtn': 'Reserve a table',
       'hero.viewMenu': 'View Menu',
-      'hero.hours': 'Open daily<br>09:00 – 23:00',
+      'hero.hours': 'Open daily · 09:00 – 23:00',
 
       /* Index – Menu preview */
       'menuPreview.label': "A taste of what's upstairs",
@@ -144,11 +145,12 @@
       'nav.reserve': 'Reserveer',
 
       /* Hero */
-      'hero.tagline': 'Een ramen pauze op de 2e etage<br>in het hart van Amsterdam',
+      'hero.tagline': 'Authentieke Japanse ramen boven de drukke straten van de Damrak.',
+      'hero.sub': 'Rijke bouillons, verse noodles en een rustige plek op de 2e etage in het hart van Amsterdam.',
       'hero.address': 'Damrak 45 · Verdieping 2<br>Amsterdam',
       'hero.reserveBtn': 'Reserveer een tafel',
       'hero.viewMenu': 'Bekijk menu',
-      'hero.hours': 'Dagelijks open<br>09:00 \u2013 23:00',
+      'hero.hours': 'Dagelijks open · 09:00 \u2013 23:00',
 
       /* Index – Menu preview */
       'menuPreview.label': 'Een voorproefje van boven',
@@ -275,11 +277,12 @@
       'nav.reserve': '\u4e88\u7d04',
 
       /* Hero */
-      'hero.tagline': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u3067<br>2\u968e\u306e\u30e9\u30fc\u30e1\u30f3\u4f11\u61a9',
+      'hero.tagline': 'ダムラークの賑やかな通りの上、本格的な日本のラーメン。',
+      'hero.sub': '濃厚なスープ、新鮮な麺、アムステルダム中心部の静かな2階席で。',
       'hero.address': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb2\u968e<br>\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
       'hero.reserveBtn': '\u30c6\u30fc\u30d6\u30eb\u3092\u4e88\u7d04\u3059\u308b',
       'hero.viewMenu': '\u30e1\u30cb\u30e5\u30fc\u3092\u898b\u308b',
-      'hero.hours': '\u6bce\u65e5\u55b6\u696d<br>09:00 \u2013 23:00',
+      'hero.hours': '\u6bce\u65e5\u55b6\u696d · 09:00 \u2013 23:00',
 
       /* Index – Menu preview */
       'menuPreview.label': '2\u968e\u306e\u304a\u5473\u3092\u3069\u3046\u305e',
