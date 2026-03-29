@@ -25,10 +25,10 @@
       'menuPreview.heading': 'Fresh, simple <em>ramen.</em>',
       'card.tonkotsu.name': 'Tonkotsu Ramen',
       'card.tonkotsu.desc': 'Rich pork bone broth with noodles, chashu pork, bok choy and soft-boiled egg',
-      'card.chicken.name': 'Chicken Ramen',
-      'card.chicken.desc': 'Clear chicken broth with noodles, chicken fillet, bok choy and soft-boiled egg',
-      'card.shrimp.name': 'Shrimp Miso Ramen',
-      'card.shrimp.desc': 'Miso broth with noodles, fried shrimp, bok choy and soft-boiled egg',
+      'card.veg.name': 'Vegetable Miso Ramen',
+      'card.veg.desc': 'Vegetarian-friendly ramen with miso, bok choy, corn, broccoli, bamboo shoots and seaweed',
+      'card.special.name': 'Tsukimi Ramen Special',
+      'card.special.desc': 'Rich pork bone broth with spareribs, bok choy, bamboo shoots, narutomaki and soft-boiled egg',
       'menuPreview.cta': 'Our Ramen \u2192',
 
       /* Index – Concept */
@@ -69,55 +69,57 @@
       'menu.saucesCat': 'Sauces',
 
       /* Menu – Ramen */
+      'ramen.intro': 'We make our broths fresh every day — slow-cooked for hours so every bowl is packed with flavour. Pick your favourite and enjoy it upstairs, away from the busy streets below.',
+      'ramen.special.name': 'Tsukimi Ramen Special',
+      'ramen.special.desc': 'Rich pork bone broth with noodles, spareribs, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, seaweed, white sesame seeds, and scallions',
       'ramen.tonkotsu.name': 'Tonkotsu Ramen',
-      'ramen.tonkotsu.desc': 'Rich pork bone broth with noodles, chashu pork, bok choy, bamboo shoots, narutomaki, soft-boiled egg, seaweed, sesame and scallions',
-      'ramen.chicken.name': 'Chicken Ramen',
-      'ramen.chicken.desc': 'Clear chicken broth with noodles, chicken fillet, bok choy, bamboo shoots, narutomaki, soft-boiled egg and scallions',
-      'ramen.shrimp.name': 'Shrimp Miso Ramen',
-      'ramen.shrimp.desc': 'Miso broth with noodles, fried shrimp, bok choy, bamboo shoots, narutomaki, soft-boiled egg, bonito flakes and scallions',
-      'ramen.veg.name': 'Vegetable Soy-Sauce Ramen',
-      'ramen.veg.desc': 'Soy sauce broth with noodles, bok choy, corn, broccoli, bamboo shoots, seaweed, dry onions and scallions',
+      'ramen.tonkotsu.desc': 'Rich pork bone broth with noodles, chashu pork, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, seaweed, white sesame seeds, and scallions',
+      'ramen.paitan.name': 'Paitan Chicken Ramen',
+      'ramen.paitan.desc': 'Paitan chicken broth with noodles, chicken fillet, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, and scallions',
+      'ramen.seafood.name': 'Seafood Ramen',
+      'ramen.seafood.desc': 'Choice between paitan chicken or rich pork broth with noodles, diverse seafoods, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, bonito flakes, and scallions',
+      'ramen.vegmiso.name': 'Vegetable Miso Ramen',
+      'ramen.vegmiso.desc': 'Vegetarian-friendly ramen with miso, noodles, bok choy, corn, broccoli, bamboo shoots, seaweed, and scallions',
 
       /* Menu – Sides */
       'sides.seaweed': 'Seasoned seaweed salad',
       'sides.edamame': 'Edamame',
       'sides.kimchi': 'Kimchi',
       'sides.kimchi.note': 'Korean fermented vegetables',
-      'sides.eggs': 'Soft boiled seasoned eggs',
       'sides.dumplings': 'Pan-fried chicken dumplings',
+      'sides.dumplings.note': '5\u00d7 or 10\u00d7',
       'sides.gyoza': 'Pan-fried vegetable gyoza',
+      'sides.gyoza.note': '5\u00d7 or 10\u00d7',
       'sides.pancake': 'Japanese savory pancake sticks',
       'sides.pancake.note': '2 pieces',
-      'sides.dumplings.note': '5× or 10×',
-      'sides.gyoza.note': '5× or 10×',
-
-      'ramen.intro': 'We make our broths fresh every day — slow-cooked for hours so every bowl is packed with flavour. Pick your favourite and enjoy it upstairs, away from the busy streets below.',
 
       /* Menu – Fried */
-      'fried.octopus': 'Octopus balls (4 pieces)',
-      'fried.chicken': 'Japanese fried chicken (5 pieces)',
-      'fried.spring': 'Spring rolls (5 rolls)',
-      'fried.shrimp': 'Ebifry / fried shrimp (4 pieces)',
-      'fried.skewers': 'Chicken onion skewers (2 pieces)',
-      'fried.dumplingsC': 'Fried chicken dumplings',
-      'fried.dumplingsV': 'Fried vegetable dumplings',
+      'fried.takoyaki': 'Takoyaki (octopus fritters)',
+      'fried.chicken': 'Japanese fried chicken',
+      'fried.spring': 'Spring rolls',
+      'fried.shrimp': 'Ebi fry (Japanese fried shrimp)',
+      'fried.skewers': 'Chicken onion skewers',
 
       /* Menu – Desserts */
       'dessert.dango': 'Dango sticks',
       'dessert.mochi': 'Mochi ice cream',
-      'dessert.tofu': 'Tofu pudding (almond flavor)',
+      'dessert.tofu': 'Tofu pudding',
 
       /* Toppings */
       'topping.chashu': 'Chashu pork (3\u00d7)',
       'topping.chicken': 'Chicken fillet (3\u00d7)',
-      'topping.shrimp': 'Shrimp (3\u00d7)',
+      'topping.seafood': 'Diverse seafood (100g)',
+      'topping.shrimp': 'Shrimps (2\u00d7)',
       'topping.egg': 'Ajitama egg',
       'topping.scallions': 'Scallions',
+      'topping.redOnions': 'Red onions',
+      'topping.dryOnions': 'Dry onions',
       'topping.corn': 'Corn',
       'topping.bamboo': 'Bamboo shoots',
       'topping.bokchoy': 'Boiled bok choy',
-      'topping.noodles': 'Portion noodles',
-      'topping.seaweed': 'Dry seaweed',
+      'topping.boiledVeg': 'Boiled vegetables',
+      'topping.noodles': 'Extra noodles',
+      'topping.seaweed': 'Dried seaweed',
 
       /* Sauces */
       'sauce.mayo': 'Japanese mayonnaise',
@@ -125,7 +127,6 @@
       'sauce.hot': 'Hot sauce (Sriracha)',
       'sauce.takoyaki': 'Takoyaki sauce',
       'sauce.okono': 'Okonomiyaki sauce',
-      'sauce.soy': 'Soy sauce',
       'sauce.teriyaki': 'Teriyaki sauce',
 
       /* About page */
@@ -157,10 +158,10 @@
       'menuPreview.heading': 'Vers, eenvoudig <em>ramen.</em>',
       'card.tonkotsu.name': 'Tonkotsu Ramen',
       'card.tonkotsu.desc': 'Rijke varkensbouillon met noedels, chashu varkensvlees, paksoi en zacht gekookt ei',
-      'card.chicken.name': 'Kip Ramen',
-      'card.chicken.desc': 'Heldere kippenbouillon met noedels, kipfilet, paksoi en zacht gekookt ei',
-      'card.shrimp.name': 'Garnalen Miso Ramen',
-      'card.shrimp.desc': 'Miso bouillon met noedels, gefrituurde garnalen, paksoi en zacht gekookt ei',
+      'card.veg.name': 'Groente Miso Ramen',
+      'card.veg.desc': 'Vegetarische ramen met miso, paksoi, mais, broccoli, bamboescheuten en zeewier',
+      'card.special.name': 'Tsukimi Ramen Special',
+      'card.special.desc': 'Rijke varkensbouilon met spareribs, paksoi, bamboescheuten, narutomaki en zacht gekookt ei',
       'menuPreview.cta': 'Ons Ramen \u2192',
 
       /* Index – Concept */
@@ -201,54 +202,56 @@
       'menu.saucesCat': 'Sauzen',
 
       /* Menu – Ramen */
+      'ramen.intro': 'We maken onze bouillons elke dag vers — urenlang langzaam gekookt zodat elke kom vol smaak zit. Kies je favoriet en geniet ervan boven, weg van de drukte beneden.',
+      'ramen.special.name': 'Tsukimi Ramen Special',
+      'ramen.special.desc': 'Rijke varkensbouillon met noedels, spareribs, paksoi, bamboescheuten, narutomaki, zacht gemarineerd ei, zeewier, witte sesamzaadjes en lente-ui',
       'ramen.tonkotsu.name': 'Tonkotsu Ramen',
-      'ramen.tonkotsu.desc': 'Rijke varkensbouillon met noedels, chashu varkensvlees, paksoi, bamboescheuten, narutomaki, zacht gekookt ei, zeewier, sesam en lente-ui',
-      'ramen.chicken.name': 'Kip Ramen',
-      'ramen.chicken.desc': 'Heldere kippenbouillon met noedels, kipfilet, paksoi, bamboescheuten, narutomaki, zacht gekookt ei en lente-ui',
-      'ramen.shrimp.name': 'Garnalen Miso Ramen',
-      'ramen.shrimp.desc': 'Miso bouillon met noedels, gefrituurde garnalen, paksoi, bamboescheuten, narutomaki, zacht gekookt ei, bonitovlokken en lente-ui',
-      'ramen.veg.name': 'Groente Sojasaus Ramen',
-      'ramen.veg.desc': 'Sojasausbouillon met noedels, paksoi, mais, broccoli, bamboescheuten, zeewier, droge ui en lente-ui',
+      'ramen.tonkotsu.desc': 'Rijke varkensbouillon met noedels, chashu varkensvlees, paksoi, bamboescheuten, narutomaki, zacht gemarineerd ei, zeewier, witte sesamzaadjes en lente-ui',
+      'ramen.paitan.name': 'Paitan Kip Ramen',
+      'ramen.paitan.desc': 'Paitan kippenbouillon met noedels, kipfilet, paksoi, bamboescheuten, narutomaki, zacht gemarineerd ei en lente-ui',
+      'ramen.seafood.name': 'Zeevruchten Ramen',
+      'ramen.seafood.desc': 'Keuze tussen paitan kip of rijke varkensbouillon met noedels, diverse zeevruchten, paksoi, bamboescheuten, narutomaki, zacht gemarineerd ei, bonitovlokken en lente-ui',
+      'ramen.vegmiso.name': 'Groente Miso Ramen',
+      'ramen.vegmiso.desc': 'Vegetarische ramen met miso, noedels, paksoi, mais, broccoli, bamboescheuten, zeewier en lente-ui',
 
       /* Menu – Sides */
       'sides.seaweed': 'Gekruide zeewier salade',
       'sides.edamame': 'Edamame',
       'sides.kimchi': 'Kimchi',
       'sides.kimchi.note': 'Koreaanse gefermenteerde groenten',
-      'sides.eggs': 'Zacht gekookte gemarineerde eieren',
       'sides.dumplings': 'Gebakken kip dumplings',
+      'sides.dumplings.note': '5\u00d7 of 10\u00d7',
       'sides.gyoza': 'Gebakken groente gyoza',
+      'sides.gyoza.note': '5\u00d7 of 10\u00d7',
       'sides.pancake': 'Japanse hartige pannenkoekstokjes',
       'sides.pancake.note': '2 stuks',
-      'sides.dumplings.note': '5× of 10×',
-      'sides.gyoza.note': '5× of 10×',
-
-      'ramen.intro': 'We maken onze bouillons elke dag vers — urenlang langzaam gekookt zodat elke kom vol smaak zit. Kies je favoriet en geniet ervan boven, weg van de drukte beneden.',
 
       /* Menu – Fried */
-      'fried.octopus': 'Octopusballen (4 stuks)',
-      'fried.chicken': 'Japans gefrituurde kip (5 stuks)',
-      'fried.spring': "Loempia's (5 stuks)",
-      'fried.shrimp': 'Ebifry / gefrituurde garnalen (4 stuks)',
-      'fried.skewers': 'Kip-uispiesjes (2 stuks)',
-      'fried.dumplingsC': 'Gefrituurde kip dumplings',
-      'fried.dumplingsV': 'Gefrituurde groente dumplings',
+      'fried.takoyaki': 'Takoyaki (octopusbitterbal)',
+      'fried.chicken': 'Japans gefrituurde kip',
+      'fried.spring': "Loempia's",
+      'fried.shrimp': 'Ebi fry (gefrituurde garnalen)',
+      'fried.skewers': 'Kip-uispiesjes',
 
       /* Menu – Desserts */
       'dessert.dango': 'Dango stokjes',
       'dessert.mochi': 'Mochi ijs',
-      'dessert.tofu': 'Tofu pudding (amandelsmaak)',
+      'dessert.tofu': 'Tofu pudding',
 
       /* Toppings */
       'topping.chashu': 'Chashu varkensvlees (3\u00d7)',
       'topping.chicken': 'Kipfilet (3\u00d7)',
-      'topping.shrimp': 'Garnalen (3\u00d7)',
+      'topping.seafood': 'Diverse zeevruchten (100g)',
+      'topping.shrimp': 'Garnalen (2\u00d7)',
       'topping.egg': 'Ajitama ei',
       'topping.scallions': 'Lente-ui',
+      'topping.redOnions': 'Rode ui',
+      'topping.dryOnions': 'Droge ui',
       'topping.corn': 'Ma\u00efs',
       'topping.bamboo': 'Bamboescheuten',
       'topping.bokchoy': 'Gekookte paksoi',
-      'topping.noodles': 'Portie noedels',
+      'topping.boiledVeg': 'Gekookte groenten',
+      'topping.noodles': 'Extra noedels',
       'topping.seaweed': 'Gedroogd zeewier',
 
       /* Sauces */
@@ -257,7 +260,6 @@
       'sauce.hot': 'Hete saus (Sriracha)',
       'sauce.takoyaki': 'Takoyaki saus',
       'sauce.okono': 'Okonomiyaki saus',
-      'sauce.soy': 'Sojasaus',
       'sauce.teriyaki': 'Teriyaki saus',
 
       /* About page */
@@ -271,14 +273,14 @@
 
     ja: {
       /* Nav */
-      'nav.home': 'ホーム',
+      'nav.home': '\u30db\u30fc\u30e0',
       'nav.menu': '\u30e1\u30cb\u30e5\u30fc',
       'nav.about': '\u79c1\u305f\u3061\u306b\u3064\u3044\u3066',
       'nav.reserve': '\u4e88\u7d04',
 
       /* Hero */
-      'hero.tagline': 'ダムラークの賑やかな通りの上、本格的な日本のラーメン。',
-      'hero.sub': '濃厚なスープ、新鮮な麺、アムステルダム中心部の静かな2階席で。',
+      'hero.tagline': '\u30c0\u30e0\u30e9\u30fc\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u4e0a\u3001\u672c\u683c\u7684\u306a\u65e5\u672c\u306e\u30e9\u30fc\u30e1\u30f3\u3002',
+      'hero.sub': '\u6fc3\u539a\u306a\u30b9\u30fc\u30d7\u3001\u65b0\u9bae\u306a\u9eba\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u4e2d\u5fc3\u306e\u9759\u304b\u306a2\u968e\u5e2d\u3067\u3002',
       'hero.address': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb2\u968e<br>\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
       'hero.reserveBtn': '\u30c6\u30fc\u30d6\u30eb\u3092\u4e88\u7d04\u3059\u308b',
       'hero.viewMenu': '\u30e1\u30cb\u30e5\u30fc\u3092\u898b\u308b',
@@ -289,15 +291,15 @@
       'menuPreview.heading': '\u65b0\u9bae\u3067\u30b7\u30f3\u30d7\u30eb\u306a<em>\u30e9\u30fc\u30e1\u30f3\u3002</em>',
       'card.tonkotsu.name': '\u8c5a\u9aa8\u30e9\u30fc\u30e1\u30f3',
       'card.tonkotsu.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\u3001\u767d\u83dc\u3001\u534a\u71df\u5375',
-      'card.chicken.name': '\u30c1\u30ad\u30f3\u30e9\u30fc\u30e1\u30f3',
-      'card.chicken.desc': '\u6e05\u3093\u3060\u9d8f\u30ac\u30e9\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u9d8f\u30d5\u30a3\u30ec\u3001\u767d\u83dc\u3001\u534a\u71df\u5375',
-      'card.shrimp.name': '\u30a8\u30d3\u5473\u564c\u30e9\u30fc\u30e1\u30f3',
-      'card.shrimp.desc': '\u5473\u564c\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u63da\u3052\u30a8\u30d3\u3001\u767d\u83dc\u3001\u534a\u71df\u5375',
+      'card.veg.name': '\u91ce\u83dc\u5473\u564c\u30e9\u30fc\u30e1\u30f3',
+      'card.veg.desc': '\u5473\u564c\u30d9\u30fc\u30b9\u306e\u30d9\u30b8\u30bf\u30ea\u30a2\u30f3\u30e9\u30fc\u30e1\u30f3\u3001\u767d\u83dc\u3001\u30b3\u30fc\u30f3\u3001\u30d6\u30ed\u30c3\u30b3\u30ea\u30fc\u3001\u7b4b\u306e\u5b50\u3001\u6d77\u82d3',
+      'card.special.name': '\u6708\u898b\u30e9\u30fc\u30e1\u30f3\u30b9\u30da\u30b7\u30e3\u30eb',
+      'card.special.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u30b9\u30da\u30a2\u30ea\u30d6\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u534a\u71df\u5375',
       'menuPreview.cta': '\u30e9\u30fc\u30e1\u30f3\u30e1\u30cb\u30e5\u30fc \u2192',
 
       /* Index – Concept */
       'concept.label': '\u30b9\u30c8\u30fc\u30ea\u30fc',
-      'concept.text': '\u30c0\u30e0\u30e9\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u4f4d\u7f6e\u3059\u308b\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u9759\u304b\u306a\u3072\u3068\u3068\u304d\u3092\u3054\u63d0\u4f9b\u3057\u307e\u3059\u30022\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u96e2\u308c\u305f\u6e29\u304b\u304f\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u4f53\u9a13\u3092\u3069\u3046\u305e\u3002',
+      'concept.text': '\u30c0\u30e0\u30e9\u30fc\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u4f4d\u7f6e\u3059\u308b\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u9759\u304b\u306a\u3072\u3068\u3068\u304d\u3092\u3054\u63d0\u4f9b\u3057\u307e\u3059\u30022\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u96e2\u308c\u305f\u6e29\u304b\u304f\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u4f53\u9a13\u3092\u3069\u3046\u305e\u3002',
 
       /* Index – Reserve CTA */
       'reserve.label': '\u3054\u4e88\u7d04',
@@ -318,7 +320,7 @@
       'location.note': '<strong>\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u3092\u304a\u63a2\u3057\u304f\u3060\u3055\u3044</strong> \u2014 2\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002\u968e\u6bb5\u3092\u4e0a\u304c\u308b\u3068\u3059\u3050\u898b\u3064\u304b\u308a\u307e\u3059\u3002',
 
       /* Footer */
-      'footer.tagline': 'アムステルダムの中心で、上の階のラーメン',
+      'footer.tagline': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u3067\u3001\u4e0a\u306e\u968e\u306e\u30e9\u30fc\u30e1\u30f3',
       'footer.menu': '\u30e1\u30cb\u30e5\u30fc',
       'footer.about': '\u79c1\u305f\u3061\u306b\u3064\u3044\u3066',
 
@@ -333,54 +335,56 @@
       'menu.saucesCat': '\u30bd\u30fc\u30b9',
 
       /* Menu – Ramen */
+      'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f2\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
+      'ramen.special.name': '\u6708\u898b\u30e9\u30fc\u30e1\u30f3\u30b9\u30da\u30b7\u30e3\u30eb',
+      'ramen.special.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30b9\u30da\u30a2\u30ea\u30d6\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u767d\u3054\u307e\u3001\u30cd\u30ae',
       'ramen.tonkotsu.name': '\u8c5a\u9aa8\u30e9\u30fc\u30e1\u30f3',
-      'ramen.tonkotsu.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u3054\u307e\u3001\u30cd\u30ae',
-      'ramen.chicken.name': '\u30c1\u30ad\u30f3\u30e9\u30fc\u30e1\u30f3',
-      'ramen.chicken.desc': '\u6e05\u3093\u3060\u9d8f\u30ac\u30e9\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u9d8f\u30d5\u30a3\u30ec\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u534a\u71df\u5375\u3001\u30cd\u30ae',
-      'ramen.shrimp.name': '\u30a8\u30d3\u5473\u564c\u30e9\u30fc\u30e1\u30f3',
-      'ramen.shrimp.desc': '\u5473\u564c\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u63da\u3052\u30a8\u30d3\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u534a\u71df\u5375\u3001\u9d3a\u7bc0\u3001\u30cd\u30ae',
-      'ramen.veg.name': '\u91ce\u83dc\u91a4\u6cb9\u30e9\u30fc\u30e1\u30f3',
-      'ramen.veg.desc': '\u91a4\u6cb9\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u767d\u83dc\u3001\u30b3\u30fc\u30f3\u3001\u30d6\u30ed\u30c3\u30b3\u30ea\u30fc\u3001\u7b4b\u306e\u5b50\u3001\u6d77\u82d3\u3001\u4e7e\u71e5\u5396\u9ebb\u3001\u30cd\u30ae',
+      'ramen.tonkotsu.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u767d\u3054\u307e\u3001\u30cd\u30ae',
+      'ramen.paitan.name': '\u767d\u6e6f\u9d8f\u30e9\u30fc\u30e1\u30f3',
+      'ramen.paitan.desc': '\u767d\u6e6f\u9d8f\u30ac\u30e9\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u9d8f\u30d5\u30a3\u30ec\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u30cd\u30ae',
+      'ramen.seafood.name': '\u6d77\u9bae\u30e9\u30fc\u30e1\u30f3',
+      'ramen.seafood.desc': '\u767d\u6e6f\u9d8f\u307e\u305f\u306f\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u5404\u7a2e\u6d77\u9bae\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u9d3a\u7bc0\u3001\u30cd\u30ae',
+      'ramen.vegmiso.name': '\u91ce\u83dc\u5473\u564c\u30e9\u30fc\u30e1\u30f3',
+      'ramen.vegmiso.desc': '\u5473\u564c\u30d9\u30fc\u30b9\u306e\u30d9\u30b8\u30bf\u30ea\u30a2\u30f3\u30e9\u30fc\u30e1\u30f3\u3001\u9eba\u3001\u767d\u83dc\u3001\u30b3\u30fc\u30f3\u3001\u30d6\u30ed\u30c3\u30b3\u30ea\u30fc\u3001\u7b4b\u306e\u5b50\u3001\u6d77\u82d3\u3001\u30cd\u30ae',
 
       /* Menu – Sides */
       'sides.seaweed': '\u5473\u4ed8\u3051\u6d77\u85fb\u30b5\u30e9\u30c0',
       'sides.edamame': '\u679d\u8c46',
       'sides.kimchi': '\u30ad\u30e0\u30c1',
       'sides.kimchi.note': '\u97d3\u56fd\u767a\u9175\u91ce\u83dc',
-      'sides.eggs': '\u5473\u4ed8\u3051\u534a\u71df\u5375',
       'sides.dumplings': '\u713c\u304d\u9d8f\u8089\u9913\u5b50',
+      'sides.dumplings.note': '5\u500b\u307e\u305f\u306f10\u500b',
       'sides.gyoza': '\u713c\u304d\u91ce\u83dc\u9913\u5b50',
+      'sides.gyoza.note': '5\u500b\u307e\u305f\u306f10\u500b',
       'sides.pancake': '\u304a\u597d\u307f\u713c\u304d\u30b9\u30c6\u30a3\u30c3\u30af',
       'sides.pancake.note': '2\u672c',
-      'sides.dumplings.note': '5\u500b\u307e\u305f\u306f10\u500b',
-      'sides.gyoza.note': '5\u500b\u307e\u305f\u306f10\u500b',
-
-      'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f2\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
 
       /* Menu – Fried */
-      'fried.octopus': '\u305f\u3053\u713c\u304d\uff084\u500b\uff09',
-      'fried.chicken': '\u5510\u63da\u3052\uff085\u500b\uff09',
-      'fried.spring': '\u6625\u5dfb\u304d\uff085\u672c\uff09',
-      'fried.shrimp': '\u30a8\u30d3\u30d5\u30e9\u30a4\uff084\u500b\uff09',
-      'fried.skewers': '\u9d8f\u306d\u304e\u4e32\uff082\u672c\uff09',
-      'fried.dumplingsC': '\u63da\u3052\u9d8f\u8089\u9913\u5b50',
-      'fried.dumplingsV': '\u63da\u3052\u91ce\u83dc\u9913\u5b50',
+      'fried.takoyaki': '\u305f\u3053\u713c\u304d',
+      'fried.chicken': '\u5510\u63da\u3052',
+      'fried.spring': '\u6625\u5dfb\u304d',
+      'fried.shrimp': '\u30a8\u30d3\u30d5\u30e9\u30a4',
+      'fried.skewers': '\u9d8f\u306d\u304e\u4e32',
 
       /* Menu – Desserts */
       'dessert.dango': '\u3060\u3093\u3054',
       'dessert.mochi': '\u3082\u3061\u30a2\u30a4\u30b9\u30af\u30ea\u30fc\u30e0',
-      'dessert.tofu': '\u8c46\u8150\u30d7\u30ea\u30f3\uff08\u30a2\u30fc\u30e2\u30f3\u30c9\u5473\uff09',
+      'dessert.tofu': '\u8c46\u8150\u30d7\u30ea\u30f3',
 
       /* Toppings */
       'topping.chashu': '\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\uff083\u679a\uff09',
       'topping.chicken': '\u9d8f\u30d5\u30a3\u30ec\uff083\u679a\uff09',
-      'topping.shrimp': '\u30a8\u30d3\uff083\u500b\uff09',
+      'topping.seafood': '\u5404\u7a2e\u6d77\u9bae\uff08100g\uff09',
+      'topping.shrimp': '\u30a8\u30d3\uff082\u500b\uff09',
       'topping.egg': '\u5473\u7389',
       'topping.scallions': '\u30cd\u30ae',
+      'topping.redOnions': '\u8d64\u7389\u306d\u304e',
+      'topping.dryOnions': '\u4e7e\u71e5\u7389\u306d\u304e',
       'topping.corn': '\u30b3\u30fc\u30f3',
       'topping.bamboo': '\u7b4b\u306e\u5b50',
-      'topping.bokchoy': '\u767d\u83dc',
-      'topping.noodles': '\u66ff\u3048\u7389',
+      'topping.bokchoy': '\u30086\u3067\u305f\u767d\u83dc',
+      'topping.boiledVeg': '\u30086\u3067\u305f\u91ce\u83dc',
+      'topping.noodles': '\u8ffd\u52a0\u306e\u9eba',
       'topping.seaweed': '\u6d77\u82d3',
 
       /* Sauces */
@@ -389,7 +393,6 @@
       'sauce.hot': '\u30db\u30c3\u30c8\u30bd\u30fc\u30b9\uff08\u30b9\u30ea\u30e9\u30c1\u30e3\uff09',
       'sauce.takoyaki': '\u305f\u3053\u713c\u304d\u30bd\u30fc\u30b9',
       'sauce.okono': '\u304a\u597d\u307f\u30bd\u30fc\u30b9',
-      'sauce.soy': '\u91a4\u6cb9',
       'sauce.teriyaki': '\u7167\u308a\u713c\u304d\u30bd\u30fc\u30b9',
 
       /* About page */

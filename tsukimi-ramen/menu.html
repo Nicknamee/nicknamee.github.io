@@ -109,6 +109,87 @@
       font-style: italic;
     }
 
+    /* ── DRINKS ── */
+    .drinks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem 3rem;
+      margin-top: 0.5rem;
+    }
+    .drinks-category {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .drinks-cat-title {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--gold2);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 0.5px solid var(--divider);
+    }
+    .drinks-cat-jp {
+      font-size: 0.7rem;
+      color: var(--gold2-dim);
+      letter-spacing: 0.1em;
+      margin-left: 0.5rem;
+      font-weight: 400;
+    }
+    .drink-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.35rem 0;
+      border-bottom: 0.5px solid rgba(200,168,75,0.08);
+      gap: 0.5rem;
+    }
+    .drink-name {
+      font-size: 0.88rem;
+      color: var(--cream-dim);
+    }
+    .drink-price {
+      font-family: var(--font-head);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--gold2);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .drinks-sub-title {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold2-dim);
+      margin: 0.8rem 0 0.3rem;
+    }
+    .wifi-box {
+      margin-top: 1rem;
+      padding: 1rem 1.25rem;
+      border: 0.5px solid var(--divider);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--cream-dim);
+      line-height: 1.8;
+    }
+    .wifi-box strong { color: var(--cream); }
+
+    /* ── MENU OVERVIEW PHOTO ── */
+    .menu-overview-wrap {
+      max-width: 1200px;
+      margin: 2.5rem auto 0;
+      padding: 0 2rem;
+    }
+    .menu-overview-img {
+      width: 100%;
+      border-radius: 4px;
+      border: 0.5px solid var(--divider);
+      display: block;
+    }
+
     /* ── SECTION ── */
     .menu-section {
       max-width: 1200px;
@@ -143,6 +224,35 @@
       height: 0.5px;
       background: linear-gradient(90deg, var(--gold2), transparent);
       margin-bottom: 2.5rem;
+    }
+
+    /* ── VEGA TAG ── */
+    .vega-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #2a5c2a;
+      color: #7ecb7e;
+      font-size: 0.6rem;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 2px;
+      border: 0.5px solid #4a9a4a;
+      margin-top: 0.4rem;
+    }
+    .vega-tag::before {
+      content: '🌿';
+      font-size: 0.65rem;
+    }
+    /* Vega tag inside ramen cards (absolute position like bestseller) */
+    .ramen-img-wrap .vega-tag {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      margin-top: 0;
+      z-index: 2;
     }
 
     /* ── BESTSELLER TAG ── */
@@ -182,14 +292,18 @@
     /* ── RAMEN CARDS ── */
     .ramen-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      grid-auto-rows: auto;
-      gap: 1.5px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
     }
+    .ramen-grid .ramen-card:nth-child(3),
+    .ramen-grid .ramen-card:nth-child(5) {
+      border: 1.5px solid var(--gold2);
+    }
+
+    /* Regular card */
     .ramen-card {
-      display: grid;
-      grid-row: span 3;
-      grid-template-rows: subgrid;
+      display: flex;
+      flex-direction: column;
       background: var(--bg-card);
       border: 0.5px solid var(--card-border);
       position: relative;
@@ -206,13 +320,14 @@
       aspect-ratio: 1 / 1;
       overflow: hidden;
       position: relative;
-      background: #0f0d09;
+      background: #f0ece4;
     }
     .dish-img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      padding: 0.3rem;
+      object-fit: cover;
+      object-position: center 30%;
+      padding: 0;
       transition: transform 0.5s ease;
     }
     .card-gold-line {
@@ -230,10 +345,10 @@
       padding: 1rem 1.4rem 1.5rem;
       display: flex;
       flex-direction: column;
-    }
-    .ramen-info .dish-desc {
       flex: 1;
     }
+    .ramen-info .dish-desc { flex: 1; }
+
     .dish-kana {
       font-size: 0.65rem;
       letter-spacing: 0.2em;
@@ -261,6 +376,64 @@
       font-weight: 600;
       color: var(--gold2);
       letter-spacing: 0.03em;
+    }
+
+    /* Featured card — spans full width, horizontal layout */
+    .ramen-card--featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      min-height: 340px;
+    }
+    .ramen-card--featured .ramen-img-wrap {
+      width: 45%;
+      flex-shrink: 0;
+      aspect-ratio: auto;
+      align-self: stretch;
+      background: #fff;
+    }
+    .ramen-card--featured .dish-img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      object-fit: cover;
+    }
+    .ramen-card--featured .card-gold-line {
+      display: none;
+    }
+    .ramen-card--featured .ramen-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: center;
+      padding: 2.5rem 3rem;
+      background: linear-gradient(135deg, #161209 0%, #1a1510 100%);
+    }
+    .ramen-card--featured .dish-kana {
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      margin-bottom: 0.5rem;
+    }
+    .ramen-card--featured .dish-name {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    .ramen-card--featured .dish-desc {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 1.5rem;
+    }
+    .ramen-card--featured .dish-price {
+      font-size: 1.8rem;
+    }
+    .ramen-card--featured .bestseller-tag {
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.7rem;
+      padding: 6px 14px;
     }
 
     /* ── SIDE / SMALL ITEMS ── */
@@ -398,16 +571,12 @@
 
       .menu-section { padding: 2rem 1rem 1rem; }
 
-      .ramen-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: auto;
-      }
-      .ramen-card {
-        grid-row: span 1;
-        grid-template-rows: auto;
-        display: flex;
-        flex-direction: column;
-      }
+      .ramen-grid { grid-template-columns: repeat(2, 1fr); }
+      .ramen-card--featured { flex-direction: column; min-height: auto; }
+      .ramen-card--featured .ramen-img-wrap { width: 100%; aspect-ratio: 4/3; }
+      .ramen-card--featured .ramen-content { padding: 1.5rem; }
+      .ramen-card--featured .dish-name { font-size: 1.6rem; }
+      .ramen-card--featured .dish-desc { font-size: 0.85rem; }
       .ramen-card-header { padding: 0.8rem 1rem 0.6rem; }
       .dish-name { font-size: 1.1rem; }
       .ramen-info { padding: 0.5rem 1rem 1rem; }
@@ -458,6 +627,7 @@
     <a href="#desserts"><span data-i18n="menu.dessertCat">Desserts</span> <span class="cat-bar-jp">デザート</span></a>
     <a href="#toppings"><span data-i18n="menu.toppingsCat">Toppings</span> <span class="cat-bar-jp">トッピング</span></a>
     <a href="#sauces"><span data-i18n="menu.saucesCat">Sauces</span> <span class="cat-bar-jp">ソース</span></a>
+    <a href="#drinks"><span>Drinks</span> <span class="cat-bar-jp">ドリンク</span></a>
   </div>
 
   <!-- HERO -->
@@ -479,63 +649,77 @@
     <p class="ramen-intro" data-i18n="ramen.intro">We make our broths fresh every day — slow-cooked for hours so every bowl is packed with flavour. Pick your favourite and enjoy it upstairs, away from the busy streets below.</p>
     <div class="ramen-grid">
 
+      <div class="ramen-card ramen-card--featured">
+        <div class="ramen-img-wrap">
+          <img class="dish-img" src="images/tsukimi-special-ramen.png" alt="Tsukimi Ramen Special" loading="lazy" style="padding:0;">
+          <div class="card-gold-line"></div>
+        </div>
+        <div class="ramen-content">
+          <span class="bestseller-tag">Recommended</span>
+          <span class="dish-kana">月見ラーメン</span>
+          <h3 class="dish-name" data-i18n="ramen.special.name">Tsukimi Ramen Special</h3>
+          <p class="dish-desc" data-i18n="ramen.special.desc">Rich pork bone broth with noodles, spareribs, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, seaweed, white sesame seeds, and scallions</p>
+          <span class="dish-price">€21.95</span>
+        </div>
+      </div>
+
       <div class="ramen-card">
         <div class="ramen-card-header">
-          <span class="dish-kana">とんこつラーメン</span>
+          <span class="dish-kana">豚骨ラーメン</span>
           <h3 class="dish-name" data-i18n="ramen.tonkotsu.name">Tonkotsu Ramen</h3>
         </div>
         <div class="ramen-img-wrap">
           <img class="dish-img" src="images/pork-bone-ramen-nobg.png" alt="Tonkotsu Ramen" loading="lazy" style="padding:0;">
           <div class="card-gold-line"></div>
-          <span class="bestseller-tag">Bestseller</span>
         </div>
         <div class="ramen-info">
-          <p class="dish-desc" data-i18n="ramen.tonkotsu.desc">Rich pork bone broth with noodles, chashu pork, bok choy, bamboo shoots, narutomaki, soft-boiled egg, seaweed, sesame and scallions</p>
+          <p class="dish-desc" data-i18n="ramen.tonkotsu.desc">Rich pork bone broth with noodles, chashu pork, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, seaweed, white sesame seeds, and scallions</p>
           <span class="dish-price">€19.95</span>
         </div>
       </div>
 
       <div class="ramen-card">
         <div class="ramen-card-header">
-          <span class="dish-kana">チキンラーメン</span>
-          <h3 class="dish-name" data-i18n="ramen.chicken.name">Chicken Ramen</h3>
+          <span class="dish-kana">白湯鶏ラーメン</span>
+          <h3 class="dish-name" data-i18n="ramen.paitan.name">Paitan Chicken Ramen</h3>
         </div>
         <div class="ramen-img-wrap">
-          <img class="dish-img" src="images/chicken-ramen-nobg.png" alt="Chicken Ramen" loading="lazy">
+          <img class="dish-img" src="images/chicken-ramen-nobg.png" alt="Paitan Chicken Ramen" loading="lazy">
           <div class="card-gold-line"></div>
         </div>
         <div class="ramen-info">
-          <p class="dish-desc" data-i18n="ramen.chicken.desc">Clear chicken broth with noodles, chicken fillet, bok choy, bamboo shoots, narutomaki, soft-boiled egg and scallions</p>
+          <p class="dish-desc" data-i18n="ramen.paitan.desc">Paitan chicken broth with noodles, chicken fillet, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, and scallions</p>
           <span class="dish-price">€18.95</span>
         </div>
       </div>
 
       <div class="ramen-card">
         <div class="ramen-card-header">
-          <span class="dish-kana">えびみそラーメン</span>
-          <h3 class="dish-name" data-i18n="ramen.shrimp.name">Shrimp Miso Ramen</h3>
+          <span class="dish-kana">海鮮ラーメン</span>
+          <h3 class="dish-name" data-i18n="ramen.seafood.name">Seafood Ramen</h3>
         </div>
         <div class="ramen-img-wrap">
-          <img class="dish-img" src="images/shrimp-miso-ramen-nobg.png" alt="Shrimp Miso Ramen" loading="lazy">
+          <img class="dish-img" src="images/seafood-ramen.png" alt="Seafood Ramen" loading="lazy">
           <div class="card-gold-line"></div>
         </div>
         <div class="ramen-info">
-          <p class="dish-desc" data-i18n="ramen.shrimp.desc">Miso broth with noodles, fried shrimp, bok choy, bamboo shoots, narutomaki, soft-boiled egg, bonito flakes and scallions</p>
+          <p class="dish-desc" data-i18n="ramen.seafood.desc">Choice between paitan chicken or rich pork broth with noodles, diverse seafoods, bok choy, bamboo shoots, narutomaki, a soft-boiled seasoned egg, bonito flakes, and scallions</p>
           <span class="dish-price">€19.95</span>
         </div>
       </div>
 
       <div class="ramen-card">
         <div class="ramen-card-header">
-          <span class="dish-kana">野菜醤油ラーメン</span>
-          <h3 class="dish-name" data-i18n="ramen.veg.name">Vegetable Soy-Sauce Ramen</h3>
+          <span class="dish-kana">野菜味噌ラーメン</span>
+          <h3 class="dish-name" data-i18n="ramen.vegmiso.name">Vegetable Miso Ramen</h3>
         </div>
         <div class="ramen-img-wrap">
-          <img class="dish-img" src="images/vegetarian-ramen-nobg.png" alt="Vegetable Soy-Sauce Ramen" loading="lazy">
+          <img class="dish-img" src="images/vegetarian-ramen-nobg.png" alt="Vegetable Miso Ramen" loading="lazy">
           <div class="card-gold-line"></div>
+          <span class="vega-tag">Vega</span>
         </div>
         <div class="ramen-info">
-          <p class="dish-desc" data-i18n="ramen.veg.desc">Soy sauce broth with noodles, bok choy, corn, broccoli, bamboo shoots, seaweed, dry onions and scallions</p>
+          <p class="dish-desc" data-i18n="ramen.vegmiso.desc">Vegetarian-friendly ramen with miso, noodles, bok choy, corn, broccoli, bamboo shoots, seaweed, and scallions</p>
           <span class="dish-price">€17.95</span>
         </div>
       </div>
@@ -554,26 +738,21 @@
 
       <div class="item-row">
         <img class="item-thumb" src="images/seaweed-salad-nobg.png" alt="Seaweed salad" loading="lazy">
-        <div class="item-text"><span class="item-name" data-i18n="sides.seaweed">Seasoned seaweed salad</span></div>
+        <div class="item-text"><span class="item-name" data-i18n="sides.seaweed">Seasoned seaweed salad</span><span class="vega-tag">Vega</span></div>
         <span class="item-price">€7.95</span>
       </div>
       <div class="item-row">
         <img class="item-thumb" src="images/edamame-nobg.png" alt="Edamame" loading="lazy">
-        <div class="item-text"><span class="item-name" data-i18n="sides.edamame">Edamame</span></div>
+        <div class="item-text"><span class="item-name" data-i18n="sides.edamame">Edamame</span><span class="vega-tag">Vega</span></div>
         <span class="item-price">€7.50</span>
       </div>
       <div class="item-row">
         <img class="item-thumb" src="images/kimchi-nobg.png" alt="Kimchi" loading="lazy">
         <div class="item-text">
-          <span class="item-name" data-i18n="sides.kimchi">Kimchi</span>
+          <span class="item-name" data-i18n="sides.kimchi">Kimchi</span><span class="vega-tag">Vega</span>
           <span class="item-note" data-i18n="sides.kimchi.note">Korean fermented vegetables</span>
         </div>
         <span class="item-price">€6.50</span>
-      </div>
-      <div class="item-row">
-        <div class="item-thumb-placeholder">卵</div>
-        <div class="item-text"><span class="item-name" data-i18n="sides.eggs">Soft boiled seasoned eggs</span></div>
-        <span class="item-price">€7.50</span>
       </div>
       <div class="item-row">
         <img class="item-thumb" src="images/dumplings-nobg.png" alt="Dumplings" loading="lazy">
@@ -586,7 +765,7 @@
       <div class="item-row">
         <img class="item-thumb" src="images/gyoza-nobg.png" alt="Gyoza" loading="lazy">
         <div class="item-text">
-          <span class="item-name" data-i18n="sides.gyoza">Pan-fried vegetable gyoza</span>
+          <span class="item-name" data-i18n="sides.gyoza">Pan-fried vegetable gyoza</span><span class="vega-tag">Vega</span>
           <span class="item-note" data-i18n="sides.gyoza.note">5× or 10×</span>
         </div>
         <span class="item-price">€7.50 / €14.50</span>
@@ -615,7 +794,7 @@
       <div class="item-row">
         <img class="item-thumb" src="images/octopus-balls-nobg.png" alt="Octopus balls" loading="lazy">
         <div class="item-text">
-          <span class="item-name" data-i18n="fried.octopus">Octopus balls</span>
+          <span class="item-name" data-i18n="fried.takoyaki">Takoyaki (octopus fritters)</span>
           <span class="item-note">4 pieces</span>
         </div>
         <span class="item-price">€8.95</span>
@@ -651,22 +830,6 @@
           <span class="item-note">2 pieces</span>
         </div>
         <span class="item-price">€7.95</span>
-      </div>
-      <div class="item-row">
-        <img class="item-thumb" src="images/dumplings-nobg.png" alt="Fried dumplings" loading="lazy">
-        <div class="item-text">
-          <span class="item-name" data-i18n="fried.dumplingsC">Fried chicken dumplings</span>
-          <span class="item-note">5× or 10×</span>
-        </div>
-        <span class="item-price">€7.50 / €14.50</span>
-      </div>
-      <div class="item-row">
-        <div class="item-thumb-placeholder">餃</div>
-        <div class="item-text">
-          <span class="item-name" data-i18n="fried.dumplingsV">Fried vegetable dumplings</span>
-          <span class="item-note">5× or 10×</span>
-        </div>
-        <span class="item-price">€7.50 / €14.50</span>
       </div>
 
     </div>
@@ -710,14 +873,18 @@
     <div class="extras-grid">
       <div class="extra-row"><span data-i18n="topping.chashu">Chashu pork (3×)</span><span class="extra-price">€3.50</span></div>
       <div class="extra-row"><span data-i18n="topping.chicken">Chicken fillet (3×)</span><span class="extra-price">€3.00</span></div>
-      <div class="extra-row"><span data-i18n="topping.shrimp">Shrimp (3×)</span><span class="extra-price">€3.50</span></div>
+      <div class="extra-row"><span>Diverse seafood (100g)</span><span class="extra-price">€3.00</span></div>
+      <div class="extra-row"><span data-i18n="topping.shrimp">Shrimps (2×)</span><span class="extra-price">€4.00</span></div>
       <div class="extra-row"><span data-i18n="topping.egg">Ajitama egg</span><span class="extra-price">€1.50</span></div>
       <div class="extra-row"><span data-i18n="topping.scallions">Scallions</span><span class="extra-price">€1.00</span></div>
+      <div class="extra-row"><span data-i18n="topping.redOnions">Red onions</span><span class="extra-price">€1.00</span></div>
+      <div class="extra-row"><span data-i18n="topping.dryOnions">Dry onions</span><span class="extra-price">€1.00</span></div>
       <div class="extra-row"><span data-i18n="topping.corn">Corn</span><span class="extra-price">€1.00</span></div>
       <div class="extra-row"><span data-i18n="topping.bamboo">Bamboo shoots</span><span class="extra-price">€1.50</span></div>
       <div class="extra-row"><span data-i18n="topping.bokchoy">Boiled bok choy</span><span class="extra-price">€1.50</span></div>
-      <div class="extra-row"><span data-i18n="topping.noodles">Portion noodles</span><span class="extra-price">€3.50</span></div>
-      <div class="extra-row"><span data-i18n="topping.seaweed">Dry seaweed</span><span class="extra-price">€1.50</span></div>
+      <div class="extra-row"><span data-i18n="topping.boiledVeg">Boiled vegetables</span><span class="extra-price">€2.00</span></div>
+      <div class="extra-row"><span data-i18n="topping.noodles">Extra noodles</span><span class="extra-price">€3.50</span></div>
+      <div class="extra-row"><span data-i18n="topping.seaweed">Dried seaweed</span><span class="extra-price">€1.50</span></div>
     </div>
   </section>
 
@@ -734,8 +901,148 @@
       <div class="extra-row"><span data-i18n="sauce.hot">Hot sauce (Sriracha)</span><span class="extra-price">€2.00</span></div>
       <div class="extra-row"><span data-i18n="sauce.takoyaki">Takoyaki sauce</span><span class="extra-price">€1.50</span></div>
       <div class="extra-row"><span data-i18n="sauce.okono">Okonomiyaki sauce</span><span class="extra-price">€1.50</span></div>
-      <div class="extra-row"><span data-i18n="sauce.soy">Soy sauce</span><span class="extra-price">€1.00</span></div>
-      <div class="extra-row"><span data-i18n="sauce.teriyaki">Teriyaki sauce</span><span class="extra-price">€1.00</span></div>
+      <div class="extra-row"><span data-i18n="sauce.teriyaki">Teriyaki sauce</span><span class="extra-price">€1.50</span></div>
+    </div>
+  </section>
+
+  </div><!-- /menu-sections-wrap -->
+
+  <!-- DRINKS -->
+  <section id="drinks" class="menu-section">
+    <div class="section-header">
+      <h2 class="section-title">Drinks</h2>
+      <span class="section-kana">ドリンク</span>
+    </div>
+    <div class="section-rule"></div>
+    <div class="drinks-grid">
+
+      <!-- SOFT DRINKS -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">Soft Drinks <span class="drinks-cat-jp">ソフトドリンク</span></div>
+        <div class="drink-row"><span class="drink-name">Water 0.2 L (still)</span><span class="drink-price">€3.95</span></div>
+        <div class="drink-row"><span class="drink-name">Water 0.2 L (sparkling)</span><span class="drink-price">€3.95</span></div>
+        <div class="drink-row"><span class="drink-name">Water 0.75 L (still)</span><span class="drink-price">€7.95</span></div>
+        <div class="drink-row"><span class="drink-name">Water 0.75 L (sparkling)</span><span class="drink-price">€7.95</span></div>
+        <div class="drink-row"><span class="drink-name">Cola 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Cola 0.5 L</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Cola MAX 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Cola MAX 0.5 L</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Fanta 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Fanta 0.5 L</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Sprite 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Sprite 0.5 L</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Tonic 0.2 L</span><span class="drink-price">€3.95</span></div>
+        <div class="drink-row"><span class="drink-name">Cassis 0.2 L</span><span class="drink-price">€3.95</span></div>
+        <div class="drink-row"><span class="drink-name">Bitter lemon 0.2 L</span><span class="drink-price">€3.95</span></div>
+        <div class="drink-row"><span class="drink-name">Chocolate milk 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.3 L (lemon)</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.3 L (green)</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.3 L (peach)</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.5 L (lemon)</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.5 L (green)</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Iced tea 0.5 L (peach)</span><span class="drink-price">€7.75</span></div>
+        <div class="drink-row"><span class="drink-name">Apple juice 0.3 L</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Fresh orange juice 0.3 L</span><span class="drink-price">€5.95</span></div>
+      </div>
+
+      <!-- HOT DRINKS -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">Hot Drinks <span class="drinks-cat-jp">ホットドリンク</span></div>
+        <div class="drink-row"><span class="drink-name">Tea</span><span class="drink-price">€4.25</span></div>
+        <div class="drink-row"><span class="drink-name">Genmaicha tea</span><span class="drink-price">€4.50</span></div>
+        <div class="drink-row"><span class="drink-name">Fresh mint tea</span><span class="drink-price">€5.50</span></div>
+        <div class="drink-row"><span class="drink-name">Matcha latte</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Coffee</span><span class="drink-price">€4.25</span></div>
+        <div class="drink-row"><span class="drink-name">Espresso</span><span class="drink-price">€3.75</span></div>
+        <div class="drink-row"><span class="drink-name">Double espresso</span><span class="drink-price">€4.50</span></div>
+        <div class="drink-row"><span class="drink-name">Cappuccino</span><span class="drink-price">€4.75</span></div>
+        <div class="drink-row"><span class="drink-name">Coffee latte</span><span class="drink-price">€4.95</span></div>
+        <div class="drink-row"><span class="drink-name">Chocolate milk with cream</span><span class="drink-price">€5.25</span></div>
+        <div class="drinks-sub-title">Luxury Coffee <span class="drinks-cat-jp">高級コーヒー</span></div>
+        <div class="drink-row"><span class="drink-name">Irish coffee (Jameson)</span><span class="drink-price">€12.95</span></div>
+        <div class="drink-row"><span class="drink-name">Italian coffee (Amaretto)</span><span class="drink-price">€12.95</span></div>
+        <div class="drink-row"><span class="drink-name">French coffee (Grand Marnier)</span><span class="drink-price">€12.95</span></div>
+        <div class="drink-row"><span class="drink-name">Spanish coffee (Tia Maria)</span><span class="drink-price">€12.95</span></div>
+      </div>
+
+      <!-- BEERS -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">Beers <span class="drinks-cat-jp">ビール</span></div>
+        <div class="drink-row"><span class="drink-name">Heineken 0.35 L (draft)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Heineken 0.5 L (draft)</span><span class="drink-price">€8.95</span></div>
+        <div class="drink-row"><span class="drink-name">Amstel 0.35 L (draft)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Amstel 0.5 L (draft)</span><span class="drink-price">€8.95</span></div>
+        <div class="drink-row"><span class="drink-name">Corona 0.33 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Hoegaarden White 0.3 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Amstel Rosé 0.3 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Amstel Radler 0.3 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Leffe Brown 0.3 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Budweiser 0.3 L</span><span class="drink-price">€5.95</span></div>
+        <div class="drinks-sub-title">Japanese Beers <span class="drinks-cat-jp">日本のビール</span></div>
+        <div class="drink-row"><span class="drink-name">Kirin Ichiban 0.33 L</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Sapporo 0.33 L</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Asahi 0.33 L</span><span class="drink-price">€6.50</span></div>
+      </div>
+
+      <!-- HOUSE WINE -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">House Wine & Others <span class="drinks-cat-jp">ハウスワイン</span></div>
+        <div class="drink-row"><span class="drink-name">Red wine (glass)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">White dry wine (glass)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">White sweet wine (glass)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Rosé wine (glass)</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Mionetto Prosecco 0.2 L</span><span class="drink-price">€9.95</span></div>
+        <div class="drink-row"><span class="drink-name">Aperol Spritz 0.175 L</span><span class="drink-price">€9.95</span></div>
+      </div>
+
+      <!-- STRONG DRINKS -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">Strong Drinks <span class="drinks-cat-jp">アルコール飲料</span></div>
+        <div class="drink-row"><span class="drink-name">Smirnoff Ice</span><span class="drink-price">€5.95</span></div>
+        <div class="drink-row"><span class="drink-name">Malibu</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Gin</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Tequila</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Vodka</span><span class="drink-price">€6.75</span></div>
+        <div class="drink-row"><span class="drink-name">Amaretto</span><span class="drink-price">€6.75</span></div>
+        <div class="drink-row"><span class="drink-name">Baileys</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Bacardi</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Jack Daniel's</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Jameson</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Chivas Regal</span><span class="drink-price">€7.95</span></div>
+        <div class="drink-row"><span class="drink-name">Captain Morgan</span><span class="drink-price">€7.50</span></div>
+        <div class="drink-row"><span class="drink-name">Johnnie Walker Red Label</span><span class="drink-price">€7.95</span></div>
+        <div class="drink-row"><span class="drink-name">Johnnie Walker Black Label</span><span class="drink-price">€9.95</span></div>
+      </div>
+
+      <!-- COCKTAILS + SAKE + JAPANESE SOFT DRINKS -->
+      <div class="drinks-category">
+        <div class="drinks-cat-title">Cocktails <span class="drinks-cat-jp">カクテル</span></div>
+        <div class="drink-row"><span class="drink-name">Piña Colada</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Long Island iced tea</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Sex on the Beach</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Coral Reef</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Swimming Pool</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Evening Sun</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Tequila Sunrise</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Zombie (alcohol free)</span><span class="drink-price">€9.95</span></div>
+
+        <div class="drinks-sub-title">Sake <span class="drinks-cat-jp">日本酒</span></div>
+        <div class="drink-row"><span class="drink-name">Ozeki Junmai Sake (13.6%) 0.15 L — warm</span><span class="drink-price">€8.50</span></div>
+        <div class="drink-row"><span class="drink-name">Ozeki One Cup Junmai (13.5%) 0.18 L — cold</span><span class="drink-price">€8.50</span></div>
+        <div class="drink-row"><span class="drink-name">Gekkeikan Cup Junmai (13.5%) 0.18 L — cold</span><span class="drink-price">€9.95</span></div>
+        <div class="drink-row"><span class="drink-name">Ozeki Sparkling Yuzu (5%) 0.25 L</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Ozeki Sparkling Flower (7%) 0.25 L</span><span class="drink-price">€14.95</span></div>
+        <div class="drink-row"><span class="drink-name">Ozeki Sparkling Peach (7%) 0.25 L</span><span class="drink-price">€14.95</span></div>
+
+        <div class="drinks-sub-title">Japanese Soft Drinks <span class="drinks-cat-jp">日本のソフトドリンク</span></div>
+        <div class="drink-row"><span class="drink-name">Ramune Melon 0.2 L</span><span class="drink-price">€5.25</span></div>
+        <div class="drink-row"><span class="drink-name">Ramune Strawberry 0.2 L</span><span class="drink-price">€5.25</span></div>
+        <div class="drink-row"><span class="drink-name">Ramune Original 0.2 L</span><span class="drink-price">€5.25</span></div>
+        <div class="drink-row"><span class="drink-name">Tomomasu Watermelon cider 0.3 L</span><span class="drink-price">€6.50</span></div>
+        <div class="drink-row"><span class="drink-name">Tomomasu Mango cider 0.3 L</span><span class="drink-price">€6.50</span></div>
+
+      </div>
+
     </div>
   </section>
 

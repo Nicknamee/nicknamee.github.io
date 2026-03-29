@@ -659,17 +659,7 @@ body { padding-top: 64px; }
   border-color: rgba(212, 148, 58, 0.2);
   box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,148,58,0.1);
 }
-.preview-card-shine {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-  background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%),
-              rgba(212, 148, 58, 0.1) 0%, transparent 60%);
-}
-.preview-card:hover .preview-card-shine { opacity: 1; }
+
 .preview-card-img {
   width: 100%;
   aspect-ratio: 4 / 4;
@@ -679,14 +669,15 @@ body { padding-top: 64px; }
   background-size: 95%;
   transition: background-size 0.5s ease;
 }
-.preview-card:hover .preview-card-img {
-  background-size: 100%;
-}
+.preview-card:hover .preview-card-img { background-size: 100%; }
+
 .preview-card-jp {
-  font-size: 0.7rem;
-  color: rgba(212, 148, 58, 0.5);
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  opacity: 0.7;
 }
 .preview-card-body {
   padding: 20px;
@@ -1232,4 +1223,45 @@ body { padding-top: 64px; }
   /* About */
   .about-ctas { flex-direction: column; }
   .about-ctas .btn { text-align: center; }
+}
+
+/* ── VEGA TAG ── */
+.vega-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #2a5c2a;
+  color: #7ecb7e;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 0.5px solid #4a9a4a;
+}
+.vega-tag::before { content: '🌿'; font-size: 0.65rem; }
+
+/* Vega tag inside cards: absolute top-right */
+.preview-card > .vega-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+}
+
+/* ── RECOMMENDED TAG ── */
+.recommended-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #c8a84b;
+  color: #0c0a07;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 2px;
+  z-index: 2;
 }
