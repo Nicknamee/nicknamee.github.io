@@ -15,7 +15,7 @@
       /* Hero */
       'hero.tagline': 'Authentic Japanese ramen above the busy streets of Damrak.',
       'hero.sub': 'Rich broths, fresh noodles, and a quiet spot upstairs in central Amsterdam.',
-      'hero.address': 'Damrak 45 · Floor 2<br>Amsterdam',
+      'hero.address': 'Damrak 45 · Floor 1<br>Amsterdam',
       'hero.reserveBtn': 'Reserve a table',
       'hero.viewMenu': 'View Menu',
       'hero.hours': 'Open daily · 09:00 – 23:00',
@@ -45,13 +45,17 @@
       /* Index – Location */
       'location.label': 'Find us',
       'location.heading': "We're <em>upstairs</em>",
-      'location.desc': 'Located inside At James on Damrak 45, floor 2.<br>Step upstairs and discover Tsukimi Ramen.',
+      'location.desc': 'Located above At James on Damrak 45, floor 1.<br>Step upstairs and discover Tsukimi Ramen.',
       'location.addrKey': 'Address',
-      'location.addrVal': 'Damrak 45, Floor 2, Amsterdam',
+      'location.addrVal': 'Damrak 45, Floor 1, Amsterdam',
       'location.hoursKey': 'Hours',
       'location.hoursVal': '09:00 \u2013 23:00 daily',
       'location.phoneKey': 'Phone',
-      'location.note': "<strong>Look for At James on Damrak 45</strong> \u2014 we're on the second floor. Take the stairs up and you'll find us.",
+      'location.note': "<strong>Look for At James on Damrak 45</strong> \u2014 we're on the first floor. Take the stairs up and you'll find us.",
+
+      /* Social */
+      'social.label': 'Follow us',
+      'social.heading': 'Stay up to date',
 
       /* Footer */
       'footer.tagline': 'Ramen upstairs in the heart of Amsterdam',
@@ -131,7 +135,7 @@
 
       /* About page */
       'about.label': 'About us',
-      'about.p1': 'Tsukimi Ramen is a casual ramen spot located in the heart of Amsterdam, on the second floor of Damrak 45 \u2014 inside At James, which has been welcoming guests since 2011.',
+      'about.p1': 'Tsukimi Ramen is a casual ramen spot located in the heart of Amsterdam, on the first floor of Damrak 45 \u2014 above At James, which has been welcoming guests since 2011.',
       'about.p2': 'Inspired by the energy of the city, we offer a simple and welcoming space just above the busy streets. Step upstairs and take a break from the crowds.',
       'about.p3': 'Our focus is on fresh, quality ramen made for a quick, comfortable meal in the city.',
       'about.viewMenu': 'View our menu',
@@ -147,7 +151,7 @@
 
       /* Hero */
       'hero.tagline': 'Authentieke Japanse ramen boven de drukke straten van de Damrak.',
-      'hero.sub': 'Rijke bouillons, verse noodles en een rustige plek op de 2e etage in het hart van Amsterdam.',
+      'hero.sub': 'Rijke bouillons, verse noodles en een rustige plek op de 1e etage in het hart van Amsterdam.',
       'hero.address': 'Damrak 45 · Verdieping 2<br>Amsterdam',
       'hero.reserveBtn': 'Reserveer een tafel',
       'hero.viewMenu': 'Bekijk menu',
@@ -178,13 +182,17 @@
       /* Index – Location */
       'location.label': 'Vind ons',
       'location.heading': 'Wij zitten <em>boven</em>',
-      'location.desc': 'Gelegen in At James op Damrak 45, verdieping 2.<br>Loop naar boven en ontdek Tsukimi Ramen.',
+      'location.desc': 'Gelegen boven At James op Damrak 45, verdieping 1.<br>Loop naar boven en ontdek Tsukimi Ramen.',
       'location.addrKey': 'Adres',
       'location.addrVal': 'Damrak 45, Verdieping 2, Amsterdam',
       'location.hoursKey': 'Openingstijden',
       'location.hoursVal': '09:00 \u2013 23:00 dagelijks',
       'location.phoneKey': 'Telefoon',
-      'location.note': '<strong>Zoek naar At James op Damrak 45</strong> \u2014 wij zitten op de tweede verdieping. Neem de trap omhoog en je vindt ons.',
+      'location.note': '<strong>Zoek naar At James op Damrak 45</strong> \u2014 wij zitten op de eerste verdieping. Neem de trap omhoog en je vindt ons.',
+
+      /* Social */
+      'social.label': 'Volg ons',
+      'social.heading': 'Blijf op de hoogte',
 
       /* Footer */
       'footer.tagline': 'Ramen boven in het hart van Amsterdam',
@@ -193,7 +201,7 @@
 
       /* Menu page */
       'menu.pageTitle': 'Ons Menu',
-      'menu.subtitle': 'Verse ramen op de tweede verdieping in het hart van Amsterdam',
+      'menu.subtitle': 'Verse ramen op de eerste verdieping in het hart van Amsterdam',
       'menu.ramenCat': 'Ramen',
       'menu.sidesCat': 'Bijgerechten',
       'menu.friedCat': 'Gefrituurde Gerechten',
@@ -264,7 +272,7 @@
 
       /* About page */
       'about.label': 'Over ons',
-      'about.p1': 'Tsukimi Ramen is een casual ramen restaurant in het hart van Amsterdam, op de tweede verdieping van Damrak 45 \u2014 in At James, dat gasten verwelkomt sinds 2011.',
+      'about.p1': 'Tsukimi Ramen is een casual ramen restaurant in het hart van Amsterdam, op de eerste verdieping van Damrak 45 \u2014 boven At James, dat gasten verwelkomt sinds 2011.',
       'about.p2': 'Ge\u00efnspireerd door de energie van de stad bieden wij een eenvoudige en gastvrije plek net boven de drukke straten. Ga naar boven en neem een pauze van de drukte.',
       'about.p3': 'Onze focus ligt op vers, kwalitatief ramen voor een snelle, comfortabele maaltijd in de stad.',
       'about.viewMenu': 'Bekijk ons menu',
@@ -280,14 +288,14 @@
 
       /* Hero */
       'hero.tagline': '\u30c0\u30e0\u30e9\u30fc\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u4e0a\u3001\u672c\u683c\u7684\u306a\u65e5\u672c\u306e\u30e9\u30fc\u30e1\u30f3\u3002',
-      'hero.sub': '\u6fc3\u539a\u306a\u30b9\u30fc\u30d7\u3001\u65b0\u9bae\u306a\u9eba\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u4e2d\u5fc3\u306e\u9759\u304b\u306a2\u968e\u5e2d\u3067\u3002',
-      'hero.address': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb2\u968e<br>\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
+      'hero.sub': '\u6fc3\u539a\u306a\u30b9\u30fc\u30d7\u3001\u65b0\u9bae\u306a\u9eba\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u4e2d\u5fc3\u306e\u9759\u304b\u306a1\u968e\u5e2d\u3067\u3002',
+      'hero.address': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb1\u968e<br>\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
       'hero.reserveBtn': '\u30c6\u30fc\u30d6\u30eb\u3092\u4e88\u7d04\u3059\u308b',
       'hero.viewMenu': '\u30e1\u30cb\u30e5\u30fc\u3092\u898b\u308b',
       'hero.hours': '\u6bce\u65e5\u55b6\u696d · 09:00 \u2013 23:00',
 
       /* Index – Menu preview */
-      'menuPreview.label': '2\u968e\u306e\u304a\u5473\u3092\u3069\u3046\u305e',
+      'menuPreview.label': '1\u968e\u306e\u304a\u5473\u3092\u3069\u3046\u305e',
       'menuPreview.heading': '\u65b0\u9bae\u3067\u30b7\u30f3\u30d7\u30eb\u306a<em>\u30e9\u30fc\u30e1\u30f3\u3002</em>',
       'card.tonkotsu.name': '\u8c5a\u9aa8\u30e9\u30fc\u30e1\u30f3',
       'card.tonkotsu.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\u3001\u767d\u83dc\u3001\u534a\u71df\u5375',
@@ -299,25 +307,29 @@
 
       /* Index – Concept */
       'concept.label': '\u30b9\u30c8\u30fc\u30ea\u30fc',
-      'concept.text': '\u30c0\u30e0\u30e9\u30fc\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u4f4d\u7f6e\u3059\u308b\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u9759\u304b\u306a\u3072\u3068\u3068\u304d\u3092\u3054\u63d0\u4f9b\u3057\u307e\u3059\u30022\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u96e2\u308c\u305f\u6e29\u304b\u304f\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u4f53\u9a13\u3092\u3069\u3046\u305e\u3002',
+      'concept.text': '\u30c0\u30e0\u30e9\u30fc\u30af\u306e\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u4f4d\u7f6e\u3059\u308b\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u9759\u304b\u306a\u3072\u3068\u3068\u304d\u3092\u3054\u63d0\u4f9b\u3057\u307e\u3059\u30021\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u96e2\u308c\u305f\u6e29\u304b\u304f\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u4f53\u9a13\u3092\u3069\u3046\u305e\u3002',
 
       /* Index – Reserve CTA */
       'reserve.label': '\u3054\u4e88\u7d04',
       'reserve.heading': '<em>\u30c6\u30fc\u30d6\u30eb\u3092</em>\u3054\u4e88\u7d04',
-      'reserve.sub': '\u5f85\u3061\u6642\u9593\u306a\u3057\u30672\u968e\u306e\u304a\u5e2d\u3092\u78ba\u4fdd\u3057\u3066\u304f\u3060\u3055\u3044\u3002',
+      'reserve.sub': '\u5f85\u3061\u6642\u9593\u306a\u3057\u30671\u968e\u306e\u304a\u5e2d\u3092\u78ba\u4fdd\u3057\u3066\u304f\u3060\u3055\u3044\u3002',
       'reserve.btn': '\u4eca\u3059\u3050\u4e88\u7d04',
       'reserve.note': '\u30aa\u30f3\u30e9\u30a4\u30f3\u4e88\u7d04\u306f\u8fd1\u65e5\u516c\u958b\u4e88\u5b9a\u3067\u3059\u3002',
 
       /* Index – Location */
       'location.label': '\u30a2\u30af\u30bb\u30b9',
-      'location.heading': '\u79c1\u305f\u3061\u306f<em>2\u968e</em>\u306b\u3044\u307e\u3059',
-      'location.desc': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u306e\u4e2d\u30012\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002<br>\u968e\u6bb5\u3092\u4e0a\u304c\u3063\u3066\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u3092\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
+      'location.heading': '\u79c1\u305f\u3061\u306f<em>1\u968e</em>\u306b\u3044\u307e\u3059',
+      'location.desc': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u306e\u4e0a\u30011\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002<br>\u968e\u6bb5\u3092\u4e0a\u304c\u3063\u3066\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u3092\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
       'location.addrKey': '\u4f4f\u6240',
-      'location.addrVal': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb2\u968e\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
+      'location.addrVal': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb1\u968e\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
       'location.hoursKey': '\u55b6\u696d\u6642\u9593',
       'location.hoursVal': '\u6bce\u65e5 09:00 \u2013 23:00',
       'location.phoneKey': '\u96fb\u8a71',
-      'location.note': '<strong>\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u3092\u304a\u63a2\u3057\u304f\u3060\u3055\u3044</strong> \u2014 2\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002\u968e\u6bb5\u3092\u4e0a\u304c\u308b\u3068\u3059\u3050\u898b\u3064\u304b\u308a\u307e\u3059\u3002',
+      'location.note': '<strong>\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u3092\u304a\u63a2\u3057\u304f\u3060\u3055\u3044</strong> \u2014 1\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002\u968e\u6bb5\u3092\u4e0a\u304c\u308b\u3068\u3059\u3050\u898b\u3064\u304b\u308a\u307e\u3059\u3002',
+
+      /* Social */
+      'social.label': 'フォローする',
+      'social.heading': '最新情報をチェック',
 
       /* Footer */
       'footer.tagline': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u3067\u3001\u4e0a\u306e\u968e\u306e\u30e9\u30fc\u30e1\u30f3',
@@ -326,7 +338,7 @@
 
       /* Menu page */
       'menu.pageTitle': '\u30e1\u30cb\u30e5\u30fc',
-      'menu.subtitle': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u30012\u968e\u3067\u65b0\u9bae\u306a\u30e9\u30fc\u30e1\u30f3\u3092',
+      'menu.subtitle': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u30011\u968e\u3067\u65b0\u9bae\u306a\u30e9\u30fc\u30e1\u30f3\u3092',
       'menu.ramenCat': '\u30e9\u30fc\u30e1\u30f3',
       'menu.sidesCat': '\u30b5\u30a4\u30c9\u30e1\u30cb\u30e5\u30fc',
       'menu.friedCat': '\u63da\u3052\u7269',
@@ -335,7 +347,7 @@
       'menu.saucesCat': '\u30bd\u30fc\u30b9',
 
       /* Menu – Ramen */
-      'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f2\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
+      'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f1\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
       'ramen.special.name': '\u6708\u898b\u30e9\u30fc\u30e1\u30f3\u30b9\u30da\u30b7\u30e3\u30eb',
       'ramen.special.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30b9\u30da\u30a2\u30ea\u30d6\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u767d\u3054\u307e\u3001\u30cd\u30ae',
       'ramen.tonkotsu.name': '\u8c5a\u9aa8\u30e9\u30fc\u30e1\u30f3',
@@ -397,8 +409,8 @@
 
       /* About page */
       'about.label': '\u79c1\u305f\u3061\u306b\u3064\u3044\u3066',
-      'about.p1': '\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u4f4d\u7f6e\u3059\u308b\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u5c02\u9580\u5e97\u3067\u3059\u3002\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30022\u968e\u3001At James\u306e\u4e2d\u306b\u3054\u3056\u3044\u307e\u3059\u30022011\u5e74\u304b\u3089\u55b6\u696d\u3057\u3066\u3044\u307e\u3059\u3002',
-      'about.p2': '\u90fd\u5e02\u306e\u30a8\u30cd\u30eb\u30ae\u30fc\u306b\u30a4\u30f3\u30b9\u30d1\u30a4\u30a2\u3055\u308c\u3001\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u30b7\u30f3\u30d7\u30eb\u3067\u6e29\u304b\u3044\u7a7a\u9593\u3092\u3054\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u30022\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u9000\u3044\u3066\u30ea\u30e9\u30c3\u30af\u30b9\u3057\u3066\u304f\u3060\u3055\u3044\u3002',
+      'about.p1': '\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u306f\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u306b\u4f4d\u7f6e\u3059\u308b\u30ab\u30b8\u30e5\u30a2\u30eb\u306a\u30e9\u30fc\u30e1\u30f3\u5c02\u9580\u5e97\u3067\u3059\u3002\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30021\u968e\u3001At James\u306e\u4e0a\u306b\u3054\u3056\u3044\u307e\u3059\u30022011\u5e74\u304b\u3089\u55b6\u696d\u3057\u3066\u3044\u307e\u3059\u3002',
+      'about.p2': '\u90fd\u5e02\u306e\u30a8\u30cd\u30eb\u30ae\u30fc\u306b\u30a4\u30f3\u30b9\u30d1\u30a4\u30a2\u3055\u308c\u3001\u8ce1\u308f\u3044\u901a\u308a\u306e\u3059\u3050\u4e0a\u306b\u30b7\u30f3\u30d7\u30eb\u3067\u6e29\u304b\u3044\u7a7a\u9593\u3092\u3054\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059\u30021\u968e\u306b\u4e0a\u304c\u308a\u3001\u559d\u9a12\u304b\u3089\u9000\u3044\u3066\u30ea\u30e9\u30c3\u30af\u30b9\u3057\u3066\u304f\u3060\u3055\u3044\u3002',
       'about.p3': '\u65b0\u9bae\u3067\u8cea\u306e\u9ad8\u3044\u30e9\u30fc\u30e1\u30f3\u3092\u30011\u56de\u306e\u5feb\u9069\u306a\u98df\u4e8b\u3068\u3057\u3066\u63d0\u4f9b\u3059\u308b\u3053\u3068\u304c\u79c1\u305f\u3061\u306e\u76ee\u6a19\u3067\u3059\u3002',
       'about.viewMenu': '\u30e1\u30cb\u30e5\u30fc\u3092\u898b\u308b',
       'about.reserve': '\u30c6\u30fc\u30d6\u30eb\u3092\u4e88\u7d04\u3059\u308b',

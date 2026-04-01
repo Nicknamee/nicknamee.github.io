@@ -703,6 +703,50 @@ body { padding-top: 64px; }
   margin-top: 48px;
 }
 
+/* ── SOCIAL FOLLOW ── */
+.social-follow h2 {
+  margin-bottom: 40px;
+}
+.social-cards {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--surface);
+  border: 1px solid var(--gold-border);
+  padding: 20px 32px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  min-width: 220px;
+}
+.social-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.social-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.social-platform {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.social-handle {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
 /* Hanko stamp badge */
 .hanko {
   position: absolute;
