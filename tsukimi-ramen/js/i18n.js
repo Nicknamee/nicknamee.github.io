@@ -51,6 +51,7 @@
       'location.hoursKey': 'Hours',
       'location.hoursVal': '09:00 \u2013 23:00 daily',
       'location.phoneKey': 'Phone',
+      'location.emailKey': 'Email',
       'location.note': "<strong>Look for At James on Damrak 45</strong> \u2014 we're on the first floor. Take the stairs up and you'll find us.",
 
       /* Social */
@@ -140,6 +141,12 @@
       'about.p3': 'Our focus is on fresh, quality ramen made for a quick, comfortable meal in the city.',
       'about.viewMenu': 'View our menu',
       'about.reserve': 'Reserve a table',
+
+      /* Full Menu PDF */
+      'fullmenu.catbar': 'Full Menu PDF',
+      'fullmenu.title': 'Full Menu',
+      'fullmenu.desc': 'View our complete menu \u2014 including drinks, extra toppings and sauces \u2014 as a PDF.',
+      'fullmenu.btn': 'View Full Menu (PDF)',
     },
 
     nl: {
@@ -151,8 +158,8 @@
 
       /* Hero */
       'hero.tagline': 'Authentieke Japanse ramen boven de drukke straten van de Damrak.',
-      'hero.sub': 'Rijke bouillons, verse noodles en een rustige plek op de 1e etage in het hart van Amsterdam.',
-      'hero.address': 'Damrak 45 · Verdieping 2<br>Amsterdam',
+      'hero.sub': 'Rijke bouillons, verse noodles en een rustige plek op de eerste verdieping in het hart van Amsterdam.',
+      'hero.address': 'Damrak 45 · Eerste verdieping<br>Amsterdam',
       'hero.reserveBtn': 'Reserveer een tafel',
       'hero.viewMenu': 'Bekijk menu',
       'hero.hours': 'Dagelijks open · 09:00 \u2013 23:00',
@@ -182,12 +189,13 @@
       /* Index – Location */
       'location.label': 'Vind ons',
       'location.heading': 'Wij zitten <em>boven</em>',
-      'location.desc': 'Gelegen boven At James op Damrak 45, verdieping 1.<br>Loop naar boven en ontdek Tsukimi Ramen.',
+      'location.desc': 'Gelegen boven At James op Damrak 45, eerste verdieping.<br>Loop naar boven en ontdek Tsukimi Ramen.',
       'location.addrKey': 'Adres',
-      'location.addrVal': 'Damrak 45, Verdieping 2, Amsterdam',
+      'location.addrVal': 'Damrak 45, Eerste verdieping, Amsterdam',
       'location.hoursKey': 'Openingstijden',
       'location.hoursVal': '09:00 \u2013 23:00 dagelijks',
       'location.phoneKey': 'Telefoon',
+      'location.emailKey': 'E-mail',
       'location.note': '<strong>Zoek naar At James op Damrak 45</strong> \u2014 wij zitten op de eerste verdieping. Neem de trap omhoog en je vindt ons.',
 
       /* Social */
@@ -277,6 +285,12 @@
       'about.p3': 'Onze focus ligt op vers, kwalitatief ramen voor een snelle, comfortabele maaltijd in de stad.',
       'about.viewMenu': 'Bekijk ons menu',
       'about.reserve': 'Reserveer een tafel',
+
+      /* Full Menu PDF */
+      'fullmenu.catbar': 'Volledig Menu PDF',
+      'fullmenu.title': 'Volledig Menu',
+      'fullmenu.desc': 'Bekijk ons complete menu \u2014 inclusief dranken, extra toppings en sauzen \u2014 als PDF.',
+      'fullmenu.btn': 'Bekijk volledig menu (PDF)',
     },
 
     ja: {
@@ -318,13 +332,14 @@
 
       /* Index – Location */
       'location.label': '\u30a2\u30af\u30bb\u30b9',
-      'location.heading': '\u79c1\u305f\u3061\u306f<em>1\u968e</em>\u306b\u3044\u307e\u3059',
+      'location.heading': '\u30e9\u30fc\u30e1\u30f3\u5c4b\u306f<em>\u4e00\u968e</em>\u306b\u3054\u3056\u3044\u307e\u3059',
       'location.desc': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u306e\u4e0a\u30011\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002<br>\u968e\u6bb5\u3092\u4e0a\u304c\u3063\u3066\u30c4\u30ad\u30df\u30e9\u30fc\u30e1\u30f3\u3092\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
       'location.addrKey': '\u4f4f\u6240',
       'location.addrVal': '\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u30fb1\u968e\u3001\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0',
       'location.hoursKey': '\u55b6\u696d\u6642\u9593',
       'location.hoursVal': '\u6bce\u65e5 09:00 \u2013 23:00',
       'location.phoneKey': '\u96fb\u8a71',
+      'location.emailKey': '\u30e1\u30fc\u30eb',
       'location.note': '<strong>\u30c0\u30e0\u30e9\u30af45\u756a\u5730\u306eAt James\u3092\u304a\u63a2\u3057\u304f\u3060\u3055\u3044</strong> \u2014 1\u968e\u306b\u3054\u3056\u3044\u307e\u3059\u3002\u968e\u6bb5\u3092\u4e0a\u304c\u308b\u3068\u3059\u3050\u898b\u3064\u304b\u308a\u307e\u3059\u3002',
 
       /* Social */
@@ -340,7 +355,7 @@
       'menu.pageTitle': '\u30e1\u30cb\u30e5\u30fc',
       'menu.subtitle': '\u30a2\u30e0\u30b9\u30c6\u30eb\u30c0\u30e0\u306e\u4e2d\u5fc3\u30011\u968e\u3067\u65b0\u9bae\u306a\u30e9\u30fc\u30e1\u30f3\u3092',
       'menu.ramenCat': '\u30e9\u30fc\u30e1\u30f3',
-      'menu.sidesCat': '\u30b5\u30a4\u30c9\u30e1\u30cb\u30e5\u30fc',
+      'menu.sidesCat': '一品料理',
       'menu.friedCat': '\u63da\u3052\u7269',
       'menu.dessertCat': '\u30c7\u30b6\u30fc\u30c8',
       'menu.toppingsCat': '\u30c8\u30c3\u30d4\u30f3\u30b0',
@@ -349,26 +364,26 @@
       /* Menu – Ramen */
       'ramen.intro': '\u30b9\u30fc\u30d7\u306f\u6bce\u65e5\u65b0\u9bae\u306b\u4f5c\u308a\u307e\u3059\u3002\u4f55\u6642\u9593\u3082\u30b3\u30c8\u30b3\u30c8\u3068\u716e\u8fbc\u3093\u3060\u30b9\u30fc\u30d7\u306f\u3001\u4e00\u676f\u4e00\u676f\u306b\u6df1\u3044\u65e8\u5473\u304c\u8a70\u307e\u3063\u3066\u3044\u307e\u3059\u3002\u304a\u597d\u307f\u306e\u4e00\u676f\u3092\u9078\u3093\u3067\u3001\u901a\u308a\u306e\u55a7\u9a12\u304b\u3089\u96e2\u308c\u305f1\u968e\u3067\u3054\u3086\u3063\u304f\u308a\u304a\u697d\u3057\u307f\u304f\u3060\u3055\u3044\u3002',
       'ramen.special.name': '\u6708\u898b\u30e9\u30fc\u30e1\u30f3\u30b9\u30da\u30b7\u30e3\u30eb',
-      'ramen.special.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30b9\u30da\u30a2\u30ea\u30d6\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u767d\u3054\u307e\u3001\u30cd\u30ae',
+      'ramen.special.desc': '濃厚な豚骨スープ、麺、スペアリブ、チンゲン菜、メンマ、鳴人巻、味玉、海苔、白ごま、ネギ',
       'ramen.tonkotsu.name': '\u8c5a\u9aa8\u30e9\u30fc\u30e1\u30f3',
-      'ramen.tonkotsu.desc': '\u6fc3\u539a\u306a\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u30c1\u30e3\u30fc\u30b7\u30e5\u30fc\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u6d77\u82d3\u3001\u767d\u3054\u307e\u3001\u30cd\u30ae',
+      'ramen.tonkotsu.desc': '濃厚な豚骨スープ、麺、チャーシュー、チンゲン菜、メンマ、鳴人巻、味玉、海苔、白ごま、ネギ',
       'ramen.paitan.name': '\u767d\u6e6f\u9d8f\u30e9\u30fc\u30e1\u30f3',
-      'ramen.paitan.desc': '\u767d\u6e6f\u9d8f\u30ac\u30e9\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u9d8f\u30d5\u30a3\u30ec\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u30cd\u30ae',
+      'ramen.paitan.desc': '鶏白湯、麺、チキンフィレ、チンゲン菜、メンマ、鳴人巻、味玉、ネギ',
       'ramen.seafood.name': '\u6d77\u9bae\u30e9\u30fc\u30e1\u30f3',
-      'ramen.seafood.desc': '\u767d\u6e6f\u9d8f\u307e\u305f\u306f\u8c5a\u9aa8\u30b9\u30fc\u30d7\u3001\u9eba\u3001\u5404\u7a2e\u6d77\u9bae\u3001\u767d\u83dc\u3001\u7b4b\u306e\u5b50\u3001\u306a\u308b\u3068\u3001\u5473\u4ed8\u304d\u534a\u71df\u5375\u3001\u9d3a\u7bc0\u3001\u30cd\u30ae',
+      'ramen.seafood.desc': '鶏白湯または豚骨スープ、麺、各種海鮮、チンゲン菜、メンマ、鳴人巻、味玉、鰹節、ネギ',
       'ramen.vegmiso.name': '\u91ce\u83dc\u5473\u564c\u30e9\u30fc\u30e1\u30f3',
-      'ramen.vegmiso.desc': '\u5473\u564c\u30d9\u30fc\u30b9\u306e\u30d9\u30b8\u30bf\u30ea\u30a2\u30f3\u30e9\u30fc\u30e1\u30f3\u3001\u9eba\u3001\u767d\u83dc\u3001\u30b3\u30fc\u30f3\u3001\u30d6\u30ed\u30c3\u30b3\u30ea\u30fc\u3001\u7b4b\u306e\u5b50\u3001\u6d77\u82d3\u3001\u30cd\u30ae',
+      'ramen.vegmiso.desc': '味噌ベースのベジタリアンラーメン、麺、チンゲン菜、コーン、ブロッコリー、メンマ、海苔、ネギ',
 
       /* Menu – Sides */
       'sides.seaweed': '\u5473\u4ed8\u3051\u6d77\u85fb\u30b5\u30e9\u30c0',
       'sides.edamame': '\u679d\u8c46',
       'sides.kimchi': '\u30ad\u30e0\u30c1',
       'sides.kimchi.note': '\u97d3\u56fd\u767a\u9175\u91ce\u83dc',
-      'sides.dumplings': '\u713c\u304d\u9d8f\u8089\u9913\u5b50',
+      'sides.dumplings': '焼き餃子鶏肉',
       'sides.dumplings.note': '5\u500b\u307e\u305f\u306f10\u500b',
-      'sides.gyoza': '\u713c\u304d\u91ce\u83dc\u9913\u5b50',
+      'sides.gyoza': '野菜餃子',
       'sides.gyoza.note': '5\u500b\u307e\u305f\u306f10\u500b',
-      'sides.pancake': '\u304a\u597d\u307f\u713c\u304d\u30b9\u30c6\u30a3\u30c3\u30af',
+      'sides.pancake': 'お好み焼き串',
       'sides.pancake.note': '2\u672c',
 
       /* Menu – Fried */
@@ -379,8 +394,8 @@
       'fried.skewers': '\u9d8f\u306d\u304e\u4e32',
 
       /* Menu – Desserts */
-      'dessert.dango': '\u3060\u3093\u3054',
-      'dessert.mochi': '\u3082\u3061\u30a2\u30a4\u30b9\u30af\u30ea\u30fc\u30e0',
+      'dessert.dango': '団子串',
+      'dessert.mochi': '餅アイス',
       'dessert.tofu': '\u8c46\u8150\u30d7\u30ea\u30f3',
 
       /* Toppings */
@@ -414,6 +429,12 @@
       'about.p3': '\u65b0\u9bae\u3067\u8cea\u306e\u9ad8\u3044\u30e9\u30fc\u30e1\u30f3\u3092\u30011\u56de\u306e\u5feb\u9069\u306a\u98df\u4e8b\u3068\u3057\u3066\u63d0\u4f9b\u3059\u308b\u3053\u3068\u304c\u79c1\u305f\u3061\u306e\u76ee\u6a19\u3067\u3059\u3002',
       'about.viewMenu': '\u30e1\u30cb\u30e5\u30fc\u3092\u898b\u308b',
       'about.reserve': '\u30c6\u30fc\u30d6\u30eb\u3092\u4e88\u7d04\u3059\u308b',
+
+      /* Full Menu PDF */
+      'fullmenu.catbar': '\u5168\u30e1\u30cb\u30e5\u30fc PDF',
+      'fullmenu.title': '\u5168\u30e1\u30cb\u30e5\u30fc',
+      'fullmenu.desc': '\u30c9\u30ea\u30f3\u30af\u3001\u8ffd\u52a0\u30c8\u30c3\u30d4\u30f3\u30b0\u3001\u30bd\u30fc\u30b9\u3092\u542b\u3080\u5b8c\u5168\u306a\u30e1\u30cb\u30e5\u30fc\u3092PDF\u3067\u3054\u89a7\u304f\u3060\u3055\u3044\u3002',
+      'fullmenu.btn': '\u30e1\u30cb\u30e5\u30fc\u3092PDF\u3067\u898b\u308b',
     }
   };
 

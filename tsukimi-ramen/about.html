@@ -18,8 +18,7 @@
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li><a href="tel:+31643682172" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>
-      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener">@tsukimi_ramen</a></li>
+      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener" class="nav-instagram">@tsukimi_ramen</a></li>
     </ul>
     <div class="lang-switcher">
       <button data-lang="en">EN</button>
@@ -87,6 +86,10 @@
                 <span class="location-key" data-i18n="location.phoneKey">Phone</span>
                 <a href="tel:+31643682172">06 43 68 21 72</a>
               </div>
+              <div class="location-item">
+                <span class="location-key" data-i18n="location.emailKey">Email</span>
+                <a href="mailto:info@tsukimi-ramen.com">info@tsukimi-ramen.com</a>
+              </div>
             </div>
             <div class="location-note">
               <p data-i18n-html="location.note"><strong>Look for At James on Damrak 45</strong> — we're on the first floor. Take the stairs up and you'll find us.</p>
@@ -139,12 +142,20 @@
     </div>
     <div class="footer-info">
       Damrak 45, Floor 1 · Amsterdam<br>
-      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a>
+      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a> · <a href="mailto:info@tsukimi-ramen.com">info@tsukimi-ramen.com</a>
     </div>
     <div class="footer-copy">© 2026 Tsukimi Ramen</div>
     <div class="footer-powered">Powered by <a href="https://nicknamee.github.io" target="_blank" rel="noopener">Howie</a></div>
   </footer>
 
   <script src="js/i18n.js"></script>
+  <script>
+    (function(g,s,t,p,l,n){
+      g["_gstpln"]={};
+      (l=s.createElement(t)),(n=s.getElementsByTagName(t)[0]);
+      l.async=1;l.src=p;n.parentNode.insertBefore(l,n);
+    })(window,document,"script","https://cdn.guestplan.com/widget.js");
+    _gstpln.accessKey = "e2191dab7299da471a5be8f6a9a50a528686c3e5";
+  </script>
 </body>
 </html>

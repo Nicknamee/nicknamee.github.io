@@ -223,6 +223,8 @@ h2 em, h3 em {
   background: var(--gold-light);
   color: #0e0906;
 }
+.nav-links .nav-instagram { color: var(--gold); }
+.nav-links .nav-instagram:hover { color: var(--gold-light); }
 
 /* --- Language switcher --- */
 .lang-switcher {

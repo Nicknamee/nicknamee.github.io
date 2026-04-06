@@ -18,8 +18,7 @@
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li><a href="tel:+31643682172" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>
-      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener">@tsukimi_ramen</a></li>
+      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener" class="nav-instagram">@tsukimi_ramen</a></li>
     </ul>
     <div class="lang-switcher">
       <button data-lang="en">EN</button>
@@ -147,30 +146,6 @@
       </p>
     </section>
 
-    <!-- RESERVE CTA -->
-    <section class="reserve-cta section-full">
-<div class="reserve-cta-inner reveal">
-        <p class="section-label" data-i18n="reserve.label">Reservations</p>
-        <h2 data-i18n-html="reserve.heading"><em>Reserve your</em> table</h2>
-        <p class="reserve-sub" data-i18n="reserve.sub">Skip the wait and secure your spot upstairs.</p>
-        <a href="tel:+31643682172" class="btn btn-gold" data-i18n="reserve.btn">Reserve now</a>
-        <p class="reserve-note" data-i18n="reserve.note">We'll integrate online reservations soon.</p>
-      </div>
-      <div class="svg-divider reserve-cta-clouds" aria-hidden="true">
-        <svg viewBox="0 0 1200 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g stroke="#d4943a" stroke-width="1.1" stroke-linecap="round" fill="none">
-            <path d="M 80,45 A 14,14 0,0,1 108,36 A 18,18 0,0,1 140,30 A 16,16 0,0,1 168,38 A 12,12 0,0,1 186,45"/>
-            <line x1="80" y1="45" x2="186" y2="45" stroke-width="0.5" opacity="0.4"/>
-            <path d="M 430,45 A 16,16 0,0,1 462,33 A 22,22 0,0,1 504,26 A 20,20 0,0,1 546,30 A 18,18 0,0,1 576,38 A 14,14 0,0,1 600,45"/>
-            <line x1="430" y1="45" x2="600" y2="45" stroke-width="0.5" opacity="0.4"/>
-            <path d="M 600,45 A 14,14 0,0,1 624,38 A 18,18 0,0,1 654,30 A 20,20 0,0,1 696,26 A 22,22 0,0,1 738,33 A 16,16 0,0,1 770,45"/>
-            <line x1="600" y1="45" x2="770" y2="45" stroke-width="0.5" opacity="0.4"/>
-            <path d="M 1014,45 A 12,12 0,0,1 1032,38 A 16,16 0,0,1 1060,30 A 18,18 0,0,1 1092,36 A 14,14 0,0,1 1120,45"/>
-            <line x1="1014" y1="45" x2="1120" y2="45" stroke-width="0.5" opacity="0.4"/>
-          </g>
-        </svg>
-      </div>
-    </section>
 
     <!-- LOCATION -->
     <section class="section location">
@@ -194,6 +169,10 @@
             <div class="location-item">
               <span class="location-key" data-i18n="location.phoneKey">Phone</span>
               <a href="tel:+31643682172">06 43 68 21 72</a>
+            </div>
+            <div class="location-item">
+              <span class="location-key" data-i18n="location.emailKey">Email</span>
+              <a href="mailto:info@tsukimi-ramen.com">info@tsukimi-ramen.com</a>
             </div>
           </div>
           <div class="location-note">
@@ -247,7 +226,7 @@
     </div>
     <div class="footer-info">
       Damrak 45, Floor 1 · Amsterdam<br>
-      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a>
+      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a> · <a href="mailto:info@tsukimi-ramen.com">info@tsukimi-ramen.com</a>
     </div>
     <div class="footer-copy">© 2026 Tsukimi Ramen</div>
     <div class="footer-powered">Powered by <a href="https://nicknamee.github.io" target="_blank" rel="noopener">Howie</a></div>
@@ -283,6 +262,12 @@
   </script>
   <script src="js/i18n.js"></script>
   <script>
-</script>
+    (function(g,s,t,p,l,n){
+      g["_gstpln"]={};
+      (l=s.createElement(t)),(n=s.getElementsByTagName(t)[0]);
+      l.async=1;l.src=p;n.parentNode.insertBefore(l,n);
+    })(window,document,"script","https://cdn.guestplan.com/widget.js");
+    _gstpln.accessKey = "e2191dab7299da471a5be8f6a9a50a528686c3e5";
+  </script>
 </body>
 </html>

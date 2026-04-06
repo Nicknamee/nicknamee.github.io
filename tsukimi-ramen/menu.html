@@ -451,6 +451,14 @@
       background: var(--bg-card);
       border-radius: 2px;
       transition: background 0.25s, border-color 0.25s;
+      position: relative;
+    }
+    .item-row .vega-tag {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      margin-top: 0;
+      z-index: 1;
     }
     .item-row:hover {
       background: var(--bg-hover);
@@ -494,7 +502,7 @@
     }
     .item-price {
       font-family: var(--font-head);
-      font-size: 1.05rem;
+      font-size: 1.15rem;
       color: var(--gold2);
       white-space: nowrap;
       flex-shrink: 0;
@@ -606,8 +614,7 @@
       <li><a href="index.html" data-i18n="nav.home">Home</a></li>
       <li><a href="menu.html" data-i18n="nav.menu">Menu</a></li>
       <li><a href="about.html" data-i18n="nav.about">About</a></li>
-      <li><a href="tel:+31643682172" class="nav-reserve" data-i18n="nav.reserve">Reserve</a></li>
-      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener">@tsukimi_ramen</a></li>
+      <li><a href="https://www.instagram.com/tsukimi_ramen" target="_blank" rel="noopener" class="nav-instagram">@tsukimi_ramen</a></li>
     </ul>
     <div class="lang-switcher">
       <button data-lang="en">EN</button>
@@ -625,7 +632,7 @@
     <a href="#sides"><span data-i18n="menu.sidesCat">Sides</span> <span class="cat-bar-jp">サイド</span></a>
     <a href="#fried"><span data-i18n="menu.friedCat">Fried</span> <span class="cat-bar-jp">揚げ物</span></a>
     <a href="#desserts"><span data-i18n="menu.dessertCat">Desserts</span> <span class="cat-bar-jp">デザート</span></a>
-    <a href="tsukimifotos/Menu nieuw.pdf" target="_blank" rel="noopener" class="cat-bar-pdf">Full Menu PDF</a>
+    <a href="tsukimifotos/Menu nieuw.pdf" target="_blank" rel="noopener" class="cat-bar-pdf" data-i18n="fullmenu.catbar">Full Menu PDF</a>
   </div>
 
   <!-- HERO -->
@@ -735,17 +742,23 @@
     <div class="items-grid">
 
       <div class="item-row">
-        <img class="item-thumb" src="images/seaweed-salad-nobg.png" alt="Seaweed salad" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/seaweed-salad-nobg.png" alt="Seaweed salad" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5) translateY(8%);">
+        </div>
         <div class="item-text"><span class="item-name" data-i18n="sides.seaweed">Seasoned seaweed salad</span><span class="vega-tag">Vega</span></div>
         <span class="item-price">€7.95</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/edamame-nobg.png" alt="Edamame" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/edamame-nobg.png" alt="Edamame" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5) translateY(8%);">
+        </div>
         <div class="item-text"><span class="item-name" data-i18n="sides.edamame">Edamame</span><span class="vega-tag">Vega</span></div>
         <span class="item-price">€7.50</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/kimchi-nobg.png" alt="Kimchi" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/kimchi-nobg.png" alt="Kimchi" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="sides.kimchi">Kimchi</span><span class="vega-tag">Vega</span>
           <span class="item-note" data-i18n="sides.kimchi.note">Korean fermented vegetables</span>
@@ -753,7 +766,9 @@
         <span class="item-price">€6.50</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/dumplings-nobg.png" alt="Dumplings" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/dumplings-nobg.png" alt="Dumplings" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="sides.dumplings">Pan-fried chicken dumplings</span>
           <span class="item-note" data-i18n="sides.dumplings.note">5× or 10×</span>
@@ -761,7 +776,9 @@
         <span class="item-price">€7.50 / €14.50</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/gyoza-nobg.png" alt="Gyoza" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/gyoza-nobg.png" alt="Gyoza" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="sides.gyoza">Pan-fried vegetable gyoza</span><span class="vega-tag">Vega</span>
           <span class="item-note" data-i18n="sides.gyoza.note">5× or 10×</span>
@@ -769,7 +786,9 @@
         <span class="item-price">€7.50 / €14.50</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/pancake-sticks-nobg.png" alt="Pancake sticks" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/pancake-sticks-nobg.png" alt="Pancake sticks" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="sides.pancake">Japanese savory pancake sticks</span>
           <span class="item-note" data-i18n="sides.pancake.note">2 pieces</span>
@@ -790,7 +809,9 @@
     <div class="items-grid">
 
       <div class="item-row">
-        <img class="item-thumb" src="images/octopus-balls-nobg.png" alt="Octopus balls" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/octopus-balls-nobg.png" alt="Octopus balls" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="fried.takoyaki">Takoyaki (octopus fritters)</span>
           <span class="item-note">4 pieces</span>
@@ -798,7 +819,9 @@
         <span class="item-price">€8.95</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/fried-chicken-nobg.png" alt="Fried chicken" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/fried-chicken-nobg.png" alt="Fried chicken" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="fried.chicken">Japanese fried chicken</span>
           <span class="item-note">5 pieces</span>
@@ -806,7 +829,9 @@
         <span class="item-price">€9.95</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/spring-rolls-nobg.png" alt="Spring rolls" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/spring-rolls-nobg.png" alt="Spring rolls" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="fried.spring">Spring rolls</span>
           <span class="item-note">5 rolls</span>
@@ -814,7 +839,9 @@
         <span class="item-price">€8.50</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/fried-shrimp-nobg.png" alt="Fried shrimp" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/fried-shrimp-nobg.png" alt="Fried shrimp" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="fried.shrimp">Ebifry / fried shrimp</span>
           <span class="item-note">4 pieces</span>
@@ -822,7 +849,9 @@
         <span class="item-price">€9.95</span>
       </div>
       <div class="item-row">
-        <img class="item-thumb" src="images/chicken-onion-skewers-nobg.png" alt="Chicken skewers" loading="lazy">
+        <div style="width:120px;height:120px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/chicken-onion-skewers-nobg.png" alt="Chicken skewers" loading="lazy" style="width:120px;height:120px;object-fit:contain;transform:scale(1.5);">
+        </div>
         <div class="item-text">
           <span class="item-name" data-i18n="fried.skewers">Chicken onion skewers</span>
           <span class="item-note">2 pieces</span>
@@ -843,10 +872,16 @@
     <div class="items-grid">
 
       <div class="item-row">
+        <div style="width:155px;height:155px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/dango-sticks-nobg.png" alt="Dango sticks" loading="lazy" style="width:155px;height:155px;object-fit:contain;transform:scale(1.4) translateY(-5%) translateX(10%);">
+        </div>
         <div class="item-text"><span class="item-name" data-i18n="dessert.dango">Dango sticks</span></div>
         <span class="item-price">€7.95</span>
       </div>
       <div class="item-row">
+        <div style="width:155px;height:155px;flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+          <img src="images/ice-cream-nobg.png" alt="Mochi ice cream" loading="lazy" style="width:155px;height:155px;object-fit:contain;transform:scale(1.9) translateY(10%) translateX(10%);">
+        </div>
         <div class="item-text"><span class="item-name" data-i18n="dessert.mochi">Mochi ice cream</span></div>
         <span class="item-price">€6.95</span>
       </div>
@@ -856,14 +891,15 @@
   <!-- FULL MENU PDF -->
   <section id="full-menu" class="menu-section">
     <div class="section-header">
-      <h2 class="section-title">Full Menu</h2>
+      <h2 class="section-title" data-i18n="fullmenu.title">Full Menu</h2>
       <span class="section-kana">完全メニュー</span>
     </div>
     <div class="section-rule"></div>
-    <p style="color: var(--cream-dim); font-size: 0.92rem; line-height: 1.7; margin-bottom: 2rem; max-width: 520px;">View our complete menu — including drinks, extra toppings and sauces — as a PDF.</p>
+    <p style="color: var(--cream-dim); font-size: 0.92rem; line-height: 1.7; margin-bottom: 2rem; max-width: 520px;" data-i18n="fullmenu.desc">View our complete menu — including drinks, extra toppings and sauces — as a PDF.</p>
     <a href="tsukimifotos/Menu nieuw.pdf" target="_blank" rel="noopener"
        style="display: inline-flex; align-items: center; gap: 0.6rem; background: #c8a84b; color: #0c0a07; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 2rem; border-radius: 2px; text-decoration: none; transition: background 0.2s;"
-       onmouseover="this.style.background='#d4b85a'" onmouseout="this.style.background='#c8a84b'">
+       onmouseover="this.style.background='#d4b85a'" onmouseout="this.style.background='#c8a84b'"
+       data-i18n="fullmenu.btn">
       View Full Menu (PDF)
     </a>
   </section>
@@ -882,7 +918,7 @@
     </div>
     <div class="footer-info">
       Damrak 45, Floor 1 · Amsterdam<br>
-      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a>
+      Open daily 09:00 – 23:00 · <a href="tel:+31643682172">06 43 68 21 72</a> · <a href="mailto:info@tsukimi-ramen.com">info@tsukimi-ramen.com</a>
     </div>
     <div class="footer-copy">© 2026 Tsukimi Ramen</div>
     <div class="footer-powered">Powered by <a href="https://nicknamee.github.io" target="_blank" rel="noopener">Howie</a></div>
@@ -907,6 +943,14 @@
     }, { rootMargin: `-${navH}px 0px -60% 0px` });
 
     sections.forEach(s => observer.observe(s));
+  </script>
+  <script>
+    (function(g,s,t,p,l,n){
+      g["_gstpln"]={};
+      (l=s.createElement(t)),(n=s.getElementsByTagName(t)[0]);
+      l.async=1;l.src=p;n.parentNode.insertBefore(l,n);
+    })(window,document,"script","https://cdn.guestplan.com/widget.js");
+    _gstpln.accessKey = "e2191dab7299da471a5be8f6a9a50a528686c3e5";
   </script>
 
 </body>
